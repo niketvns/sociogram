@@ -1,0 +1,8 @@
+export {default as Home} from './Home.jsx'
+export {default as Profile} from './Profile.jsx'
+export {default as Explore} from './Explore.jsx'
+export {default as Bookmarks} from './Bookmarks.jsx'
+export {default as Liked} from './Liked.jsx'
+export {default as Login} from './authentication/Login.jsx'
+export {default as Signup} from './authentication/Signup.jsx'
+export {default as Error} from './Error.jsx'

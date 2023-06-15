@@ -1,0 +1,56 @@
+@tailwind base;
+
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #fb5151;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 8px;
+    background: #151221;
+}
+
+*::-webkit-scrollbar-track {
+    background: white;
+    border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #fb5151;
+    border-radius: 14px;
+}
+
+.sidebar .active{
+    @apply bg-sociogram sm:border-[#fb5151] lg:border-[#fb5151] text-[#fb5151]
+}
+
+@tailwind components;
+@tailwind utilities;
+
+.bg-sociogram{
+    @apply bg-[#151221]
+}
+.bg-secondary{
+    @apply bg-[#241e38]
+}
+.bg-button{
+    @apply bg-[#fb5151]
+}
+.text-sociogram{
+    @apply text-[#151221]
+}
+
+:root {
+    --color-white: #ffffff;
+    --color-light: #f0eef6;
+    --color-gray: #9e98b3;
+    --color-primary: #6b4ce6; /** bg, button-color **/
+    --color-secondary: #d6ccff;
+    --color-success: #51fb51;
+    --color-danger: #fb5151;  /** button-color-in-some-case icon-number **/
+    --color-dark: #241e38; /** bg-section **/
+    --color-black: #151221;  /** bg-body **/
+}
