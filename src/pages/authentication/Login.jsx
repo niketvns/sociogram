@@ -11,8 +11,8 @@ const Login = () => {
                 <h1 className={'text-center text-3xl pb-4'}>Login</h1>
                 <form onSubmit={loginHandler} className={'flex flex-col gap-3'}>
                     <label htmlFor="email" className={'flex flex-col'}>
-                        Email Address
-                        <input required type="text" name={'email'} id={'email'} placeholder={'johndoe@email.com'} className={'rounded-lg py-2 px-3 text-black'}/>
+                        Username
+                        <input required type="text" name={'username'} id={'username'} placeholder={'@johndoe'} className={'rounded-lg py-2 px-3 text-black'}/>
                     </label>
                     <label htmlFor="password" className={'flex flex-col'}>
                         Password

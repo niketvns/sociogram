@@ -1,7 +1,7 @@
 import { v4 as uuid } from "uuid";
 import { Response } from "miragejs";
 import { formatDate } from "../utils/authUtils.js";
-import sign from 'jwt-encode'
+import { sign } from "jwt-encode";
 // const sign = require("jwt-encode");
 
 /**
@@ -81,11 +81,14 @@ export const loginHandler = function (schema, request) {
       );
     }
     if (password === foundUser.password) {
+      alert('user found: '+username)
       const encodedToken = sign(
         { _id: foundUser._id, username },
         process.env.REACT_APP_JWT_SECRET
       );
+      alert('user found ....')
       return new Response(200, {}, { foundUser, encodedToken });
+      // return new Response(200, {}, { foundUser, encodedToken:'1212-dff342-43434243d-fefw' });
     }
     return new Response(
       401,
