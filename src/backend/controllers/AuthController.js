@@ -1,8 +1,8 @@
 import { v4 as uuid } from "uuid";
 import { Response } from "miragejs";
 import { formatDate } from "../utils/authUtils.js";
-import { sign } from "jwt-encode";
-// const sign = require("jwt-encode");
+// import { sign } from "jwt-encode";
+const sign = require("jwt-encode");
 
 /**
  * All the routes related to Auth are present here.
@@ -81,7 +81,7 @@ export const loginHandler = function (schema, request) {
       );
     }
     if (password === foundUser.password) {
-      alert('user found: '+username)
+      alert('user found: ' + username)
       const encodedToken = sign(
         { _id: foundUser._id, username },
         process.env.REACT_APP_JWT_SECRET
