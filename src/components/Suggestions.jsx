@@ -1,59 +1,33 @@
 import profile from "../images/niket_img.png";
 import {AiOutlinePlus} from "react-icons/ai";
+import {useGlobalAuth, useGlobalUsers} from "../contexts";
+import {useNavigate} from "react-router-dom";
 
 const Suggestions = () => {
+    const navigate = useNavigate()
+    const {users} = useGlobalUsers()
+    const {userDetails} = useGlobalAuth()
+
     return (
         <div className="suggestions bg-secondary my-8 rounded-lg p-3 hidden md:flex flex-col gap-6 md:sticky top-24">
             <h2 className={'text-lg'}>Suggestions for you</h2>
             <div className="all-suggestions flex flex-col gap-4">
-                <div className="ind-suggestion flex items-center justify-between gap-5">
-                    <div className="profile">
-                        <img src={profile} alt="profile" className={'w-8 rounded-full aspect-square'}/>
-                    </div>
-                    <div className="details flex-1">
-                        <p>John Doe</p>
-                        <p>@johndeo</p>
-                    </div>
-                    <div className="button">
-                        <button className={'bg-button text-sm px-4 py-2 rounded-3xl flex items-center justify-center gap-1'}><AiOutlinePlus/>Follow</button>
-                    </div>
-                </div>
-                <div className="ind-suggestion flex items-center justify-between gap-5">
-                    <div className="profile">
-                        <img src={profile} alt="profile" className={'w-8 rounded-full aspect-square'}/>
-                    </div>
-                    <div className="details flex-1">
-                        <p>John Doe</p>
-                        <p>@johndeo</p>
-                    </div>
-                    <div className="button">
-                        <button className={'bg-button text-sm px-4 py-2 rounded-3xl flex items-center justify-center gap-1'}><AiOutlinePlus/>Follow</button>
-                    </div>
-                </div>
-                <div className="ind-suggestion flex items-center justify-between gap-5">
-                    <div className="profile">
-                        <img src={profile} alt="profile" className={'w-8 rounded-full aspect-square'}/>
-                    </div>
-                    <div className="details flex-1">
-                        <p>John Doe</p>
-                        <p>@johndeo</p>
-                    </div>
-                    <div className="button">
-                        <button className={'bg-button text-sm px-4 py-2 rounded-3xl flex items-center justify-center gap-1'}><AiOutlinePlus/>Follow</button>
-                    </div>
-                </div>
-                <div className="ind-suggestion flex items-center justify-between gap-5">
-                    <div className="profile">
-                        <img src={profile} alt="profile" className={'w-8 rounded-full aspect-square'}/>
-                    </div>
-                    <div className="details flex-1">
-                        <p>John Doe</p>
-                        <p>@johndeo</p>
-                    </div>
-                    <div className="button">
-                        <button className={'bg-button text-sm px-4 py-2 rounded-3xl flex items-center justify-center gap-1'}><AiOutlinePlus/>Follow</button>
-                    </div>
-                </div>
+                {
+                    users.filter(user => user.username !== userDetails.username).map(user => (
+                        <div key={user._id} className="ind-suggestion flex items-center justify-between gap-5">
+                            <div className="profile cursor-pointer" onClick={()=>navigate(`/user/${user.username}`)}>
+                                <img src={user.avatarUrl} alt="profile" className={'w-8 rounded-full aspect-square object-cover'}/>
+                            </div>
+                            <div className="details flex-1 text-sm cursor-pointer" onClick={()=>navigate(`/user/${user.username}`)}>
+                                <p>{user.firstName} {user.lastName}</p>
+                                <p className={'text-[12px] text-white/40'}>@{user.username}</p>
+                            </div>
+                            <div className="button">
+                                <button className={'bg-button text-sm px-4 py-2 rounded-3xl flex items-center justify-center gap-1'}><AiOutlinePlus/>Follow</button>
+                            </div>
+                        </div>
+                    ))
+                }
             </div>
         </div>
     );

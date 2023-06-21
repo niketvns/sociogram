@@ -47,6 +47,30 @@ export const posts = [
     updatedAt: formatDate(),
   },
   {
+    _id: "xhzTkUi2Nti",
+    content: "I just heard Kachcha Badam today and guys you can't beleive me I feel very happy today after listing this song!. Today I am going to announce that kachcha badam is my favorite song from today",
+    mediaURL: "",
+    likes: {
+      likeCount: 5,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    comments: [
+      {
+        _id: "okzxcf9s",
+        username: "johndoe",
+        text: "I agree ashutosh!! It's my favorite song too 😀.",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
+    username: "ashutosh3_3",
+    createdAt: "2022-01-10T10:55:06+05:30",
+    updatedAt: formatDate(),
+  },
+  {
     _id: "3XHvLP1fg",
     content: "I made this cake for my friend's birthday. Check it out",
     mediaURL:

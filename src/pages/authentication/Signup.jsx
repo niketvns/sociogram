@@ -9,8 +9,9 @@ const Signup = () => {
     useEffect(()=>{
         const token = localStorage.getItem('encodedToken')
         if(token){
-            navigate(-1)
+            navigate('/')
         }
+        document.title = 'Signup | Sociogram'
     },[loginToken])
 
     return (

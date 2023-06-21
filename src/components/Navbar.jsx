@@ -23,11 +23,10 @@ const Navbar = () => {
                            className={'bg-sociogram outline-0 py-2 pr-4 pl-11 rounded-[20px] w-full sm:block autofill:bg-red-600'}/>
                 </div>
                 <div className="user-profile flex justify-center items-center gap-2">
-                    <button className={'bg-button py-1 px-5 rounded-[20px] hidden md:block'}>Update</button>
+                    {/*<button className={'bg-button py-1 px-5 rounded-[20px] hidden md:block'}>Update</button>*/}
                     <div className="profile">
                         <ProfileMenu/>
                     </div>
-                    {/*<button className={'bg-button py-1 px-5 rounded-[20px]'}>Login</button>*/}
                 </div>
             </nav>
         </>

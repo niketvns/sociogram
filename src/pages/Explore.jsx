@@ -1,6 +1,13 @@
-import {AllPosts, CreatePost, Sidebar, Suggestions} from "../components/index.js";
+import {AllPosts, Sidebar, Suggestions} from "../components/index.js";
+import {useEffect} from "react";
 
 const Explore = () => {
+
+    useEffect(()=>{
+        window.scrollTo({top: 0, left: 0});
+        document.title = 'Explore | Sociogram'
+    },[])
+
     return (
         <div className={'home-main flex gap-5 sm:justify-start lg:justify-center items-start lg:gap-4 p-2 sm:pl-0 relative'}>
             <Sidebar/>

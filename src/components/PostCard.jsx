@@ -5,22 +5,27 @@ import {BsBookmarksFill} from 'react-icons/bs'
 import {useNavigate} from "react-router-dom";
 import CommentBox from "./CommentBox";
 import {useState} from "react";
+import {useGlobalUsers} from "../contexts";
+import ShareModel from "./ShareModel";
 
 const PostCard = ({post}) => {
     const [isCommentModel, setIsCommentModel] = useState(false)
-    const {_id, comments, content, createdAt, likes, mediaURL, updatedAt, username} = post
+    const [isShareModel, setIsShareModel] = useState(false)
+    const {_id, comments, content, likes, mediaURL, updatedAt, username} = post
+    const {findUser} = useGlobalUsers()
+    const userData = findUser(username);
 
     const navigate = useNavigate()
 
     return (
         <div className={'postcard bg-secondary rounded-lg p-4 flex flex-col gap-3'}>
             <div className="user flex items-center gap-2">
-                <div className="profile">
-                    <img src={profile} alt="profile" className={'w-8 rounded-full aspect-square'}/>
+                <div className="profile cursor-pointer" onClick={()=>navigate(`/user/${username}`)}>
+                    <img src={userData?.avatarUrl} alt="profile" className={'w-8 rounded-full aspect-square object-cover'}/>
                 </div>
                 <div className="user-details">
-                    <p>Niket Kumar Mishra</p>
-                    <p>@{username}</p>
+                    <p>{userData?.firstName} {userData?.lastName}</p>
+                    <p className={'text-sm text-white/40'}>@{username}</p>
                 </div>
             </div>
             <div className="text cursor-pointer" onClick={() => navigate(`/post/${_id}`)}>
@@ -63,9 +68,10 @@ const PostCard = ({post}) => {
                         <span className={'text-sm'}>{comments.length}</span>
                     </div>
                     {isCommentModel && <CommentBox setIsCommentModel={setIsCommentModel}/>}
-                    <div className="share cursor-pointer">
+                    <div className="share cursor-pointer" onClick={()=>setIsShareModel(true)}>
                         <AiOutlineShareAlt/>
                     </div>
+                    {isShareModel && <ShareModel setIsShareModel={setIsShareModel} postId={_id}/>}
                 </div>
                 <div className="right">
                     <div className="bookmarks cursor-pointer">

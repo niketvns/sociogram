@@ -2,12 +2,14 @@ import React from 'react';
 import Skeleton, {SkeletonTheme} from 'react-loading-skeleton';
 import "react-loading-skeleton/dist/skeleton.css";
 
-const SkeletonLoader = () => {
+const SkeletonLoader = ({count}) => {
+
+    const arr = count ? [count] : [1,2,3,4]
 
     return (
         <div className={'flex flex-col gap-8'}>
             {
-                [1,2,3,4,5].map((id)=>(
+                arr.map((id)=>(
                     <div key={id}>
                         <SkeletonTheme baseColor="#241F3AFF" highlightColor="#434160">
                             <div className={'post flex justify-around items-center gap-4'}>

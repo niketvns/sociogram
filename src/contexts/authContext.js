@@ -18,11 +18,15 @@ const AuthProvider = ({ children }) => {
     }, [])
 
     const loginFormChange = (e) => {
-        dispatch({ type: 'loginFormChange', payload: { name: e.target.name, value: e.target.value } })
+        dispatch({ type: 'LOGIN_FORM_HANDLER', payload: { name: e.target.name, value: e.target.value } })
     }
 
     const signupFormChange = (e) => {
         dispatch({ type: 'signupFormChange', payload: { name: e.target.name, value: e.target.value } })
+    }
+
+    const applyDummyCredential = () => {
+        dispatch({ type: 'APPLY_DUMMY', payload: { username: 'niketmishra', password: 'niketmishra@123' } })
     }
 
     // Login Function
@@ -30,15 +34,15 @@ const AuthProvider = ({ children }) => {
         e.preventDefault()
         try {
             const { data } = await axios.post('/api/auth/login', {
-                "username": "niketvns",
-                "password": "niketmishra@123"
+                "username": state.loginFormData.username,
+                "password": state.loginFormData.password
             })
             localStorage.setItem("encodedToken", JSON.stringify(data.encodedToken));
             localStorage.setItem("foundUser", JSON.stringify(data.foundUser));
             dispatch({ type: 'LOGIN', payload: { loginToken: data.encodedToken, userDetails: data.foundUser } });
             getAlert('success', 'Login Successfully!', `Welcome in the Sociogram`)
         } catch (error) {
-            console.log(error)
+            getAlert('error', 'Error', error.message)
         }
     }
 
@@ -76,7 +80,9 @@ const AuthProvider = ({ children }) => {
             signupHandler,
             logoutHandler,
             loginFormChange,
+            loginFormData: state.loginFormData,
             signupFormChange,
+            applyDummyCredential,
             loginFormInput: state.loginFormInput,
             loginToken: state.loginToken,
             userDetails: state.userDetails

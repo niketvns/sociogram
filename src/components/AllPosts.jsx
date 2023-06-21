@@ -7,7 +7,7 @@ const AllPosts = () => {
     return (
         <div className={'all-posts flex flex-col gap-3 justify-center'}>
             {
-                posts.map(post => <PostCard key={post._id} post={post}/>)
+                [...posts].reverse().map(post => <PostCard key={post._id} post={post}/>)
             }
         </div>
 );

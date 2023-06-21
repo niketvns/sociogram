@@ -4,14 +4,15 @@ import {useEffect} from "react";
 
 
 const Login = () => {
-    const {loginHandler, loginToken} = useGlobalAuth()
+    const {loginHandler, loginToken, loginFormData, applyDummyCredential, loginFormChange} = useGlobalAuth()
     const navigate = useNavigate()
 
     useEffect(()=>{
         const token = localStorage.getItem('encodedToken')
         if(token){
-            navigate(-1)
+            navigate('/')
         }
+        document.title = 'Login | Sociogram'
     },[loginToken])
 
     return (
@@ -21,16 +22,17 @@ const Login = () => {
                 <form onSubmit={loginHandler} className={'flex flex-col gap-3'}>
                     <label htmlFor="email" className={'flex flex-col'}>
                         Username
-                        <input required type="text" name={'username'} id={'username'} placeholder={'@johndoe'} className={'rounded-lg py-2 px-3 text-black'}/>
+                        <input required type="text" name={'username'} id={'username'} placeholder={'@johndoe'} onChange={loginFormChange} value={loginFormData.username} className={'rounded-lg py-2 px-3 text-black'}/>
                     </label>
                     <label htmlFor="password" className={'flex flex-col'}>
                         Password
-                        <input required type="password" name={'password'} id={'password'} placeholder={'*******'} className={'rounded-lg py-2 px-3 text-black'}/>
+                        <input required type="password" name={'password'} id={'password'} placeholder={'*******'} onChange={loginFormChange} value={loginFormData.password} className={'rounded-lg py-2 px-3 text-black'}/>
                     </label>
                     <label className="checkbox flex gap-2 items-center cursor-pointer">
                         <input type="checkbox" name="remember" id="remember" className={'w-4 h-4'}/>
                         Remember Me
                     </label>
+                    <button type={'button'} className={'bg-transparent border-2 p-3 rounded-lg'} onClick={applyDummyCredential}>Apply Dummy Credential</button>
                     <button type={'submit'} className={'bg-button p-3 rounded-lg'}>Submit</button>
                 </form>
                 <div className="signup mt-4 text-lg">

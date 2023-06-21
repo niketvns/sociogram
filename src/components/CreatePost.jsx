@@ -3,21 +3,28 @@ import {MdPermMedia} from "react-icons/md";
 import {MdOutlineAddReaction} from "react-icons/md";
 import {useState} from "react";
 import {formatDate} from "../backend/utils/authUtils";
+import {useGlobalPosts} from "../contexts";
 
 const CreatePost = () => {
     const [post, setPost] = useState({
         content: "",
         mediaURL: "",
-        likes: {
-            likeCount: 0,
-            likedBy: [],
-            dislikedBy: [],
-        },
-        comments: [],
-        username: "carlsmith",
-        createdAt: "",
-        updatedAt: formatDate(),
     })
+
+    const {addPost} = useGlobalPosts();
+
+    const changeHandler = (e) => {
+        const {name, value} = e.target;
+        setPost(prevState => ({...prevState, [name]: value}))
+    }
+
+    const submitHandler = () => {
+        addPost(post);
+        setPost({
+            content: "",
+            mediaURL: "",
+        })
+    }
 
     return (
         <div
@@ -29,20 +36,24 @@ const CreatePost = () => {
 
                 <div className="text-area flex-1 pl-2">
                     <textarea
-                        name="post"
+                        name="content"
                         id="" cols="30"
                         rows="1"
                         placeholder={"What's on your mind ??"}
-                        className={'h-16 w-full resize-none bg-secondary p-2 outline-0 border-none'}>
+                        className={'h-16 w-full resize-none bg-secondary p-2 outline-0 border-none'}
+                        onChange={changeHandler}
+                        value={post.content}
+                    >
                     </textarea>
                 </div>
             </div>
             <div className="bottom w-full flex justify-around items-center">
                 <label className={'cursor-pointer'}>
-                    <MdPermMedia className={'text-2xl'}/><input type="file" accept={'image/*, video/*'} className={'hidden'}/>
+                    <MdPermMedia className={'text-2xl'}/>
+                    <input type="file" accept={'image/*, video/*'} className={'hidden'}/>
                 </label>
                 <button className={'text-2xl'}><MdOutlineAddReaction/></button>
-                <button className={'bg-button px-6 py-1 rounded-2xl'}>Post</button>
+                <button className={'bg-button px-6 py-1 rounded-2xl'} onClick={submitHandler}>Post</button>
             </div>
         </div>
     );

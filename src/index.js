@@ -4,7 +4,7 @@ import App from './App.jsx'
 import {makeServer} from "./server";
 import {BrowserRouter as Router} from "react-router-dom";
 import {ChakraProvider} from "@chakra-ui/react";
-import {AuthProvider, AlertsProvider, PostsProvider, UsersProvider} from "./contexts";
+import {AuthProvider, AlertsProvider, PostsProvider, UsersProvider, BookmarksProvider, LikedProvider} from "./contexts";
 
 // Call make Server
 makeServer();
@@ -17,7 +17,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                     <AuthProvider>
                         <PostsProvider>
                             <UsersProvider>
-                                <App/>
+                                <BookmarksProvider>
+                                    <LikedProvider>
+                                        <App/>
+                                    </LikedProvider>
+                                </BookmarksProvider>
                             </UsersProvider>
                         </PostsProvider>
                     </AuthProvider>

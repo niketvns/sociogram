@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import {PostCard, Sidebar, SkeletonLoader, Suggestions} from "../components";
 import axios from "axios";
-import {useGlobalPosts} from "../contexts";
 import profile from "../images/niket_img.png";
 
 const PostDetails = () => {
@@ -14,6 +13,7 @@ const PostDetails = () => {
         setIsLoading(true)
         try {
             const { data } = await axios.get(`/api/posts/${id}`)
+            console.log(data.post)
             setPost(data.post)
         } catch (error) {
             console.log(error)
@@ -23,8 +23,17 @@ const PostDetails = () => {
     }
 
     useEffect(()=>{
+        window.scrollTo({top: 0, left: 0});
         fetchSinglePost()
     },[])
+
+    useEffect(()=>{
+        if (post){
+            document.title = `${post.username} on Sociogram : "${post.content.slice(0,40)}..."`
+        }else{
+            document.title = `Post | Sociogram`
+        }
+    },[post])
 
     return (
         <div className={'home-main flex gap-5 sm:justify-start lg:justify-center items-start lg:gap-4 p-2 sm:pl-0 relative'}>

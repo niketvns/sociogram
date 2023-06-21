@@ -1,8 +1,14 @@
 import {AllPosts, CreatePost, Sidebar, SkeletonLoader, Suggestions} from "../components/index.js";
 import {useGlobalPosts} from "../contexts";
+import {useEffect} from "react";
 
 const Home = () => {
     const {isPostLoading} = useGlobalPosts()
+
+    useEffect(()=>{
+        window.scrollTo({top: 0, left: 0});
+        document.title = 'Home | Sociogram'
+    },[])
 
     return (
         <div className={'home-main flex gap-5 sm:justify-start lg:justify-center items-start lg:gap-4 p-2 sm:pl-0 relative'}>

@@ -2,6 +2,7 @@ import {createContext, useContext, useEffect, useReducer, useState} from "react"
 import axios from "axios";
 import {initialValue, reducerFunction} from "./Reducer/reducer";
 import {useGlobalAlerts} from "./alertContext";
+import {cookieStorageManager} from "@chakra-ui/react";
 
 const postsContext = createContext()
 
@@ -18,7 +19,6 @@ const PostsProvider = ({children}) =>{
         setIsPostLoading(true)
         try {
             const { data } = await axios.get('/api/posts')
-            console.log(data.posts)
             dispatch({ type: 'UPDATE_POST', payload: data.posts });
         } catch (error) {
             console.log(error)
@@ -27,8 +27,25 @@ const PostsProvider = ({children}) =>{
         }
     }
 
+    const addPost = async (post) => {
+        const token = localStorage.getItem('encodedToken')
+        setIsPostLoading(true)
+        try {
+            const { data } = await axios.post('/api/posts',{
+                postData: post
+            },{headers: {authorization: token}})
+            console.log(data)
+            dispatch({ type: 'UPDATE_POST', payload: data.posts });
+            getAlert('success', 'Post Uploaded Successfully', '')
+        } catch (error) {
+            console.log(error)
+        }finally {
+            setIsPostLoading(false)
+        }
+    }
+
     return(
-        <postsContext.Provider value={{posts: state.allPosts, isPostLoading, setIsPostLoading}}>
+        <postsContext.Provider value={{posts: state.allPosts, isPostLoading, setIsPostLoading, addPost}}>
             {children}
         </postsContext.Provider>
     )
