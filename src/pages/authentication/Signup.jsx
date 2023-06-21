@@ -1,11 +1,23 @@
 import {Link, useNavigate} from "react-router-dom";
+import {useGlobalAuth} from "../../contexts";
+import {useEffect} from "react";
 
 const Signup = () => {
+    const {signupHandler, loginToken} = useGlobalAuth()
+    const navigate = useNavigate()
+
+    useEffect(()=>{
+        const token = localStorage.getItem('encodedToken')
+        if(token){
+            navigate(-1)
+        }
+    },[loginToken])
+
     return (
         <div className={'signup-main pt-16 min-h-[90vh] flex justify-center items-center'}>
             <div className="signup-form-card w-[90vw] xs:w-[400px] bg-secondary p-6 rounded-lg">
                 <h1 className={'text-center text-3xl pb-4'}>Signup</h1>
-                <form className={'flex flex-col gap-3'}>
+                <form className={'flex flex-col gap-3'} onSubmit={signupHandler}>
                     <label htmlFor="firstName" className={'flex flex-col'}>
                         First Name
                         <input required type="text" name={'firstName'} id={'firstName'} placeholder={'John'} className={'rounded-lg py-2 px-3 text-black'}/>

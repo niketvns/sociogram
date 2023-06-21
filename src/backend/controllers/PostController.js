@@ -130,7 +130,7 @@ export const editPostHandler = function (schema, request) {
         400,
         {},
         {
-          errors: ["Cannot edit a Post doesn't belong to the logged in User."],
+          errors: ["Cannot edit a PostDetails.jsx doesn't belong to the logged in User."],
         }
       );
     }
@@ -274,7 +274,7 @@ export const deletePostHandler = function (schema, request) {
         {},
         {
           errors: [
-            "Cannot delete a Post doesn't belong to the logged in User.",
+            "Cannot delete a PostDetails.jsx doesn't belong to the logged in User.",
           ],
         }
       );

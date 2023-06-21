@@ -81,12 +81,10 @@ export const loginHandler = function (schema, request) {
       );
     }
     if (password === foundUser.password) {
-      alert('user found: ' + username)
       const encodedToken = sign(
         { _id: foundUser._id, username },
         process.env.REACT_APP_JWT_SECRET
       );
-      alert('user found ....')
       return new Response(200, {}, { foundUser, encodedToken });
       // return new Response(200, {}, { foundUser, encodedToken:'1212-dff342-43434243d-fefw' });
     }

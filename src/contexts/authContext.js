@@ -1,17 +1,19 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { initialValue, reducerFunction } from "./Reducer/reducer.js";
 import axios from "axios";
+import {useGlobalAlerts} from "./alertContext";
 
 const authContext = createContext()
 
 const AuthProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducerFunction, initialValue);
+    const {getAlert} = useGlobalAlerts()
 
     useEffect(() => {
         const token = localStorage.getItem('encodedToken')
         if (token) {
             const foundUser = JSON.parse(localStorage.getItem('foundUser'))
-            dispatch({ type: 'login', payload: { loginToken: token, userDetails: foundUser } });
+            dispatch({ type: 'LOGIN', payload: { loginToken: token, userDetails: foundUser } });
         }
     }, [])
 
@@ -31,11 +33,10 @@ const AuthProvider = ({ children }) => {
                 "username": "niketvns",
                 "password": "niketmishra@123"
             })
-            console.log(data)
             localStorage.setItem("encodedToken", JSON.stringify(data.encodedToken));
             localStorage.setItem("foundUser", JSON.stringify(data.foundUser));
-            dispatch({ type: 'login', payload: { loginToken: data.encodedToken, userDetails: data.foundUser } });
-            // getAlert('success', 'Login Successfully!', `Welcome in the world of Cinema`)
+            dispatch({ type: 'LOGIN', payload: { loginToken: data.encodedToken, userDetails: data.foundUser } });
+            getAlert('success', 'Login Successfully!', `Welcome in the Sociogram`)
         } catch (error) {
             console.log(error)
         }
@@ -48,13 +49,13 @@ const AuthProvider = ({ children }) => {
             const { data } = await axios.post('/api/auth/signup', {
                 "firstName": "Rahul",
                 "lastName": "Yadav",
-                "email": "rahulyadav@gmail.com",
+                "username": "rahulyadav",
                 "password": "rahul@123"
             })
             localStorage.setItem("encodedToken", JSON.stringify(data.encodedToken));
             localStorage.setItem("foundUser", JSON.stringify(data.createdUser));
-            dispatch({ type: 'signup', payload: { loginToken: data.encodedToken, userDetails: data.createdUser } });
-            // getAlert('success', 'Authenticated', "Account Created Successfully!")
+            dispatch({ type: 'SIGNUP', payload: { loginToken: data.encodedToken, userDetails: data.createdUser } });
+            getAlert('success', 'Authenticated', "Account Created Successfully!")
         } catch (error) {
             console.log(error)
         }
@@ -64,8 +65,8 @@ const AuthProvider = ({ children }) => {
     const logoutHandler = () => {
         localStorage.removeItem("encodedToken");
         localStorage.removeItem("foundUser");
-        dispatch({ type: 'logout' });
-        // getAlert('success', 'Logout successfully!', "See you soon")
+        dispatch({ type: 'LOGOUT' });
+        getAlert('success', 'Logout successfully!', "See you soon")
     }
 
 

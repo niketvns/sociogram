@@ -1,9 +1,18 @@
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {useGlobalAuth} from "../../contexts/index.js";
+import {useEffect} from "react";
+
 
 const Login = () => {
+    const {loginHandler, loginToken} = useGlobalAuth()
+    const navigate = useNavigate()
 
-    const {loginHandler} = useGlobalAuth()
+    useEffect(()=>{
+        const token = localStorage.getItem('encodedToken')
+        if(token){
+            navigate(-1)
+        }
+    },[loginToken])
 
     return (
         <div className={'login-main pt-16 min-h-[90vh] flex justify-center items-center'}>

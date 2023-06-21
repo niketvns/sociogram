@@ -4,6 +4,7 @@ import {Navbar} from "./index.js";
 
 const RequireAuth = () => {
     const {loginToken} = useGlobalAuth()
+
     return (
         loginToken ? <>
             <Navbar/>

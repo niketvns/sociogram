@@ -1,14 +1,14 @@
 import {PostCard} from "./index.js";
+import {useGlobalPosts} from "../contexts";
 
 const AllPosts = () => {
+    const {posts} = useGlobalPosts()
+
     return (
-        <div className={'all-posts flex flex-col gap-3 justify-center items-center'}>
-            <PostCard/>
-            <PostCard/>
-            <PostCard/>
-            <PostCard/>
-            <PostCard/>
-            <PostCard/>
+        <div className={'all-posts flex flex-col gap-3 justify-center'}>
+            {
+                posts.map(post => <PostCard key={post._id} post={post}/>)
+            }
         </div>
 );
 };
