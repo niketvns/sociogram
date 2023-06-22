@@ -12,6 +12,7 @@ const AlertsProvider = ({children}) =>{
         status: status,
         duration: 2000,
         isClosable: true,
+        variant: 'left-accent'
     })
 
 

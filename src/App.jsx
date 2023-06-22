@@ -8,14 +8,36 @@ function App() {
     return (
         <div className={'app-main bg-sociogram min-h-[100vh] text-white pb-8 sm:pb-0'}>
             <Routes>
-                <Route path={'/'} element={<RequireAuth/>}>
-                    <Route path={'/'} element={<Home/>}/>
-                    <Route path={'/post/:id'} element={<PostDetails/>}/>
-                    <Route path={'/user/explore'} element={<Explore/>}/>
-                    <Route path={'/user/bookmarks'} element={<Bookmarks/>}/>
-                    <Route path={'/user/likes'} element={<Liked/>}/>
-                    <Route path={'/user/:username'} element={<Profile/>}/>
-                </Route>
+                <Route path={'/'} element={
+                    <RequireAuth>
+                        <Home/>
+                    </RequireAuth>
+                }/>
+                <Route path={'/post/:id'} element={
+                    <RequireAuth>
+                        <PostDetails/>
+                    </RequireAuth>
+                }/>
+                <Route path={'/user/explore'} element={
+                    <RequireAuth>
+                        <Explore/>
+                    </RequireAuth>
+                }/>
+                <Route path={'/user/bookmarks'} element={
+                    <RequireAuth>
+                        <Bookmarks/>
+                    </RequireAuth>
+                }/>
+                <Route path={'/user/likes'} element={
+                    <RequireAuth>
+                        <Liked/>
+                    </RequireAuth>
+                }/>
+                <Route path={'/user/:username'} element={
+                    <RequireAuth>
+                        <Profile/>
+                    </RequireAuth>
+                }/>
                 <Route path={'/authentication/login'} element={<Login/>}/>
                 <Route path={'/authentication/signup'} element={<Signup/>}/>
                 <Route path={'/testing/mockman'} element={<Mockman/>}/>

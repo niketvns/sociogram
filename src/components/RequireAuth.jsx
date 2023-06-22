@@ -1,15 +1,16 @@
-import {Navigate, Outlet} from "react-router-dom";
+import {Navigate, Outlet, useLocation} from "react-router-dom";
 import {useGlobalAuth} from "../contexts";
 import {Navbar} from "./index.js";
 
-const RequireAuth = () => {
+const RequireAuth = ({children}) => {
+    let location = useLocation();
     const {loginToken} = useGlobalAuth()
 
     return (
         loginToken ? <>
             <Navbar/>
-            <Outlet/>
-        </> : <Navigate to={'/authentication/login'}/>
+            {children}
+        </> : <Navigate to={'/authentication/login'} state={{ from: location }}/>
     );
 };
 

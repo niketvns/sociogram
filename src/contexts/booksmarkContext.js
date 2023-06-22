@@ -10,26 +10,69 @@ const BookmarksProvider = ({children}) =>{
     const [state, dispatch] = useReducer(reducerFunction, initialValue);
     const {getAlert} = useGlobalAlerts()
 
-    const addToBookmarks = async (post) => {
+    useEffect(()=>{
+        fetchBookmarks()
+    },[])
+
+    const fetchBookmarks = async () => {
         const token = localStorage.getItem('encodedToken')
         setIsBookmarksLoading(true)
         try {
-            const { data } = await axios.post('/api/posts',{
-                postData: post
-            },{headers: {authorization: token}})
-            console.log(data)
-            dispatch({ type: 'UPDATE_POST', payload: data.posts });
-            getAlert('success', 'Post Uploaded Successfully', '')
+            const { data } = await axios.get(
+                `/api/users/bookmark/`,
+                {headers: {authorization: token}}
+            )
+            dispatch({ type: 'UPDATE_BOOKMARKS', payload: data.bookmarks });
         } catch (error) {
-            console.log(error)
+            getAlert('error', 'Error in Bookmarks', error.message)
         }finally {
             setIsBookmarksLoading(false)
         }
     }
 
+    const addToBookmarks = async (postId) => {
+        const token = localStorage.getItem('encodedToken')
+        setIsBookmarksLoading(true)
+        try {
+            const { data } = await axios.post(
+                `/api/users/bookmark/${postId}`,
+                {},
+                {headers: {authorization: token}}
+            )
+            dispatch({ type: 'UPDATE_BOOKMARKS', payload: data.bookmarks });
+            getAlert('success', 'Post Added to Bookmarks', '')
+        } catch (error) {
+            getAlert('error', 'Error in Bookmarks', error.message)
+        }finally {
+            setIsBookmarksLoading(false)
+        }
+    }
+
+    const removeFromBookmarks = async (postId) => {
+        const token = localStorage.getItem('encodedToken')
+        setIsBookmarksLoading(true)
+        try {
+            const { data } = await axios.post(
+                `/api/users/remove-bookmark/${postId}`,
+                {},
+                {headers: {authorization: token}}
+            )
+            dispatch({ type: 'UPDATE_BOOKMARKS', payload: data.bookmarks });
+            getAlert('warning', 'Post Removed from Bookmarks', '')
+        } catch (error) {
+            getAlert('error', 'R -> Error in Bookmarks', error.message)
+        }finally {
+            setIsBookmarksLoading(false)
+        }
+    }
+
+    const isInBookmarks = (id) => {
+        return state.bookmarks?.find(post => post._id === id)
+    }
+
 
     return(
-        <bookmarksContext.Provider value={''}>
+        <bookmarksContext.Provider value={{addToBookmarks, removeFromBookmarks, bookmarks: state.bookmarks, isBookmarksLoading, isInBookmarks}}>
             {children}
         </bookmarksContext.Provider>
     )

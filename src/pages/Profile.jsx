@@ -26,7 +26,6 @@ const Profile = () => {
 
     useEffect(() => {
         window.scrollTo({top: 0, left: 0});
-        document.title = `${userDetails.firstName} ${userDetails.lastName} (@${userDetails.username})`
         fetchMyPosts();
     }, [username])
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {BiArrowBack} from 'react-icons/bi'
 import {AiOutlineLink} from 'react-icons/ai'
 import {useNavigate} from "react-router-dom";
@@ -8,6 +8,10 @@ const ProfileCard = ({username, myPosts}) => {
     const navigate = useNavigate()
     const {findUser} = useGlobalUsers()
     const userData = findUser(username);
+
+    useEffect(()=>{
+        document.title = `${userData.firstName} ${userData.lastName} (@${userData.username})`
+    },[userData])
 
 
     return (
@@ -21,7 +25,7 @@ const ProfileCard = ({username, myPosts}) => {
                 </div>
             </div>
             <div className="banner">
-                <img src={userData.bannerUrl} alt="banner" className={'w-full'}/>
+                <img src={userData?.bannerUrl} alt="banner" className={'w-full'}/>
             </div>
             <div className="profile relative flex items-end justify-between px-2 sm:px-8 w-full">
                 <div className="avatar absolute">

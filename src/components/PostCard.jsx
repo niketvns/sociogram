@@ -1,11 +1,11 @@
 import profile from "../images/niket_img.png";
 import {AiFillHeart, AiOutlineShareAlt, AiOutlineHeart} from 'react-icons/ai'
 import {FaRegCommentDots} from 'react-icons/fa'
-import {BsBookmarksFill} from 'react-icons/bs'
+import {BsBookmarksFill, BsBookmarkPlus} from 'react-icons/bs'
 import {useNavigate} from "react-router-dom";
 import CommentBox from "./CommentBox";
 import {useState} from "react";
-import {useGlobalUsers} from "../contexts";
+import {useGlobalBookmarks, useGlobalUsers} from "../contexts";
 import ShareModel from "./ShareModel";
 
 const PostCard = ({post}) => {
@@ -13,6 +13,7 @@ const PostCard = ({post}) => {
     const [isShareModel, setIsShareModel] = useState(false)
     const {_id, comments, content, likes, mediaURL, updatedAt, username} = post
     const {findUser} = useGlobalUsers()
+    const {addToBookmarks, removeFromBookmarks, isBookmarksLoading, isInBookmarks} = useGlobalBookmarks()
     const userData = findUser(username);
 
     const navigate = useNavigate()
@@ -20,15 +21,16 @@ const PostCard = ({post}) => {
     return (
         <div className={'postcard bg-secondary rounded-lg p-4 flex flex-col gap-3'}>
             <div className="user flex items-center gap-2">
-                <div className="profile cursor-pointer" onClick={()=>navigate(`/user/${username}`)}>
-                    <img src={userData?.avatarUrl} alt="profile" className={'w-8 rounded-full aspect-square object-cover'}/>
+                <div className="profile cursor-pointer" onClick={() => navigate(`/user/${username}`)}>
+                    <img src={userData?.avatarUrl} alt="profile"
+                         className={'w-8 rounded-full aspect-square object-cover'}/>
                 </div>
                 <div className="user-details">
                     <p>{userData?.firstName} {userData?.lastName}</p>
                     <p className={'text-sm text-white/40'}>@{username}</p>
                 </div>
             </div>
-            <div className="text cursor-pointer" onClick={() => navigate(`/post/${_id}`)}>
+            <div className="text-lg cursor-pointer pl-10" onClick={() => navigate(`/post/${_id}`)}>
                 {content}
             </div>
             <div className="post-media">
@@ -56,7 +58,7 @@ const PostCard = ({post}) => {
                                     <span className={'text-sm'}>{likes.likeCount}</span>
                                 </div> :
                                 <div className={'flex items-center gap-1'}>
-                                    <AiOutlineHeart />
+                                    <AiOutlineHeart/>
                                     <span className={'text-sm'}>{likes.likeCount}</span>
                                 </div>
                         }
@@ -68,14 +70,18 @@ const PostCard = ({post}) => {
                         <span className={'text-sm'}>{comments.length}</span>
                     </div>
                     {isCommentModel && <CommentBox setIsCommentModel={setIsCommentModel}/>}
-                    <div className="share cursor-pointer" onClick={()=>setIsShareModel(true)}>
+                    <div className="share cursor-pointer" onClick={() => setIsShareModel(true)}>
                         <AiOutlineShareAlt/>
                     </div>
                     {isShareModel && <ShareModel setIsShareModel={setIsShareModel} postId={_id}/>}
                 </div>
                 <div className="right">
                     <div className="bookmarks cursor-pointer">
-                        <BsBookmarksFill/>
+                        {
+                            isInBookmarks(_id) ?
+                                <BsBookmarksFill onClick={()=>removeFromBookmarks(_id)}/> :
+                                <BsBookmarkPlus onClick={() => addToBookmarks(_id)}/>
+                        }
                     </div>
                 </div>
             </div>

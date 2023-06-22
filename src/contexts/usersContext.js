@@ -10,7 +10,6 @@ const UsersProvider = ({children}) =>{
     const fetchAllUsers = async () => {
         try {
             const { data } = await axios.get('/api/users')
-            console.log(data.users)
             dispatch({ type: 'UPDATE_USERS', payload: data.users });
         } catch (error) {
             console.log(error)

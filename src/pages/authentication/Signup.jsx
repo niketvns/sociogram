@@ -1,17 +1,18 @@
-import {Link, useNavigate} from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 import {useGlobalAuth} from "../../contexts";
 import {useEffect} from "react";
 
 const Signup = () => {
     const {signupHandler, loginToken} = useGlobalAuth()
     const navigate = useNavigate()
+    const location = useLocation();
 
     useEffect(()=>{
         const token = localStorage.getItem('encodedToken')
         if(token){
-            navigate('/')
+            navigate(location?.state?.from?.pathname || '/')
         }
-        document.title = 'Signup | Sociogram'
+        document.title = 'Login | Sociogram'
     },[loginToken])
 
     return (

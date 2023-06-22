@@ -40,7 +40,7 @@ const ShareModel = ({setIsShareModel, postId}) => {
                     </div>
                 </div>
                 <div className="share-url flex gap-2 text-sm w-full">
-                    <div className="url border rounded-lg px-5 py-2 flex-1">https://sociogramapp.netlify.app/post/{postId}</div>
+                    <div className="url border rounded-lg px-5 py-2 flex-1 max-w-[80%] line-clamp-1">https://sociogramapp.netlify.app/post/{postId}</div>
                     <button className="button bg-button px-3 py-1 rounded-[20px]">Copy</button>
                 </div>
             </div>
