@@ -1,5 +1,5 @@
 import { Response } from "miragejs";
-import { formatDate, requiresAuth } from "../utils/authUtils.js";
+import { formatDate, requiresAuth } from "../utils/authUtils";
 import { v4 as uuid } from "uuid";
 
 /**
@@ -80,7 +80,7 @@ export const createPostHandler = function (schema, request) {
     const { postData } = JSON.parse(request.requestBody);
     const post = {
       _id: uuid(),
-      comments:[],
+      comments: [],
       ...postData,
       likes: {
         likeCount: 0,
@@ -131,7 +131,7 @@ export const editPostHandler = function (schema, request) {
         400,
         {},
         {
-          errors: ["Cannot edit a PostDetails.jsx doesn't belong to the logged in User."],
+          errors: ["Cannot edit a Post doesn't belong to the logged in User."],
         }
       );
     }
@@ -168,6 +168,7 @@ export const likePostHandler = function (schema, request) {
         }
       );
     }
+    const { _id, firstName, lastName, username, createdAt, updatedAt, followers, following } = user;
     const postId = request.params.postId;
     const post = schema.posts.findBy({ _id: postId }).attrs;
     if (post.likes.likedBy.some((currUser) => currUser._id === user._id)) {
@@ -181,7 +182,7 @@ export const likePostHandler = function (schema, request) {
       (currUser) => currUser._id !== user._id
     );
     post.likes.likeCount += 1;
-    post.likes.likedBy.push(user);
+    post.likes.likedBy.push({ _id, firstName, lastName, username, createdAt, updatedAt, followers, following });
     this.db.posts.update({ _id: postId }, { ...post, updatedAt: formatDate() });
     return new Response(201, {}, { posts: this.db.posts });
   } catch (error) {
@@ -275,7 +276,7 @@ export const deletePostHandler = function (schema, request) {
         {},
         {
           errors: [
-            "Cannot delete a PostDetails.jsx doesn't belong to the logged in User.",
+            "Cannot delete a Post doesn't belong to the logged in User.",
           ],
         }
       );

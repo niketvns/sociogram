@@ -39,6 +39,7 @@ const BookmarksProvider = ({children}) =>{
                 {},
                 {headers: {authorization: token}}
             )
+            console.log(data)
             dispatch({ type: 'UPDATE_BOOKMARKS', payload: data.bookmarks });
             getAlert('success', 'Post Added to Bookmarks', '')
         } catch (error) {
@@ -60,7 +61,7 @@ const BookmarksProvider = ({children}) =>{
             dispatch({ type: 'UPDATE_BOOKMARKS', payload: data.bookmarks });
             getAlert('warning', 'Post Removed from Bookmarks', '')
         } catch (error) {
-            getAlert('error', 'R -> Error in Bookmarks', error.message)
+            getAlert('error', 'Error in Bookmarks', error.message)
         }finally {
             setIsBookmarksLoading(false)
         }

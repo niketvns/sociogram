@@ -1,11 +1,12 @@
 import logo from '../images/logo-full.png'
 import profile from '../images/niket_img.png'
 import {LuSearch} from 'react-icons/lu'
-import {ProfileMenu} from "./index";
+import {ProfileMenu, SearchModel} from "./index";
 import {useNavigate} from "react-router-dom";
+import {useState} from "react";
 
 const Navbar = () => {
-
+    const [isSearchModel, setIsSearchModel] = useState(false)
     const navigate = useNavigate()
 
     return (
@@ -20,8 +21,11 @@ const Navbar = () => {
                     </div>
                     <input type="search" name="search" id="search" autoComplete={'off'}
                            placeholder={'Search Sociogram...'}
-                           className={'bg-sociogram outline-0 py-2 pr-4 pl-11 rounded-[20px] w-full sm:block autofill:bg-red-600'}/>
+                           className={'bg-sociogram outline-0 py-2 pr-4 pl-11 rounded-[20px] w-full sm:block autofill:bg-red-600'}
+                           onClick={()=>setIsSearchModel(true)}
+                    />
                 </div>
+                { isSearchModel && <SearchModel setIsSearchModel={setIsSearchModel}/>}
                 <div className="user-profile flex justify-center items-center gap-2">
                     {/*<button className={'bg-button py-1 px-5 rounded-[20px] hidden md:block'}>Update</button>*/}
                     <div className="profile">

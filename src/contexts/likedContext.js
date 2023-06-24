@@ -10,68 +10,47 @@ const LikedProvider = ({children}) =>{
     const [state, dispatch] = useReducer(reducerFunction, initialValue);
     const {getAlert} = useGlobalAlerts()
 
-    useEffect(()=>{
-        fetchLikes()
-    },[])
 
-    const fetchLikes = async () => {
-        const token = localStorage.getItem('encodedToken')
-        setIsLikesLoading(true)
-        try {
-            const { data } = await axios.get(
-                `/api/users/bookmark/`,
-                {headers: {authorization: token}}
-            )
-            dispatch({ type: 'UPDATE_BOOKMARKS', payload: data.bookmarks });
-        } catch (error) {
-            getAlert('error', 'Error in Bookmarks', error.message)
-        }finally {
-            setIsLikesLoading(false)
-        }
-    }
-
-    const addToBookmarks = async (postId) => {
+    const addToLikes = async (postId) => {
         const token = localStorage.getItem('encodedToken')
         setIsLikesLoading(true)
         try {
             const { data } = await axios.post(
-                `/api/users/bookmark/${postId}`,
+                `/api/posts/like/${postId}`,
                 {},
                 {headers: {authorization: token}}
             )
-            dispatch({ type: 'UPDATE_BOOKMARKS', payload: data.bookmarks });
-            getAlert('success', 'Post Added to Bookmarks', '')
+            console.log(data.posts)
+            dispatch({ type: 'UPDATE_POST', payload: data.posts });
+            getAlert('success', 'Liked', '')
         } catch (error) {
-            getAlert('error', 'Error in Bookmarks', error.message)
+            getAlert('error', 'Error in Likes', error.message)
         }finally {
             setIsLikesLoading(false)
         }
     }
 
-    const removeFromBookmarks = async (postId) => {
+    const removeFromLikes = async (postId) => {
         const token = localStorage.getItem('encodedToken')
         setIsLikesLoading(true)
         try {
             const { data } = await axios.post(
-                `/api/users/remove-bookmark/${postId}`,
+                `/api/posts/dislike/${postId}`,
                 {},
                 {headers: {authorization: token}}
             )
-            dispatch({ type: 'UPDATE_BOOKMARKS', payload: data.bookmarks });
-            getAlert('warning', 'Post Removed from Bookmarks', '')
+            console.log(data)
+            dispatch({ type: 'UPDATE_POST', payload: data.posts });
+            getAlert('warning', 'Post Removed from Likes', '')
         } catch (error) {
-            getAlert('error', 'R -> Error in Bookmarks', error.message)
+            getAlert('error', 'Error in Likes', error.message)
         }finally {
             setIsLikesLoading(false)
         }
-    }
-
-    const isInBookmarks = (id) => {
-        return state.bookmarks?.find(post => post._id === id)
     }
 
     return(
-        <likedContext.Provider value={''}>
+        <likedContext.Provider value={{addToLikes, removeFromLikes}}>
             {children}
         </likedContext.Provider>
     )

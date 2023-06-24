@@ -7,7 +7,6 @@ import {useParams} from "react-router-dom";
 const Profile = () => {
     const [myPosts, setMyPosts] = useState([])
     const [isLoading, setIsLoading] = useState(true)
-    const {userDetails} = useGlobalAuth()
     const {getAlert} = useGlobalAlerts()
 
     const {username} = useParams()

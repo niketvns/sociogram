@@ -8,140 +8,81 @@ import { formatDate } from "../utils/authUtils.js";
 
 export const posts = [
   {
-    _id: "xhzTkUi2Nt",
-    content: "Nice Weather Today!!",
+    _id: "R2lAuXvK7V",
+    content:
+        "Success is stumbling from failure to failure with no loss of enthusiasm. Love this quote by Winston Churchill.",
     mediaURL: "",
     likes: {
-      likeCount: 5,
-      likedBy: [],
-      dislikedBy: [],
-    },
-    comments: [
-      {
-        _id: "okzxcf",
-        username: "janedoe",
-        text: "I agree!! Feels like we should go for outing. What say?",
-        votes: {
-          upvotedBy: [],
-          downvotedBy: [],
-        },
-      },
-    ],
-    username: "niketmishra",
-    createdAt: "2022-01-10T10:55:06+05:30",
-    updatedAt: formatDate(),
-  },
-  {
-    _id: "siFFxfYI1s",
-    content: "Started my Baking journey! Look what I made.",
-    mediaURL:
-        "https://res.cloudinary.com/dtrjdcrme/video/upload/v1652188886/upload-socialmedia/oikev6eomsgahnvxcijd.mp4",
-    likes: {
-      likeCount: 0,
+      likeCount: 12,
       likedBy: [],
       dislikedBy: [],
     },
     comments: [],
-    username: "carlsmith",
-    createdAt: "2022-05-21T10:55:06+05:30",
+    username: "janedoe",
+    createdAt: "2022-05-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
+
   {
-    _id: "xhzTkUi2Nti",
-    content: "I just heard Kachcha Badam today and guys you can't beleive me I feel very happy today after listing this song!. Today I am going to announce that kachcha badam is my favorite song from today",
+    _id: "G5xd30tMCR",
+    content:
+        "Optimism is the faith that leads to achievement. Nothing can be done without hope and confidence.",
+    mediaURL: "",
+    likes: {
+      likeCount: 8,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    comments: [],
+    username: "alexmaxwell",
+    createdAt: "2022-02-14T10:55:06+05:30",
+    updatedAt: formatDate(),
+  },
+
+  {
+    _id: "lF8cnfPAe9",
+    content:
+        "Life is like riding a bicycle. To keep your balance you must keep moving.",
     mediaURL: "",
     likes: {
       likeCount: 5,
       likedBy: [],
       dislikedBy: [],
     },
-    comments: [
-      {
-        _id: "okzxcf9s",
-        username: "johndoe",
-        text: "I agree ashutosh!! It's my favorite song too 😀.",
-        votes: {
-          upvotedBy: [],
-          downvotedBy: [],
-        },
-      },
-    ],
-    username: "ashutosh3_3",
-    createdAt: "2022-01-10T10:55:06+05:30",
+    comments: [],
+    username: "niketmishra",
+    createdAt: "2022-01-15T10:55:06+05:30",
     updatedAt: formatDate(),
   },
+
   {
-    _id: "3XHvLP1fg",
-    content: "I made this cake for my friend's birthday. Check it out",
-    mediaURL:
-        "https://res.cloudinary.com/dtrjdcrme/image/upload/v1652188492/upload-socialmedia/cakegif_q11mfm.webp",
+    _id: "stfTkUi2Nt",
+    content:
+        "“Do not wait for the perfect time and place to enter, for you are already onstage.",
+    mediaURL: "",
     likes: {
-      likeCount: 1,
+      likeCount: 25,
       likedBy: [],
       dislikedBy: [],
     },
-    comments: [
-      {
-        _id: "6nImWvImxo",
-        username: "johndoe",
-        text: "That's mouth watering! Could you make one for my Birthday as well?",
-        votes: {
-          upvotedBy: [],
-          downvotedBy: [],
-        },
-      },
-    ],
+    comments: [],
+    username: "sophiajones",
+    createdAt: "2022-05-10T10:55:06+05:30",
+    updatedAt: formatDate(),
+  },
+
+  {
+    _id: "quiTkUi2Nt",
+    content: "It is a rough road that leads to the heights of greatness.",
+    mediaURL: "",
+    likes: {
+      likeCount: 8,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    comments: [],
     username: "janedoe",
     createdAt: "2022-02-10T10:55:06+05:30",
-    updatedAt: formatDate(),
-  },
-  {
-    _id: "MTYtVhecCj",
-    content:
-        "You are never too old to set another goal or to dream a new dream.",
-    mediaURL: "",
-    likes: {
-      likeCount: 5,
-      likedBy: [],
-      dislikedBy: [],
-    },
-    comments: [],
-    username: "adarshbalika",
-    createdAt: "2022-03-06T10:55:06+05:30",
-    updatedAt: formatDate(),
-  },
-  {
-    _id: "3XHvLP9kC",
-    content: "Yayy! Its my Birthday Today. Made this cake for myself!",
-    mediaURL:
-        "https://res.cloudinary.com/dtrjdcrme/image/upload/v1647014336/ecommerce/chocolatecake4.webp",
-    likes: {
-      likeCount: 2,
-      likedBy: [],
-      dislikedBy: [],
-    },
-    comments: [
-      {
-        _id: "EO7iOPN9n8",
-        username: "carlsmith",
-        text: "Happy Birthday! Enjoy your Day!!",
-        votes: {
-          upvotedBy: [],
-          downvotedBy: [],
-        },
-      },
-      {
-        _id: "QK52wf6HI1",
-        username: "janedoe",
-        text: "Wow! Looks Amazzing! Happy Birthday!",
-        votes: {
-          upvotedBy: [],
-          downvotedBy: [],
-        },
-      },
-    ],
-    username: "adarshbalika",
-    createdAt: "2022-03-15T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
@@ -370,43 +311,98 @@ export const posts = [
     createdAt: "2022-01-14T10:55:06+05:30",
     updatedAt: formatDate(),
   },
-
   {
-    _id: "R2lAuXvK7V",
-    content:
-        "Success is stumbling from failure to failure with no loss of enthusiasm. Love this quote by Winston Churchill.",
+    _id: "xhzTkUi2Nt",
+    content: "Nice Weather Today!!",
     mediaURL: "",
     likes: {
-      likeCount: 12,
+      likeCount: 5,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    comments: [
+      {
+        _id: "okzxcf",
+        username: "janedoe",
+        text: "I agree!! Feels like we should go for outing. What say?",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
+    username: "niketmishra",
+    createdAt: "2022-01-10T10:55:06+05:30",
+    updatedAt: formatDate(),
+  },
+  {
+    _id: "siFFxfYI1s",
+    content: "Started my Baking journey! Look what I made.",
+    mediaURL:
+        "https://res.cloudinary.com/dtrjdcrme/video/upload/v1652188886/upload-socialmedia/oikev6eomsgahnvxcijd.mp4",
+    likes: {
+      likeCount: 0,
       likedBy: [],
       dislikedBy: [],
     },
     comments: [],
+    username: "carlsmith",
+    createdAt: "2022-05-21T10:55:06+05:30",
+    updatedAt: formatDate(),
+  },
+  {
+    _id: "xhzTkUi2Nti",
+    content: "I just heard Kachcha Badam today and guys you can't beleive me I feel very happy today after listing this song!. Today I am going to announce that kachcha badam is my favorite song from today",
+    mediaURL: "",
+    likes: {
+      likeCount: 5,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    comments: [
+      {
+        _id: "okzxcf9s",
+        username: "johndoe",
+        text: "I agree ashutosh!! It's my favorite song too 😀.",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
+    username: "ashutosh3_3",
+    createdAt: "2022-01-10T10:55:06+05:30",
+    updatedAt: formatDate(),
+  },
+  {
+    _id: "3XHvLP1fg",
+    content: "I made this cake for my friend's birthday. Check it out",
+    mediaURL:
+        "https://res.cloudinary.com/dtrjdcrme/image/upload/v1652188492/upload-socialmedia/cakegif_q11mfm.webp",
+    likes: {
+      likeCount: 1,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    comments: [
+      {
+        _id: "6nImWvImxo",
+        username: "johndoe",
+        text: "That's mouth watering! Could you make one for my Birthday as well?",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
     username: "janedoe",
-    createdAt: "2022-05-10T10:55:06+05:30",
+    createdAt: "2022-02-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
-
   {
-    _id: "G5xd30tMCR",
+    _id: "MTYtVhecCj",
     content:
-        "Optimism is the faith that leads to achievement. Nothing can be done without hope and confidence.",
-    mediaURL: "",
-    likes: {
-      likeCount: 8,
-      likedBy: [],
-      dislikedBy: [],
-    },
-    comments: [],
-    username: "alexmaxwell",
-    createdAt: "2022-02-14T10:55:06+05:30",
-    updatedAt: formatDate(),
-  },
-
-  {
-    _id: "lF8cnfPAe9",
-    content:
-        "Life is like riding a bicycle. To keep your balance you must keep moving.",
+        "You are never too old to set another goal or to dream a new dream.",
     mediaURL: "",
     likes: {
       likeCount: 5,
@@ -414,39 +410,42 @@ export const posts = [
       dislikedBy: [],
     },
     comments: [],
-    username: "niketmishra",
-    createdAt: "2022-01-15T10:55:06+05:30",
+    username: "adarshbalika",
+    createdAt: "2022-03-06T10:55:06+05:30",
     updatedAt: formatDate(),
   },
-
   {
-    _id: "stfTkUi2Nt",
-    content:
-        "“Do not wait for the perfect time and place to enter, for you are already onstage.",
-    mediaURL: "",
+    _id: "3XHvLP9kC",
+    content: "Yayy! Its my Birthday Today. Made this cake for myself!",
+    mediaURL:
+        "https://res.cloudinary.com/dtrjdcrme/image/upload/v1647014336/ecommerce/chocolatecake4.webp",
     likes: {
-      likeCount: 25,
+      likeCount: 2,
       likedBy: [],
       dislikedBy: [],
     },
-    comments: [],
-    username: "sophiajones",
-    createdAt: "2022-05-10T10:55:06+05:30",
-    updatedAt: formatDate(),
-  },
-
-  {
-    _id: "quiTkUi2Nt",
-    content: "It is a rough road that leads to the heights of greatness.",
-    mediaURL: "",
-    likes: {
-      likeCount: 8,
-      likedBy: [],
-      dislikedBy: [],
-    },
-    comments: [],
-    username: "janedoe",
-    createdAt: "2022-02-10T10:55:06+05:30",
+    comments: [
+      {
+        _id: "EO7iOPN9n8",
+        username: "carlsmith",
+        text: "Happy Birthday! Enjoy your Day!!",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+      {
+        _id: "QK52wf6HI1",
+        username: "janedoe",
+        text: "Wow! Looks Amazzing! Happy Birthday!",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
+    username: "adarshbalika",
+    createdAt: "2022-03-15T10:55:06+05:30",
     updatedAt: formatDate(),
   },
 ];

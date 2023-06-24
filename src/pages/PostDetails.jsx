@@ -13,7 +13,6 @@ const PostDetails = () => {
         setIsLoading(true)
         try {
             const { data } = await axios.get(`/api/posts/${id}`)
-            console.log(data.post)
             setPost(data.post)
         } catch (error) {
             console.log(error)

@@ -1,17 +1,26 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {BiArrowBack} from 'react-icons/bi'
 import {AiOutlineLink} from 'react-icons/ai'
 import {useNavigate} from "react-router-dom";
-import {useGlobalUsers} from "../contexts";
+import {useGlobalAuth, useGlobalUsers} from "../contexts";
+import FollowModel from "./FollowModel";
 
 const ProfileCard = ({username, myPosts}) => {
+    const [isFollowModel, setIsFollowModel] = useState(false)
     const navigate = useNavigate()
-    const {findUser} = useGlobalUsers()
+    const {findUser, followUser, unfollowUser} = useGlobalUsers()
+    const {userDetails} = useGlobalAuth()
     const userData = findUser(username);
 
     useEffect(()=>{
-        document.title = `${userData.firstName} ${userData.lastName} (@${userData.username})`
+        document.title = `${userData?.firstName} ${userData?.lastName} (@${userData?.username})`
     },[userData])
+
+    console.log(userData)
+
+    const isFollowing = () => {
+        return userData?.followers.find(user => user._id === userDetails._id)
+    }
 
 
     return (
@@ -32,7 +41,13 @@ const ProfileCard = ({username, myPosts}) => {
                     <img src={userData?.avatarUrl} alt="avatar" className={'w-24 rounded-full aspect-square object-cover'}/>
                 </div>
                 <div className="w-full edit flex justify-end">
-                    <button className={'bg-button py-1 px-5 rounded-[20px]'}>Edit Profile</button>
+                    {
+                        userDetails?.username === userData?.username ?
+                            <button className={'bg-button py-1 px-5 rounded-[20px]'}>Edit Profile</button> :
+                            isFollowing() ?
+                            <button className={'bg-button py-1 px-5 rounded-[20px]'} onClick={()=>unfollowUser(userData?._id)}>Unfollow</button> :
+                            <button className={'bg-button py-1 px-5 rounded-[20px]'} onClick={()=>followUser(userData?._id)}>Follow</button>
+                    }
                 </div>
             </div>
             <div className="profile-details px-5 py-1">
@@ -48,9 +63,10 @@ const ProfileCard = ({username, myPosts}) => {
                 </a>
                 }
                 <div className="followers-details flex gap-6 my-2">
-                    <p className={'cursor-pointer hover:underline transition'}>{userData?.followers.length} <span className={'text-white/60'}>Followers</span></p>
+                    <p className={'cursor-pointer hover:underline transition'}>{userData?.followers.length} <span className={'text-white/60'} onClick={()=>setIsFollowModel(true)}>Followers</span></p>
                     <p className={'cursor-pointer hover:underline transition'}>{userData?.following.length} <span className={'text-white/60'}>Followings</span></p>
                 </div>
+                {isFollowModel && <FollowModel setIsFollowModel={setIsFollowModel} followers={userData?.following}/>}
             </div>
             <div className="nav rounded-b-lg pt-2 px-3 flex border-b border-white/10 cursor-pointer select-none">
                 <p className={'text-xl border-[0.5px] border-[#fb5151] rounded-lg px-8 py-1 text-[#fb5151]'}>{myPosts.length} Posts</p>

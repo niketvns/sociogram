@@ -5,7 +5,7 @@ import {BsBookmarksFill, BsBookmarkPlus} from 'react-icons/bs'
 import {useNavigate} from "react-router-dom";
 import CommentBox from "./CommentBox";
 import {useState} from "react";
-import {useGlobalBookmarks, useGlobalUsers} from "../contexts";
+import {useGlobalBookmarks, useGlobalLiked, useGlobalUsers} from "../contexts";
 import ShareModel from "./ShareModel";
 
 const PostCard = ({post}) => {
@@ -14,6 +14,7 @@ const PostCard = ({post}) => {
     const {_id, comments, content, likes, mediaURL, updatedAt, username} = post
     const {findUser} = useGlobalUsers()
     const {addToBookmarks, removeFromBookmarks, isBookmarksLoading, isInBookmarks} = useGlobalBookmarks()
+    const {addToLikes, removeFromLikes} = useGlobalLiked()
     const userData = findUser(username);
 
     const navigate = useNavigate()
@@ -25,12 +26,12 @@ const PostCard = ({post}) => {
                     <img src={userData?.avatarUrl} alt="profile"
                          className={'w-8 rounded-full aspect-square object-cover'}/>
                 </div>
-                <div className="user-details">
+                <div className="user-details cursor-pointer" onClick={() => navigate(`/user/${username}`)}>
                     <p>{userData?.firstName} {userData?.lastName}</p>
                     <p className={'text-sm text-white/40'}>@{username}</p>
                 </div>
             </div>
-            <div className="text-lg cursor-pointer pl-10" onClick={() => navigate(`/post/${_id}`)}>
+            <div className="text-lg cursor-pointer pl-8" onClick={() => navigate(`/post/${_id}`)}>
                 {content}
             </div>
             <div className="post-media">
@@ -53,21 +54,20 @@ const PostCard = ({post}) => {
                     <div className="like cursor-pointer">
                         {
                             likes.likeCount ?
-                                <div className={'flex items-center gap-1'}>
+                                <div className={'flex items-center gap-1'} onClick={()=>addToLikes(_id)}>
                                     <AiFillHeart className={'text-red-500'}/>
                                     <span className={'text-sm'}>{likes.likeCount}</span>
                                 </div> :
-                                <div className={'flex items-center gap-1'}>
+                                <div className={'flex items-center gap-1'} onClick={()=>addToLikes(_id)}>
                                     <AiOutlineHeart/>
                                     <span className={'text-sm'}>{likes.likeCount}</span>
                                 </div>
                         }
-
                     </div>
                     <div className="comment cursor-pointer flex items-center gap-2"
                          onClick={() => setIsCommentModel(true)}>
                         <FaRegCommentDots/>
-                        <span className={'text-sm'}>{comments.length}</span>
+                        <span className={'text-sm'}>{comments?.length}</span>
                     </div>
                     {isCommentModel && <CommentBox setIsCommentModel={setIsCommentModel}/>}
                     <div className="share cursor-pointer" onClick={() => setIsShareModel(true)}>
