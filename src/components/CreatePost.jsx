@@ -2,7 +2,6 @@ import profile from "../images/niket_img.png";
 import {MdAddPhotoAlternate} from "react-icons/md";
 import {MdOutlineAddReaction} from "react-icons/md";
 import {useState} from "react";
-import {formatDate} from "../backend/utils/authUtils";
 import {useGlobalPosts} from "../contexts";
 
 const CreatePost = () => {
@@ -19,6 +18,8 @@ const CreatePost = () => {
     }
 
     const submitHandler = () => {
+        if (!post.content)
+            return;
         addPost(post);
         setPost({
             content: "",
@@ -31,7 +32,7 @@ const CreatePost = () => {
             className="whats-on-your-mind flex flex-col items-start justify-center gap-2 bg-secondary rounded-lg py-2 px-3">
             <div className="top w-full flex border-b-[0.5px] border-white/20">
                 <div className="profile">
-                   <img src={profile} alt="profile" className={'w-8 rounded-full aspect-square'}/>
+                    <img src={profile} alt="profile" className={'w-8 rounded-full aspect-square'}/>
                 </div>
 
                 <div className="text-area flex-1 pl-2">
@@ -53,7 +54,7 @@ const CreatePost = () => {
                     <input type="file" accept={'image/*, video/*'} className={'hidden'}/>
                 </label>
                 <button className={'text-2xl'}><MdOutlineAddReaction/></button>
-                <button className={'bg-button px-6 py-1 rounded-2xl'} onClick={submitHandler}>Post</button>
+                <button className={`px-6 py-1 rounded-2xl ${post.content ? 'bg-button' : 'bg-gray-500'}`} onClick={submitHandler}>Post</button>
             </div>
         </div>
     );

@@ -10,7 +10,7 @@ const Suggestions = () => {
     const suggestedUser = users.filter(user => user.username !== userDetails.username && !user.followers.find(user => user._id == userDetails._id))
 
     return (
-        <div className="suggestions bg-secondary my-8 rounded-lg p-3 hidden md:flex flex-col gap-6 md:sticky top-24">
+        <div className="suggestions bg-secondary my-8 rounded-lg p-3 hidden md:flex flex-col gap-6 md:sticky top-28">
             <h2 className={'text-lg'}>Suggestions for you</h2>
             <div className="all-suggestions flex flex-col gap-4">
                 {

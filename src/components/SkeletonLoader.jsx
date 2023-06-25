@@ -4,7 +4,14 @@ import "react-loading-skeleton/dist/skeleton.css";
 
 const SkeletonLoader = ({count}) => {
 
-    const arr = count ? [count] : [1,2,3,4]
+    const returnCount = (count) => {
+        const output = []
+        for (let i = 0; i < count; i++)
+            output.push(i);
+        return output;
+    }
+
+    const arr = count ? returnCount(count) : [1,2,3,4]
 
     return (
         <div className={'flex flex-col gap-8'}>

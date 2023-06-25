@@ -38,7 +38,10 @@ const ProfileCard = ({username, myPosts}) => {
             <div className="profile relative flex items-end justify-between px-2 sm:px-8 w-full">
                 <div className="avatar absolute">
                     <img src={userData?.avatarUrl} alt="avatar" className={'w-24 rounded-full aspect-square object-cover'}/>
-                    <RiImageAddFill className={'absolute bottom-2 right-4 text-xl cursor-pointer'}/>
+                    <label htmlFor="profile">
+                        <RiImageAddFill className={'absolute bottom-2 right-4 text-xl cursor-pointer'}/>
+                    </label>
+                    <input type="file" accept={'image/*'} name="profile" id="profile" className={'hidden'}/>
                 </div>
                 <div className="w-full edit flex justify-end">
                     {

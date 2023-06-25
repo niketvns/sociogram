@@ -44,8 +44,23 @@ const PostsProvider = ({children}) =>{
         }
     }
 
+    const deletePost = async (postId) => {
+        const token = localStorage.getItem('encodedToken')
+        setIsPostLoading(true)
+        try {
+            const { data } = await axios.delete(`/api/posts/${postId}`,{headers: {authorization: token}})
+            console.log(data)
+            dispatch({ type: 'UPDATE_POST', payload: data.posts });
+            getAlert('success', 'Post Deleted Successfully', '')
+        } catch (error) {
+            console.log(error)
+        }finally {
+            setIsPostLoading(false)
+        }
+    }
+
     return(
-        <postsContext.Provider value={{posts: state.allPosts, isPostLoading, setIsPostLoading, addPost}}>
+        <postsContext.Provider value={{posts: state.allPosts, isPostLoading, setIsPostLoading, addPost, deletePost}}>
             {children}
         </postsContext.Provider>
     )
