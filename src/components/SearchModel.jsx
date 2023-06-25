@@ -1,11 +1,12 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {useGlobalUsers, useGlobleVideos} from "../contexts";
+import {useGlobalAuth, useGlobalUsers, useGlobleVideos} from "../contexts";
 import {useNavigate} from "react-router-dom";
 import {AiFillStar} from 'react-icons/ai'
 
 const SearchModel = ({setIsSearchModel}) => {
     const [searchInput, setSearchInput] = useState('')
     const {users} = useGlobalUsers()
+    const {userDetails} = useGlobalAuth()
     const navigate = useNavigate()
     const searchRef = useRef()
     const searchInputRef = useRef()
@@ -27,6 +28,10 @@ const SearchModel = ({setIsSearchModel}) => {
         }
         document.addEventListener('mousedown', handleModel)
     }, [])
+
+    const isFollowing = (userData) => {
+        return userData?.followers.find(user => user._id === userDetails._id)
+    }
 
     return (
         <div
@@ -52,13 +57,18 @@ const SearchModel = ({setIsSearchModel}) => {
                                         <div className="thumbnail">
                                             <img src={user?.avatarUrl} alt="avatar" className={'w-16 aspect-square object-cover'}/>
                                         </div>
-                                        <div className="details">
-                                            <h2 className={'line-clamp-2'}>{user?.firstName} {user?.lastName}</h2>
-                                            <p className={'flex items-center'}> @{user?.username}</p>
+                                        <div className="flex-1 details flex justify-between items-center">
+                                            <div className="name">
+                                                <h2 className={'line-clamp-2'}>{user?.firstName} {user?.lastName}</h2>
+                                                <p className={'flex items-center text-black/60'}> @{user?.username}</p>
+                                            </div>
+                                            <div className="status text-black/80">
+                                                <p>{isFollowing(user) ? 'Following' : 'Not Following'}</p>
+                                            </div>
                                         </div>
                                     </div>
                                 )) :
-                                <p>Nothing Found for <b>"{searchInput}"</b></p>
+                                <p>No User Found for <b>"{searchInput}"</b></p>
                         }
                     </div>
                 }

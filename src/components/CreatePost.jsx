@@ -1,5 +1,5 @@
 import profile from "../images/niket_img.png";
-import {MdPermMedia} from "react-icons/md";
+import {MdAddPhotoAlternate} from "react-icons/md";
 import {MdOutlineAddReaction} from "react-icons/md";
 import {useState} from "react";
 import {formatDate} from "../backend/utils/authUtils";
@@ -49,7 +49,7 @@ const CreatePost = () => {
             </div>
             <div className="bottom w-full flex justify-around items-center">
                 <label className={'cursor-pointer'}>
-                    <MdPermMedia className={'text-2xl'}/>
+                    <MdAddPhotoAlternate className={'text-2xl'}/>
                     <input type="file" accept={'image/*, video/*'} className={'hidden'}/>
                 </label>
                 <button className={'text-2xl'}><MdOutlineAddReaction/></button>

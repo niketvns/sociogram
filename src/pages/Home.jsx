@@ -19,7 +19,7 @@ const Home = () => {
                 {
                     isPostLoading ?
                         <SkeletonLoader/> :
-                            <AllPosts/>
+                        <AllPosts/>
                 }
             </div>
             {/*Suggestions*/}

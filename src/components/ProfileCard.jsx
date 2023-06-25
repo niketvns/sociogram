@@ -1,12 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import {BiArrowBack} from 'react-icons/bi'
+import {RiImageAddFill} from 'react-icons/ri'
 import {AiOutlineLink} from 'react-icons/ai'
 import {useNavigate} from "react-router-dom";
 import {useGlobalAuth, useGlobalUsers} from "../contexts";
 import FollowModel from "./FollowModel";
 
 const ProfileCard = ({username, myPosts}) => {
-    const [isFollowModel, setIsFollowModel] = useState(false)
+    const [isFollowerModel, setIsFollowerModel] = useState(false)
+    const [isFollowingModel, setIsFollowingModel] = useState(false)
     const navigate = useNavigate()
     const {findUser, followUser, unfollowUser} = useGlobalUsers()
     const {userDetails} = useGlobalAuth()
@@ -16,12 +18,9 @@ const ProfileCard = ({username, myPosts}) => {
         document.title = `${userData?.firstName} ${userData?.lastName} (@${userData?.username})`
     },[userData])
 
-    console.log(userData)
-
     const isFollowing = () => {
         return userData?.followers.find(user => user._id === userDetails._id)
     }
-
 
     return (
         <div className={'profile-card flex flex-col gap-2 bg-secondary sm:rounded-lg pt-3'}>
@@ -39,6 +38,7 @@ const ProfileCard = ({username, myPosts}) => {
             <div className="profile relative flex items-end justify-between px-2 sm:px-8 w-full">
                 <div className="avatar absolute">
                     <img src={userData?.avatarUrl} alt="avatar" className={'w-24 rounded-full aspect-square object-cover'}/>
+                    <RiImageAddFill className={'absolute bottom-2 right-4 text-xl cursor-pointer'}/>
                 </div>
                 <div className="w-full edit flex justify-end">
                     {
@@ -63,10 +63,11 @@ const ProfileCard = ({username, myPosts}) => {
                 </a>
                 }
                 <div className="followers-details flex gap-6 my-2">
-                    <p className={'cursor-pointer hover:underline transition'}>{userData?.followers.length} <span className={'text-white/60'} onClick={()=>setIsFollowModel(true)}>Followers</span></p>
-                    <p className={'cursor-pointer hover:underline transition'}>{userData?.following.length} <span className={'text-white/60'}>Followings</span></p>
+                    <p className={'cursor-pointer hover:underline transition'}>{userData?.followers.length} <span className={'text-white/60'} onClick={()=>setIsFollowerModel(true)}>Followers</span></p>
+                    <p className={'cursor-pointer hover:underline transition'}>{userData?.following.length} <span className={'text-white/60'} onClick={()=>setIsFollowingModel(true)}>Followings</span></p>
                 </div>
-                {isFollowModel && <FollowModel setIsFollowModel={setIsFollowModel} followers={userData?.following}/>}
+                {isFollowerModel && <FollowModel setIsFollowModel={setIsFollowerModel} followers={userData?.followers}/>}
+                {isFollowingModel && <FollowModel setIsFollowModel={setIsFollowingModel} followers={userData?.following}/>}
             </div>
             <div className="nav rounded-b-lg pt-2 px-3 flex border-b border-white/10 cursor-pointer select-none">
                 <p className={'text-xl border-[0.5px] border-[#fb5151] rounded-lg px-8 py-1 text-[#fb5151]'}>{myPosts.length} Posts</p>
