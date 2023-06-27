@@ -38,10 +38,13 @@ const ProfileCard = ({username, myPosts}) => {
             <div className="profile relative flex items-end justify-between px-2 sm:px-8 w-full">
                 <div className="avatar absolute">
                     <img src={userData?.avatarUrl} alt="avatar" className={'w-24 rounded-full aspect-square object-cover'}/>
-                    <label htmlFor="profile">
-                        <RiImageAddFill className={'absolute bottom-2 right-4 text-xl cursor-pointer'}/>
-                    </label>
-                    <input type="file" accept={'image/*'} name="profile" id="profile" className={'hidden'}/>
+                    {
+                        userData._id === userDetails._id &&
+                        <label htmlFor="profile">
+                            <RiImageAddFill className={'absolute bottom-2 right-4 text-xl cursor-pointer'}/>
+                            <input type="file" accept={'image/*'} name="profile" id="profile" className={'hidden'}/>
+                        </label>
+                    }
                 </div>
                 <div className="w-full edit flex justify-end">
                     {
@@ -69,8 +72,8 @@ const ProfileCard = ({username, myPosts}) => {
                     <p className={'cursor-pointer hover:underline transition'}>{userData?.followers.length} <span className={'text-white/60'} onClick={()=>setIsFollowerModel(true)}>Followers</span></p>
                     <p className={'cursor-pointer hover:underline transition'}>{userData?.following.length} <span className={'text-white/60'} onClick={()=>setIsFollowingModel(true)}>Followings</span></p>
                 </div>
-                {isFollowerModel && <FollowModel setIsFollowModel={setIsFollowerModel} followers={userData?.followers}/>}
-                {isFollowingModel && <FollowModel setIsFollowModel={setIsFollowingModel} followers={userData?.following}/>}
+                {isFollowerModel && <FollowModel content={'Followers'} setIsFollowModel={setIsFollowerModel} followers={userData?.followers}/>}
+                {isFollowingModel && <FollowModel content={'Followings'} setIsFollowModel={setIsFollowingModel} followers={userData?.following}/>}
             </div>
             <div className="nav rounded-b-lg pt-2 px-3 flex border-b border-white/10 cursor-pointer select-none">
                 <p className={'text-xl border-[0.5px] border-[#fb5151] rounded-lg px-8 py-1 text-[#fb5151]'}>{myPosts.length} Posts</p>

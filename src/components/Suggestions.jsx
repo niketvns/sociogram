@@ -7,13 +7,14 @@ const Suggestions = () => {
     const {users, followUser} = useGlobalUsers()
     const {userDetails} = useGlobalAuth()
 
-    const suggestedUser = users.filter(user => user.username !== userDetails.username && !user.followers.find(user => user._id == userDetails._id))
+    const suggestedUser = users.filter(user => user.username !== userDetails.username && !user.followers.find(user => user._id === userDetails._id))
 
     return (
-        <div className="suggestions bg-secondary my-8 rounded-lg p-3 hidden md:flex flex-col gap-6 md:sticky top-28">
+        <div className="suggestions bg-secondary my-8 rounded-lg p-3 hidden md:flex flex-col gap-6 md:sticky top-28 min-w-[230px]">
             <h2 className={'text-lg'}>Suggestions for you</h2>
             <div className="all-suggestions flex flex-col gap-4">
                 {
+                    suggestedUser.length ?
                     suggestedUser.map(user => (
                         <div key={user._id} className="ind-suggestion flex items-center justify-between gap-5">
                             <div className="profile cursor-pointer" onClick={()=>navigate(`/user/${user.username}`)}>
@@ -27,7 +28,8 @@ const Suggestions = () => {
                                 <button className={'bg-button text-sm px-4 py-2 rounded-3xl flex items-center justify-center gap-1'} onClick={()=>followUser(user._id)}><AiOutlinePlus/>Follow</button>
                             </div>
                         </div>
-                    ))
+                    )) :
+                        <p className={'text-white/60 text-center pb-2'}>Nothing</p>
                 }
             </div>
         </div>

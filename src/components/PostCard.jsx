@@ -8,7 +8,6 @@ import CommentBox from "./CommentBox";
 import {useState} from "react";
 import {useGlobalAuth, useGlobalBookmarks, useGlobalLiked, useGlobalPosts, useGlobalUsers} from "../contexts";
 import ShareModel from "./ShareModel";
-import {icons} from "react-icons";
 
 const PostCard = ({post}) => {
     const [isPostModel, setIsPostModel] = useState(false)
