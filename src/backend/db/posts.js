@@ -448,4 +448,29 @@ export const posts = [
     createdAt: "2022-03-15T10:55:06+05:30",
     updatedAt: formatDate(),
   },
+  {
+    _id: "Ie92xOSVeUXR",
+    content:
+        "उसूलों पर जहाँ आँच आए टकराना ज़रूरी है\nजो ज़िंदा हो तो फिर ज़िंदा नज़र आना ज़रूरी है",
+    mediaURL: "",
+    likes: {
+      likeCount: 1,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    comments: [
+      {
+        _id: "6fgd534s",
+        username: "janedoe",
+        text: "Good One!",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
+    username: "niketmishra",
+    createdAt: "2022-04-12T10:55:06+05:30",
+    updatedAt: formatDate(),
+  },
 ];

@@ -1,8 +1,10 @@
 import React from 'react';
 import Skeleton, {SkeletonTheme} from 'react-loading-skeleton';
 import "react-loading-skeleton/dist/skeleton.css";
+import {useGlobalAuth} from "../contexts";
 
 const SkeletonLoader = ({count}) => {
+    const {theme} = useGlobalAuth()
 
     const returnCount = (count) => {
         const output = []
@@ -18,7 +20,7 @@ const SkeletonLoader = ({count}) => {
             {
                 arr.map((id)=>(
                     <div key={id}>
-                        <SkeletonTheme baseColor="#241F3AFF" highlightColor="#434160">
+                        <SkeletonTheme baseColor={theme === 'dark' ? "#241F3AFF" : "#ffffff"} highlightColor={theme === 'dark' ? "#434160" : "#f0eef6"}>
                             <div className={'post flex justify-around items-center gap-4'}>
                                 <Skeleton circle={true} width={'40px'} height={'40px'}/>
                                 <Skeleton containerClassName="flex-1" height={'30px'}/>

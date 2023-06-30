@@ -1,5 +1,3 @@
-import allPosts from "../../components/AllPosts";
-
 export const initialValue = {
     loginToken: null,
     userDetails: null,
@@ -18,6 +16,8 @@ export const reducerFunction = (state, action) => {
             return {...state, loginToken: action.payload.loginToken, userDetails: action.payload.userDetails}
         case 'LOGOUT':
             return { ...state, loginToken: null, userDetails: null }
+        case 'UPDATE_USER':
+            return {...state, userDetails: action.payload.user}
         case 'UPDATE_POST':
             return {...state, allPosts: action.payload}
         case 'UPDATE_BOOKMARKS':

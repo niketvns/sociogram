@@ -22,7 +22,7 @@ const Bookmarks = () => {
                             <SkeletonLoader /> :
                             bookmarks.length ?
                         bookmarks.map(post => <PostCard key={post._id} post={post}/>) :
-                                <p className={'w-full text-center text-2xl text-white/40 mt-8'}>Nothing in Bookmarks</p>
+                                <p className={'w-full text-center text-2xl text-black/40 dark:text-white/40 mt-8'}>Nothing in Bookmarks</p>
                     }
                 </div>
             </div>

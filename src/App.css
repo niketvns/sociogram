@@ -24,23 +24,26 @@
 }
 
 .sidebar .active{
-    @apply bg-sociogram sm:border-[#fb5151] lg:border-[#fb5151] text-[#fb5151]
+    @apply bg-sociogram sm:border-[#6b4ce6] sm:dark:border-[#fb5151] text-[#6b4ce6] dark:text-[#fb5151]
 }
 
 @tailwind components;
 @tailwind utilities;
 
 .bg-sociogram{
-    @apply bg-[#151221]
+    @apply bg-[#f0eef6] dark:bg-[#151221]
 }
 .bg-secondary{
-    @apply bg-[#241e38]
+    @apply bg-[#ffffff] dark:bg-[#241e38]
 }
 .bg-button{
-    @apply bg-[#fb5151]
+    @apply bg-[#6b4ce6] dark:bg-[#fb5151]
 }
 .text-sociogram{
-    @apply text-[#151221]
+    @apply text-[#151221] dark:text-white
+}
+.text-secondary{
+    @apply text-white dark:text-[#241e38]
 }
 
 :root {

@@ -1,4 +1,4 @@
-import {createContext, useContext, useEffect, useReducer} from "react";
+import {createContext, useContext, useEffect, useReducer, useState} from "react";
 import axios from "axios";
 import {initialValue, reducerFunction} from "./Reducer/reducer";
 import {useGlobalAlerts} from "./alertContext";
@@ -7,6 +7,7 @@ const usersContext = createContext()
 
 const UsersProvider = ({children}) =>{
     const [state, dispatch] = useReducer(reducerFunction, initialValue);
+    const [isUserEditLoading, setIsUserEditLoading] = useState(false)
     const {getAlert} = useGlobalAlerts()
 
     useEffect(()=>{
@@ -19,6 +20,24 @@ const UsersProvider = ({children}) =>{
             dispatch({ type: 'UPDATE_USERS', payload: data.users });
         } catch (error) {
             console.log(error)
+        }
+    }
+
+    const editUserDetails = async (user) => {
+        setIsUserEditLoading(true)
+        const token = localStorage.getItem('encodedToken')
+        try {
+            const { data } = await axios.post(`/api/users/edit`,{
+                userData: user
+            },{headers: {authorization: token}})
+            fetchAllUsers();
+            dispatch({ type: 'UPDATE_USER', payload: data.user });
+            localStorage.setItem("foundUser", JSON.stringify(data.user));
+            getAlert('success', 'User Details Updated Successfully', '')
+        } catch (error) {
+            console.log(error)
+        }finally {
+            setIsUserEditLoading(false)
         }
     }
 
@@ -58,7 +77,7 @@ const UsersProvider = ({children}) =>{
 
 
     return(
-        <usersContext.Provider value={{users: state.users, findUser, followUser, unfollowUser}}>
+        <usersContext.Provider value={{users: state.users, findUser, followUser, unfollowUser, editUserDetails, isUserEditLoading}}>
             {children}
         </usersContext.Provider>
     )

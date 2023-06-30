@@ -11,7 +11,7 @@ const Suggestions = () => {
 
     return (
         <div className="suggestions bg-secondary my-8 rounded-lg p-3 hidden md:flex flex-col gap-6 md:sticky top-28 min-w-[230px]">
-            <h2 className={'text-lg'}>Suggestions for you</h2>
+            <h2 className={'text-lg text-sociogram'}>Suggestions for you</h2>
             <div className="all-suggestions flex flex-col gap-4">
                 {
                     suggestedUser.length ?
@@ -21,15 +21,15 @@ const Suggestions = () => {
                                 <img src={user.avatarUrl} alt="profile" className={'w-8 rounded-full aspect-square object-cover'}/>
                             </div>
                             <div className="details flex-1 text-sm cursor-pointer" onClick={()=>navigate(`/user/${user.username}`)}>
-                                <p>{user.firstName} {user.lastName}</p>
-                                <p className={'text-[12px] text-white/40'}>@{user.username}</p>
+                                <p className={'text-sociogram'}>{user.firstName} {user.lastName}</p>
+                                <p className={'text-[12px] text-black/40 dark:text-white/40'}>@{user.username}</p>
                             </div>
                             <div className="button">
                                 <button className={'bg-button text-sm px-4 py-2 rounded-3xl flex items-center justify-center gap-1'} onClick={()=>followUser(user._id)}><AiOutlinePlus/>Follow</button>
                             </div>
                         </div>
                     )) :
-                        <p className={'text-white/60 text-center pb-2'}>Nothing</p>
+                        <p className={'text-black/60 dark:text-white/60 text-center pb-2'}>Nothing</p>
                 }
             </div>
         </div>

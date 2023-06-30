@@ -16,17 +16,19 @@ const BookmarksProvider = ({children}) =>{
 
     const fetchBookmarks = async () => {
         const token = localStorage.getItem('encodedToken')
-        setIsBookmarksLoading(true)
-        try {
-            const { data } = await axios.get(
-                `/api/users/bookmark/`,
-                {headers: {authorization: token}}
-            )
-            dispatch({ type: 'UPDATE_BOOKMARKS', payload: data.bookmarks });
-        } catch (error) {
-            getAlert('error', 'Error in Bookmarks', error.message)
-        }finally {
-            setIsBookmarksLoading(false)
+        if (token){
+            setIsBookmarksLoading(true)
+            try {
+                const { data } = await axios.get(
+                    `/api/users/bookmark/`,
+                    {headers: {authorization: token}}
+                )
+                dispatch({ type: 'UPDATE_BOOKMARKS', payload: data.bookmarks });
+            } catch (error) {
+                getAlert('error', 'Error in Bookmarks', error.message)
+            }finally {
+                setIsBookmarksLoading(false)
+            }
         }
     }
 

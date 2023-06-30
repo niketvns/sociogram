@@ -9,7 +9,6 @@ const CreatePost = () => {
         content: "",
         mediaURL: "",
     })
-
     const {addPost} = useGlobalPosts();
 
     const changeHandler = (e) => {
@@ -30,7 +29,7 @@ const CreatePost = () => {
     return (
         <div
             className="whats-on-your-mind flex flex-col items-start justify-center gap-2 bg-secondary rounded-lg py-2 px-3">
-            <div className="top w-full flex border-b-[0.5px] border-white/20">
+            <div className="top w-full flex border-b-[0.5px] border-black/20 dark:border-white/20">
                 <div className="profile">
                     <img src={profile} alt="profile" className={'w-8 rounded-full aspect-square'}/>
                 </div>
@@ -41,20 +40,20 @@ const CreatePost = () => {
                         id="" cols="30"
                         rows="1"
                         placeholder={"What's on your mind ??"}
-                        className={'h-16 w-full resize-none bg-secondary p-2 outline-0 border-none'}
+                        className={'h-16 w-full resize-none bg-secondary text-sociogram p-2 outline-0 border-none'}
                         onChange={changeHandler}
                         value={post.content}
                     >
                     </textarea>
                 </div>
             </div>
-            <div className="bottom w-full flex justify-around items-center">
+            <div className="bottom w-full flex justify-around items-center text-sociogram">
                 <label className={'cursor-pointer'}>
                     <MdAddPhotoAlternate className={'text-2xl'}/>
                     <input type="file" accept={'image/*, video/*'} className={'hidden'}/>
                 </label>
                 <button className={'text-2xl'}><MdOutlineAddReaction/></button>
-                <button className={`px-6 py-1 rounded-2xl ${post.content ? 'bg-button' : 'bg-gray-500'}`} onClick={submitHandler}>Post</button>
+                <button className={`px-6 py-1 rounded-2xl ${post.content ? 'bg-button' : 'bg-gray-500'} text-white`} onClick={submitHandler}>Post</button>
             </div>
         </div>
     );
