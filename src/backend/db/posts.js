@@ -13,8 +13,45 @@ export const posts = [
         "Success is stumbling from failure to failure with no loss of enthusiasm. Love this quote by Winston Churchill.",
     mediaURL: "",
     likes: {
-      likeCount: 12,
-      likedBy: [],
+      likeCount: 4,
+      likedBy: [
+        {
+          _id: "LCrc9f0Zl0",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651563581/socialmedia/avatars/carl-smith_mehw0u.webp",
+          firstName: "Carl",
+          lastName: "Smith",
+          username: "carlsmith",
+          createdAt: "2022-01-03T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+        {
+          _id: "t7cZfWIp-q",
+          firstName: "Adarsh",
+          lastName: "Balika",
+          username: "adarshbalika",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
+          createdAt: "2022-01-01T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+        {
+          _id: "79Gksh9otl",
+          firstName: "John",
+          lastName: "Doe",
+          username: "johndoe",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554207/socialmedia/avatars/john-doe_gbkuda.webp",
+          createdAt: "2022-01-02T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+      ],
       dislikedBy: [],
     },
     comments: [],
@@ -29,8 +66,45 @@ export const posts = [
         "Optimism is the faith that leads to achievement. Nothing can be done without hope and confidence.",
     mediaURL: "",
     likes: {
-      likeCount: 8,
-      likedBy: [],
+      likeCount: 3,
+      likedBy: [
+        {
+          _id: "LCrc9f0Zl0",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651563581/socialmedia/avatars/carl-smith_mehw0u.webp",
+          firstName: "Carl",
+          lastName: "Smith",
+          username: "carlsmith",
+          createdAt: "2022-01-03T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+        {
+          _id: "t7cZfWIp-q",
+          firstName: "Adarsh",
+          lastName: "Balika",
+          username: "adarshbalika",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
+          createdAt: "2022-01-01T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+        {
+          _id: "79Gksh9otl",
+          firstName: "John",
+          lastName: "Doe",
+          username: "johndoe",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554207/socialmedia/avatars/john-doe_gbkuda.webp",
+          createdAt: "2022-01-02T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+      ],
       dislikedBy: [],
     },
     comments: [],
@@ -46,7 +120,44 @@ export const posts = [
     mediaURL: "",
     likes: {
       likeCount: 5,
-      likedBy: [],
+      likedBy: [
+        {
+          _id: "LCrc9f0Zl0",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651563581/socialmedia/avatars/carl-smith_mehw0u.webp",
+          firstName: "Carl",
+          lastName: "Smith",
+          username: "carlsmith",
+          createdAt: "2022-01-03T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+        {
+          _id: "t7cZfWIp-q",
+          firstName: "Adarsh",
+          lastName: "Balika",
+          username: "adarshbalika",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
+          createdAt: "2022-01-01T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+        {
+          _id: "79Gksh9otl",
+          firstName: "John",
+          lastName: "Doe",
+          username: "johndoe",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554207/socialmedia/avatars/john-doe_gbkuda.webp",
+          createdAt: "2022-01-02T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+      ],
       dislikedBy: [],
     },
     comments: [],
@@ -61,8 +172,33 @@ export const posts = [
         "“Do not wait for the perfect time and place to enter, for you are already onstage.",
     mediaURL: "",
     likes: {
-      likeCount: 25,
-      likedBy: [],
+      likeCount: 2,
+      likedBy: [
+        {
+          _id: "LCrc9f0Zl0",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651563581/socialmedia/avatars/carl-smith_mehw0u.webp",
+          firstName: "Carl",
+          lastName: "Smith",
+          username: "carlsmith",
+          createdAt: "2022-01-03T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+        {
+          _id: "t7cZfWIp-q",
+          firstName: "Adarsh",
+          lastName: "Balika",
+          username: "adarshbalika",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
+          createdAt: "2022-01-01T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        }
+      ],
       dislikedBy: [],
     },
     comments: [],
@@ -76,8 +212,45 @@ export const posts = [
     content: "It is a rough road that leads to the heights of greatness.",
     mediaURL: "",
     likes: {
-      likeCount: 8,
-      likedBy: [],
+      likeCount: 6,
+      likedBy: [
+        {
+          _id: "LCrc9f0Zl0",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651563581/socialmedia/avatars/carl-smith_mehw0u.webp",
+          firstName: "Carl",
+          lastName: "Smith",
+          username: "carlsmith",
+          createdAt: "2022-01-03T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+        {
+          _id: "t7cZfWIp-q",
+          firstName: "Adarsh",
+          lastName: "Balika",
+          username: "adarshbalika",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
+          createdAt: "2022-01-01T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+        {
+          _id: "79Gksh9otl",
+          firstName: "John",
+          lastName: "Doe",
+          username: "johndoe",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554207/socialmedia/avatars/john-doe_gbkuda.webp",
+          createdAt: "2022-01-02T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+      ],
       dislikedBy: [],
     },
     comments: [],
@@ -91,8 +264,21 @@ export const posts = [
         "Life has got all those twists and turns. You’ve got to hold on tight and off you go.",
     mediaURL: "",
     likes: {
-      likeCount: 2,
-      likedBy: [],
+      likeCount: 1,
+      likedBy: [
+        {
+          _id: "t7cZfWIp-q",
+          firstName: "Adarsh",
+          lastName: "Balika",
+          username: "adarshbalika",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
+          createdAt: "2022-01-01T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        }
+      ],
       dislikedBy: [],
     },
     comments: [],
@@ -105,7 +291,7 @@ export const posts = [
     content: "When you have a dream, you’ve got to grab it and never let go.",
     mediaURL: "",
     likes: {
-      likeCount: 2,
+      likeCount: 0,
       likedBy: [],
       dislikedBy: [],
     },
@@ -121,7 +307,32 @@ export const posts = [
     mediaURL: "",
     likes: {
       likeCount: 2,
-      likedBy: [],
+      likedBy: [
+        {
+          _id: "LCrc9f0Zl0",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651563581/socialmedia/avatars/carl-smith_mehw0u.webp",
+          firstName: "Carl",
+          lastName: "Smith",
+          username: "carlsmith",
+          createdAt: "2022-01-03T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+        {
+          _id: "t7cZfWIp-q",
+          firstName: "Adarsh",
+          lastName: "Balika",
+          username: "adarshbalika",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
+          createdAt: "2022-01-01T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        }
+      ],
       dislikedBy: [],
     },
     comments: [],
@@ -135,7 +346,7 @@ export const posts = [
     mediaURL:
         "https://res.cloudinary.com/dtrjdcrme/image/upload/v1647014828/ecommerce/pineapplemuffin1.webp",
     likes: {
-      likeCount: 10,
+      likeCount: 0,
       likedBy: [],
       dislikedBy: [],
     },
@@ -161,7 +372,20 @@ export const posts = [
     mediaURL: "",
     likes: {
       likeCount: 1,
-      likedBy: [],
+      likedBy: [
+        {
+          _id: "79Gksh9otl",
+          firstName: "John",
+          lastName: "Doe",
+          username: "johndoe",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554207/socialmedia/avatars/john-doe_gbkuda.webp",
+          createdAt: "2022-01-02T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+      ],
       dislikedBy: [],
     },
     comments: [
@@ -184,8 +408,45 @@ export const posts = [
     content: "Believe in yourself! Rest all will fall in place.",
     mediaURL: "",
     likes: {
-      likeCount: 2,
-      likedBy: [],
+      likeCount: 5,
+      likedBy: [
+        {
+          _id: "LCrc9f0Zl0",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651563581/socialmedia/avatars/carl-smith_mehw0u.webp",
+          firstName: "Carl",
+          lastName: "Smith",
+          username: "carlsmith",
+          createdAt: "2022-01-03T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+        {
+          _id: "t7cZfWIp-q",
+          firstName: "Adarsh",
+          lastName: "Balika",
+          username: "adarshbalika",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
+          createdAt: "2022-01-01T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+        {
+          _id: "79Gksh9otl",
+          firstName: "John",
+          lastName: "Doe",
+          username: "johndoe",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554207/socialmedia/avatars/john-doe_gbkuda.webp",
+          createdAt: "2022-01-02T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+      ],
       dislikedBy: [],
     },
     comments: [
@@ -209,8 +470,45 @@ export const posts = [
         "You can get everything in life you want if you will just help enough other people get what they want.",
     mediaURL: "",
     likes: {
-      likeCount: 5,
-      likedBy: [],
+      likeCount: 3,
+      likedBy: [
+        {
+          _id: "LCrc9f0Zl0",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651563581/socialmedia/avatars/carl-smith_mehw0u.webp",
+          firstName: "Carl",
+          lastName: "Smith",
+          username: "carlsmith",
+          createdAt: "2022-01-03T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+        {
+          _id: "t7cZfWIp-q",
+          firstName: "Adarsh",
+          lastName: "Balika",
+          username: "adarshbalika",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
+          createdAt: "2022-01-01T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+        {
+          _id: "79Gksh9otl",
+          firstName: "John",
+          lastName: "Doe",
+          username: "johndoe",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554207/socialmedia/avatars/john-doe_gbkuda.webp",
+          createdAt: "2022-01-02T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+      ],
       dislikedBy: [],
     },
     comments: [],
@@ -225,7 +523,7 @@ export const posts = [
         "If you believe something needs to exist, if it's something you want to use yourself, don't let anyone ever stop you from doing it.",
     mediaURL: "",
     likes: {
-      likeCount: 5,
+      likeCount: 0,
       likedBy: [],
       dislikedBy: [],
     },
@@ -240,8 +538,21 @@ export const posts = [
     content: "More is lost by indecision than wrong decision.",
     mediaURL: "",
     likes: {
-      likeCount: 5,
-      likedBy: [],
+      likeCount: 1,
+      likedBy: [
+        {
+          _id: "79Gksh9otl",
+          firstName: "John",
+          lastName: "Doe",
+          username: "johndoe",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554207/socialmedia/avatars/john-doe_gbkuda.webp",
+          createdAt: "2022-01-02T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+      ],
       dislikedBy: [],
     },
     comments: [],
@@ -256,8 +567,45 @@ export const posts = [
         "The reason we struggle with insecurity is because we compare our behind-the-scenes with everyone else’s highlight reel.",
     mediaURL: "",
     likes: {
-      likeCount: 7,
-      likedBy: [],
+      likeCount: 3,
+      likedBy: [
+        {
+          _id: "LCrc9f0Zl0",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651563581/socialmedia/avatars/carl-smith_mehw0u.webp",
+          firstName: "Carl",
+          lastName: "Smith",
+          username: "carlsmith",
+          createdAt: "2022-01-03T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+        {
+          _id: "t7cZfWIp-q",
+          firstName: "Adarsh",
+          lastName: "Balika",
+          username: "adarshbalika",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
+          createdAt: "2022-01-01T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+        {
+          _id: "79Gksh9otl",
+          firstName: "John",
+          lastName: "Doe",
+          username: "johndoe",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554207/socialmedia/avatars/john-doe_gbkuda.webp",
+          createdAt: "2022-01-02T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+      ],
       dislikedBy: [],
     },
     comments: [],
@@ -271,8 +619,33 @@ export const posts = [
     content: "If you don’t risk anything, you risk even more.",
     mediaURL: "",
     likes: {
-      likeCount: 6,
-      likedBy: [],
+      likeCount: 2,
+      likedBy: [
+        {
+          _id: "LCrc9f0Zl0",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651563581/socialmedia/avatars/carl-smith_mehw0u.webp",
+          firstName: "Carl",
+          lastName: "Smith",
+          username: "carlsmith",
+          createdAt: "2022-01-03T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+        {
+          _id: "t7cZfWIp-q",
+          firstName: "Adarsh",
+          lastName: "Balika",
+          username: "adarshbalika",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
+          createdAt: "2022-01-01T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        }
+      ],
       dislikedBy: [],
     },
     comments: [],
@@ -286,7 +659,7 @@ export const posts = [
     content: "If it makes you nervous, you’re doing it right.",
     mediaURL: "",
     likes: {
-      likeCount: 12,
+      likeCount: 0,
       likedBy: [],
       dislikedBy: [],
     },
@@ -302,8 +675,45 @@ export const posts = [
         "I learned a long time ago that there is something worse than missing the goal, and that’s not pulling the trigger.",
     mediaURL: "",
     likes: {
-      likeCount: 9,
-      likedBy: [],
+      likeCount: 5,
+      likedBy: [
+        {
+          _id: "LCrc9f0Zl0",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651563581/socialmedia/avatars/carl-smith_mehw0u.webp",
+          firstName: "Carl",
+          lastName: "Smith",
+          username: "carlsmith",
+          createdAt: "2022-01-03T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+        {
+          _id: "t7cZfWIp-q",
+          firstName: "Adarsh",
+          lastName: "Balika",
+          username: "adarshbalika",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
+          createdAt: "2022-01-01T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+        {
+          _id: "79Gksh9otl",
+          firstName: "John",
+          lastName: "Doe",
+          username: "johndoe",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554207/socialmedia/avatars/john-doe_gbkuda.webp",
+          createdAt: "2022-01-02T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+      ],
       dislikedBy: [],
     },
     comments: [],
@@ -317,7 +727,44 @@ export const posts = [
     mediaURL: "",
     likes: {
       likeCount: 5,
-      likedBy: [],
+      likedBy: [
+        {
+          _id: "LCrc9f0Zl0",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651563581/socialmedia/avatars/carl-smith_mehw0u.webp",
+          firstName: "Carl",
+          lastName: "Smith",
+          username: "carlsmith",
+          createdAt: "2022-01-03T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+        {
+          _id: "t7cZfWIp-q",
+          firstName: "Adarsh",
+          lastName: "Balika",
+          username: "adarshbalika",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
+          createdAt: "2022-01-01T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+        {
+          _id: "79Gksh9otl",
+          firstName: "John",
+          lastName: "Doe",
+          username: "johndoe",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554207/socialmedia/avatars/john-doe_gbkuda.webp",
+          createdAt: "2022-01-02T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+      ],
       dislikedBy: [],
     },
     comments: [
@@ -355,8 +802,45 @@ export const posts = [
     content: "I just heard Kachcha Badam today and guys you can't beleive me I feel very happy today after listing this song!. Today I am going to announce that kachcha badam is my favorite song from today",
     mediaURL: "",
     likes: {
-      likeCount: 5,
-      likedBy: [],
+      likeCount: 3,
+      likedBy: [
+        {
+          _id: "LCrc9f0Zl0",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651563581/socialmedia/avatars/carl-smith_mehw0u.webp",
+          firstName: "Carl",
+          lastName: "Smith",
+          username: "carlsmith",
+          createdAt: "2022-01-03T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+        {
+          _id: "t7cZfWIp-q",
+          firstName: "Adarsh",
+          lastName: "Balika",
+          username: "adarshbalika",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
+          createdAt: "2022-01-01T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+        {
+          _id: "79Gksh9otl",
+          firstName: "John",
+          lastName: "Doe",
+          username: "johndoe",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554207/socialmedia/avatars/john-doe_gbkuda.webp",
+          createdAt: "2022-01-02T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+      ],
       dislikedBy: [],
     },
     comments: [
@@ -381,7 +865,20 @@ export const posts = [
         "https://res.cloudinary.com/dtrjdcrme/image/upload/v1652188492/upload-socialmedia/cakegif_q11mfm.webp",
     likes: {
       likeCount: 1,
-      likedBy: [],
+      likedBy: [
+        {
+          _id: "79Gksh9otl",
+          firstName: "John",
+          lastName: "Doe",
+          username: "johndoe",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554207/socialmedia/avatars/john-doe_gbkuda.webp",
+          createdAt: "2022-01-02T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+      ],
       dislikedBy: [],
     },
     comments: [
@@ -405,8 +902,33 @@ export const posts = [
         "You are never too old to set another goal or to dream a new dream.",
     mediaURL: "",
     likes: {
-      likeCount: 5,
-      likedBy: [],
+      likeCount: 2,
+      likedBy: [
+        {
+          _id: "LCrc9f0Zl0",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651563581/socialmedia/avatars/carl-smith_mehw0u.webp",
+          firstName: "Carl",
+          lastName: "Smith",
+          username: "carlsmith",
+          createdAt: "2022-01-03T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+        {
+          _id: "t7cZfWIp-q",
+          firstName: "Adarsh",
+          lastName: "Balika",
+          username: "adarshbalika",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
+          createdAt: "2022-01-01T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+      ],
       dislikedBy: [],
     },
     comments: [],
@@ -420,8 +942,45 @@ export const posts = [
     mediaURL:
         "https://res.cloudinary.com/dtrjdcrme/image/upload/v1647014336/ecommerce/chocolatecake4.webp",
     likes: {
-      likeCount: 2,
-      likedBy: [],
+      likeCount: 3,
+      likedBy: [
+        {
+          _id: "LCrc9f0Zl0",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651563581/socialmedia/avatars/carl-smith_mehw0u.webp",
+          firstName: "Carl",
+          lastName: "Smith",
+          username: "carlsmith",
+          createdAt: "2022-01-03T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+        {
+          _id: "t7cZfWIp-q",
+          firstName: "Adarsh",
+          lastName: "Balika",
+          username: "adarshbalika",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
+          createdAt: "2022-01-01T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+        {
+          _id: "79Gksh9otl",
+          firstName: "John",
+          lastName: "Doe",
+          username: "johndoe",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554207/socialmedia/avatars/john-doe_gbkuda.webp",
+          createdAt: "2022-01-02T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+      ],
       dislikedBy: [],
     },
     comments: [
@@ -455,7 +1014,19 @@ export const posts = [
     mediaURL: "",
     likes: {
       likeCount: 1,
-      likedBy: [],
+      likedBy: [
+        {
+          _id: "41c8585c-5fab-4748-83c2-fb07bde54b86",
+          avatarUrl: "https://res.cloudinary.com/dyzu4lzqz/image/upload/v1687356575/sociogram/xfiwt6zmylz1pcy93fih.png",
+          firstName: "Niket",
+          lastName: "Mishra",
+          username: "niketmishra",
+          createdAt: "2022-01-01T10:55:06+05:30",
+          updatedAt: "2023-07-01T13:04:27+05:30",
+          followers: [],
+          following: []
+        }
+      ],
       dislikedBy: [],
     },
     comments: [

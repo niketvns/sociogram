@@ -9,10 +9,9 @@ const PostDetails = () => {
     const [isLoading, setIsLoading] = useState(true)
     const [post, setPost] = useState(null)
     const {id} = useParams()
-    const {isPostEditLoading} = useGlobalPosts()
+    const {isPostEditLoading, isLikedLoading} = useGlobalPosts()
 
     const fetchSinglePost = async () => {
-        setIsLoading(true)
         try {
             const {data} = await axios.get(`/api/posts/${id}`)
             setPost(data.post)
@@ -24,9 +23,14 @@ const PostDetails = () => {
     }
 
     useEffect(() => {
+        setIsLoading(true)
         window.scrollTo({top: 0, left: 0});
         fetchSinglePost()
-    }, [isPostEditLoading])
+    }, [])
+
+    useEffect(() => {
+        fetchSinglePost();
+    }, [isPostEditLoading, isLikedLoading])
 
     useEffect(() => {
         if (post) {

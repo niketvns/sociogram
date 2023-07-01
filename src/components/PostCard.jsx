@@ -5,13 +5,15 @@ import {HiOutlineDotsHorizontal} from 'react-icons/hi'
 import {BsBookmarksFill, BsBookmarkPlus} from 'react-icons/bs'
 import {useNavigate} from "react-router-dom";
 import CommentBox from "./CommentBox";
-import {useEffect, useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {useGlobalAuth, useGlobalBookmarks, useGlobalLiked, useGlobalPosts, useGlobalUsers} from "../contexts";
 import ShareModel from "./ShareModel";
 import {CreatePostModel} from "./index";
+import FollowModel from "./FollowModel";
 
 const PostCard = ({post}) => {
     const [isPostModel, setIsPostModel] = useState(false)
+    const [isLikedByModel, setIsLikedByModel] = useState(false)
     const [isCreatePostModel, setIsCreatePostModel] = useState(false)
     const [isCommentModel, setIsCommentModel] = useState(false)
     const [isShareModel, setIsShareModel] = useState(false)
@@ -19,8 +21,7 @@ const PostCard = ({post}) => {
     const {findUser} = useGlobalUsers()
     const {userDetails} = useGlobalAuth()
     const {addToBookmarks, removeFromBookmarks, isInBookmarks} = useGlobalBookmarks()
-    const {deletePost} = useGlobalPosts()
-    const {addToLikes, removeFromLikes} = useGlobalLiked()
+    const {deletePost, addToLikes, removeFromLikes, isInLiked} = useGlobalPosts()
     const userData = findUser(username);
     const navigate = useNavigate()
     const isPostModelRef = useRef()
@@ -42,13 +43,21 @@ const PostCard = ({post}) => {
                 {
                     userDetails._id === userData._id &&
                     <div ref={isPostModelRef} className="hamburger absolute top-4 right-8 text-sociogram">
-                        <HiOutlineDotsHorizontal className={'text-2xl cursor-pointer'} onClick={()=> setIsPostModel(prevState => !prevState) }/>
+                        <HiOutlineDotsHorizontal className={'text-2xl cursor-pointer'}
+                                                 onClick={() => setIsPostModel(prevState => !prevState)}/>
                         {
                             isPostModel &&
-                            <div className="post-edit-menu select-none absolute top-6 text-lg rounded-lg right-2 bg-secondary border-2 border-black/40 dark:border-white/40">
-                                <div className="edit px-6 py-2 cursor-pointer hover:bg-black/20 hover:dark:bg-white/20 transition" onClick={()=>setIsCreatePostModel(true)}>Edit</div>
+                            <div
+                                className="post-edit-menu select-none absolute top-6 text-lg rounded-lg right-2 bg-secondary border-2 border-black/40 dark:border-white/40">
+                                <div
+                                    className="edit px-6 py-2 cursor-pointer hover:bg-black/20 hover:dark:bg-white/20 transition"
+                                    onClick={() => setIsCreatePostModel(true)}>Edit
+                                </div>
                                 <hr/>
-                                <div className="delete px-6 py-2 cursor-pointer hover:bg-black/20 hover:dark:bg-white/20 transition" onClick={()=>deletePost(post._id)}>Delete</div>
+                                <div
+                                    className="delete px-6 py-2 cursor-pointer hover:bg-black/20 hover:dark:bg-white/20 transition"
+                                    onClick={() => deletePost(post._id)}>Delete
+                                </div>
                             </div>
                         }
                     </div>
@@ -63,7 +72,8 @@ const PostCard = ({post}) => {
                         <p className={'text-sm text-black/40 dark:text-white/40'}>@{username}</p>
                     </div>
                 </div>
-                <div className="text-lg whitespace-pre-line text-sociogram cursor-pointer pl-2" onClick={() => navigate(`/post/${_id}`)}>
+                <div className="text-lg whitespace-pre-line text-sociogram cursor-pointer pl-2"
+                     onClick={() => navigate(`/post/${_id}`)}>
                     {content}
                 </div>
                 <div className="post-media cursor-pointer" onClick={() => navigate(`/post/${_id}`)}>
@@ -85,8 +95,8 @@ const PostCard = ({post}) => {
                     <div className="left flex gap-4 items-center">
                         <div className="like cursor-pointer">
                             {
-                                likes.likeCount ?
-                                    <div className={'flex items-center gap-1'} onClick={() => addToLikes(_id)}>
+                                isInLiked(likes?.likedBy, userDetails?._id) ?
+                                    <div className={'flex items-center gap-1'} onClick={() => removeFromLikes(_id)}>
                                         <AiFillHeart className={'text-red-500'}/>
                                         <span className={'text-sm'}>{likes.likeCount}</span>
                                     </div> :
@@ -117,15 +127,25 @@ const PostCard = ({post}) => {
                         </div>
                     </div>
                 </div>
-                <div
-                    className="like-comment-overview flex gap-2 items-center text-sm cursor-pointer text-black/60 dark:text-white/60 hover:underline">
-                    <div className="images flex">
-                        <img src={profile} alt="p" className={'w-3 rounded-full'}/>
-                    </div>
-                    Liked by Ashutosh and 556 others
-                </div>
+                {
+                    likes?.likeCount ?
+                        <div
+                            className="like-comment-overview flex gap-2 items-center text-sm cursor-pointer text-black/60 dark:text-white/60 hover:underline" onClick={()=>setIsLikedByModel(true)}>
+                            <div className="images flex">
+                                <img src={likes?.likedBy[0]?.avatarUrl} alt="p" className={'w-4 aspect-square rounded-full'}/>
+                            </div>
+                            Liked by {likes?.likedBy[0]?.username} {likes?.likeCount >= 2 ? ` and ${likes?.likeCount-1} others` : null }
+                        </div> :
+                        <div
+                            className="like-comment-overview flex gap-2 items-center text-sm text-black/60 dark:text-white/60 pl-2">
+                            No one Likes Yet
+                        </div>
+                }
             </div>
-            {isCreatePostModel && <CreatePostModel isEdit={true} editPostData={post} setIsCreatePostModel={setIsCreatePostModel}/>}
+            {isCreatePostModel &&
+                <CreatePostModel isEdit={true} editPostData={post} setIsCreatePostModel={setIsCreatePostModel}/>}
+
+            {isLikedByModel && <FollowModel content={'Liked By'} setIsFollowModel={setIsLikedByModel} followers={likes?.likedBy}/>}
         </>
     );
 };

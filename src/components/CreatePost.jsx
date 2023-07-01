@@ -53,7 +53,7 @@ const CreatePost = () => {
                     <input type="file" accept={'image/*, video/*'} className={'hidden'}/>
                 </label>
                 <button className={'text-2xl'}><MdOutlineAddReaction/></button>
-                <button className={`px-6 py-1 rounded-2xl ${post.content ? 'bg-button' : 'bg-gray-500'} text-white`} onClick={submitHandler}>Post</button>
+                <button className={`px-6 py-1 rounded-2xl ${post.content ? 'bg-button' : 'bg-gray-500 cursor-not-allowed'} text-white`} onClick={submitHandler}>Post</button>
             </div>
         </div>
     );

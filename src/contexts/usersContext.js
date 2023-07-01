@@ -33,7 +33,7 @@ const UsersProvider = ({children}) =>{
             fetchAllUsers();
             dispatch({ type: 'UPDATE_USER', payload: data.user });
             localStorage.setItem("foundUser", JSON.stringify(data.user));
-            getAlert('success', 'User Details Updated Successfully', '')
+            getAlert('success', 'Profile Updated Successfully', '')
         } catch (error) {
             console.log(error)
         }finally {

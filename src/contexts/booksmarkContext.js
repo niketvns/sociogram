@@ -41,7 +41,6 @@ const BookmarksProvider = ({children}) =>{
                 {},
                 {headers: {authorization: token}}
             )
-            console.log(data)
             dispatch({ type: 'UPDATE_BOOKMARKS', payload: data.bookmarks });
             getAlert('success', 'Post Added to Bookmarks', '')
         } catch (error) {

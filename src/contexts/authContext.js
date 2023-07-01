@@ -38,7 +38,7 @@ const AuthProvider = ({children}) => {
     }
 
     const signupFormChange = (e) => {
-        dispatch({type: 'signupFormChange', payload: {name: e.target.name, value: e.target.value}})
+        dispatch({type: 'SIGNUP_FORM_HANDLER', payload: {name: e.target.name, value: e.target.value}})
     }
 
     const applyDummyCredential = () => {
@@ -56,7 +56,7 @@ const AuthProvider = ({children}) => {
             localStorage.setItem("encodedToken", JSON.stringify(data.encodedToken));
             localStorage.setItem("foundUser", JSON.stringify(data.foundUser));
             dispatch({type: 'LOGIN', payload: {loginToken: data.encodedToken, userDetails: data.foundUser}});
-            getAlert('success', 'Login Successfully!', `Welcome in the Sociogram`)
+            getAlert('success', 'Login Successfully!', `Welcome back ${data.foundUser.firstName} ${data.foundUser.lastName}`)
         } catch (error) {
             getAlert('error', 'Error', error.message)
         }
@@ -65,17 +65,19 @@ const AuthProvider = ({children}) => {
     // Signup Handler
     const signupHandler = async (event) => {
         event.preventDefault()
+        console.log(state.signupFormData)
         try {
             const {data} = await axios.post('/api/auth/signup', {
-                "firstName": "Rahul",
-                "lastName": "Yadav",
-                "username": "rahulyadav",
-                "password": "rahul@123"
+                "firstName": state.signupFormData.firstName,
+                "lastName": state.signupFormData.lastName,
+                "username": state.signupFormData.username,
+                "password": state.signupFormData.password
             })
+            console.log(data.createdUser)
             localStorage.setItem("encodedToken", JSON.stringify(data.encodedToken));
             localStorage.setItem("foundUser", JSON.stringify(data.createdUser));
             dispatch({type: 'SIGNUP', payload: {loginToken: data.encodedToken, userDetails: data.createdUser}});
-            getAlert('success', 'Authenticated', "Account Created Successfully!")
+            getAlert('success', 'Signup Successfully!', "Welcome in the Sociogram")
         } catch (error) {
             console.log(error)
         }

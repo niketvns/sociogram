@@ -11,7 +11,7 @@ const CreatePostModel = ({isEdit, editPostData, setIsCreatePostModel}) => {
     })
     const createPostModelRef = useRef()
     const inputRef = useRef()
-    const {addPost, editPost} = useGlobalPosts();
+    const {addPost, editPost, handleMediaUpload, isMediaUploading} = useGlobalPosts();
 
     const changeHandler = (e) => {
         const {name, value} = e.target;
@@ -81,10 +81,11 @@ const CreatePostModel = ({isEdit, editPostData, setIsCreatePostModel}) => {
                     </textarea>
                     </div>
                 </div>
+                {isMediaUploading && <p className={'text-sociogram'}>Uploading.....</p>}
                 <div className="bottom w-full flex justify-around items-center text-sociogram">
                     <label className={'cursor-pointer'}>
                         <MdAddPhotoAlternate className={'text-2xl'}/>
-                        <input type="file" accept={'image/*, video/*'} className={'hidden'}/>
+                        <input type="file" accept={'image/*, video/*'} className={'hidden'} onChange={handleMediaUpload}/>
                     </label>
                     <button className={'text-2xl'}><MdOutlineAddReaction/></button>
                     <button className={`px-6 py-1 rounded-2xl ${post.content ? 'bg-button' : 'bg-gray-500'} text-white`}

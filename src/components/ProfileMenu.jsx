@@ -22,9 +22,15 @@ const ProfileMenu = () => {
 
     return (
         <div ref={profileRef} className={'profile-menu relative'}>
-            <div className={'profile-icon hover:scale-105 transition'} onClick={() => setIsProfileModel(prev => !prev)}>
-                <img src={userDetails.avatarUrl} alt=""
-                     className={'w-8 aspect-square sm:w-10 object-cover rounded-full cursor-pointer'}/>
+            <div className={'profile-icon select-none hover:scale-105 transition'} onClick={() => setIsProfileModel(prev => !prev)}>
+                {
+                    userDetails?.avatarUrl ?
+                        <img src={userDetails.avatarUrl} alt=""
+                             className={'w-8 aspect-square sm:w-10 object-cover rounded-full cursor-pointer'}/> :
+                        <div className={'w-8 aspect-square sm:w-10 object-cover rounded-full cursor-pointer bg-black/40 dark:bg-white/40 flex items-center justify-center text-lg font-bold'}>
+                            {userDetails?.firstName.slice(0,1).toUpperCase()}
+                        </div>
+                }
             </div>
             <div
                 className={`profile-model w-[200px] p-4 bg-secondary border-2 border-black/20 dark:border-white/20 text-sociogram absolute top-12 right-0 rounded-lg ${isProfileModel ? 'block' : 'hidden'} transition flex flex-col items-center justify-center gap-4 select-none`}>

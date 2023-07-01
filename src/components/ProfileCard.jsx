@@ -21,12 +21,12 @@ const ProfileCard = ({username, myPosts}) => {
     },[userData])
 
     const isFollowing = () => {
-        return userData?.followers.find(user => user?._id === userDetails?._id)
+        return userData?.followers?.find(user => user?._id === userDetails?._id)
     }
 
     return (
         <>
-            <div className={'profile-card flex flex-col gap-2 bg-secondary text-sociogram sm:rounded-lg pt-3'}>
+            <div className={'profile-card flex flex-col gap-2 bg-secondary text-sociogram sm:rounded-lg pt-3 border-t sm:border-none'}>
                 <div className="back-option flex items-center gap-6 px-3">
                     <div className="back-icon text-xl cursor-pointer hover:bg-black/20 hover:dark:bg-white/20 p-2 rounded-full transition" onClick={()=>navigate(-1)}>
                         <BiArrowBack/>
@@ -36,11 +36,22 @@ const ProfileCard = ({username, myPosts}) => {
                     </div>
                 </div>
                 <div className="banner">
-                    <img src={userData?.bannerUrl} alt="banner" className={'w-full'}/>
+                    {
+                        userData?.bannerUrl ?
+                        <img src={userData?.bannerUrl} alt="banner" className={'w-full'}/> :
+                        <img src='https://res.cloudinary.com/dyzu4lzqz/image/upload/v1688188326/sociogram/user-banner_sxp79y.jpg' alt="banner" className={'w-full'}/>
+                    }
                 </div>
                 <div className="profile relative flex items-end justify-between px-2 sm:px-8 w-full">
                     <div className="avatar absolute">
-                        <img src={userData?.avatarUrl} alt="avatar" className={'w-24 rounded-full aspect-square object-cover'}/>
+                        {
+                            userData?.avatarUrl ?
+                            <img src={userData?.avatarUrl} alt="avatar"
+                              className={'w-24 rounded-full aspect-square object-cover'}/> :
+                                <img src='https://res.cloudinary.com/dyzu4lzqz/image/upload/v1688187993/sociogram/user-avatar_jm8mwb.png' alt="avatar"
+                              className={'w-24 rounded-full aspect-square object-cover'}/>
+
+                        }
                         {
                             userData?._id === userDetails?._id &&
                             <label htmlFor="profile">
@@ -72,14 +83,14 @@ const ProfileCard = ({username, myPosts}) => {
                         </a>
                     }
                     <div className="followers-details flex gap-6 my-2">
-                        <p className={'cursor-pointer hover:underline transition'}>{userData?.followers.length} <span className={'text-black/60 dark:text-white/60'} onClick={()=>setIsFollowerModel(true)}>Followers</span></p>
-                        <p className={'cursor-pointer hover:underline transition'}>{userData?.following.length} <span className={'text-black/60 dark:text-white/60'} onClick={()=>setIsFollowingModel(true)}>Followings</span></p>
+                        <p className={'cursor-pointer hover:underline transition'}>{userData?.followers?.length} <span className={'text-black/60 dark:text-white/60'} onClick={()=>setIsFollowerModel(true)}>Followers</span></p>
+                        <p className={'cursor-pointer hover:underline transition'}>{userData?.following?.length} <span className={'text-black/60 dark:text-white/60'} onClick={()=>setIsFollowingModel(true)}>Followings</span></p>
                     </div>
                     {isFollowerModel && <FollowModel content={'Followers'} setIsFollowModel={setIsFollowerModel} followers={userData?.followers}/>}
                     {isFollowingModel && <FollowModel content={'Followings'} setIsFollowModel={setIsFollowingModel} followers={userData?.following}/>}
                 </div>
                 <div className="nav rounded-b-lg pt-2 px-3 flex border-b border-white/10 cursor-pointer select-none">
-                    <p className={'text-xl border-[0.5px] border-[#fb5151] rounded-lg px-8 py-1 text-[#fb5151]'}>{myPosts.length} Posts</p>
+                    <p className={'text-xl border-[0.5px] border-[#fb5151] rounded-lg px-8 py-1 text-[#fb5151]'}>{myPosts?.length} Posts</p>
                 </div>
             </div>
             {isEditProfileModel && <EditProfileModel setIsEditProfileModel={setIsEditProfileModel} userData={userData}/>}

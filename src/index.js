@@ -18,9 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                         <PostsProvider>
                             <UsersProvider>
                                 <BookmarksProvider>
-                                    <LikedProvider>
-                                        <App/>
-                                    </LikedProvider>
+                                    <App/>
                                 </BookmarksProvider>
                             </UsersProvider>
                         </PostsProvider>

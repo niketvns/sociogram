@@ -5,7 +5,8 @@ export const initialValue = {
     likes: [],
     bookmarks: [],
     users: [],
-    loginFormData: {username: '', password: ''}
+    loginFormData: {username: '', password: ''},
+    signupFormData: {firstName: '', lastName: '', username: '', password: ''}
 }
 
 export const reducerFunction = (state, action) => {
@@ -13,7 +14,7 @@ export const reducerFunction = (state, action) => {
         case 'LOGIN':
             return {...state, loginToken: action.payload.loginToken, userDetails: action.payload.userDetails, loginFormData: {username: '', password: ''}}
         case 'SIGNUP':
-            return {...state, loginToken: action.payload.loginToken, userDetails: action.payload.userDetails}
+            return {...state, loginToken: action.payload.loginToken, userDetails: action.payload.userDetails, signupFormData: {firstName: '', lastName: '', username: '', password: ''}}
         case 'LOGOUT':
             return { ...state, loginToken: null, userDetails: null }
         case 'UPDATE_USER':
@@ -26,6 +27,8 @@ export const reducerFunction = (state, action) => {
             return {...state, users: action.payload}
         case 'LOGIN_FORM_HANDLER':
             return {...state, loginFormData: {...state.loginFormData, [action.payload.name]: action.payload.value }}
+        case 'SIGNUP_FORM_HANDLER':
+            return {...state, signupFormData: {...state.signupFormData, [action.payload.name]: action.payload.value }}
         case 'APPLY_DUMMY':
             return {...state, loginFormData: action.payload}
         default:

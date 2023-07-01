@@ -1,5 +1,5 @@
 import {PostCard, ProfileCard, Sidebar, SkeletonLoader, Suggestions} from "../components";
-import {useEffect, useState} from "react";
+import {useEffect, useReducer, useState} from "react";
 import {useGlobalAlerts, useGlobalPosts} from "../contexts";
 import axios from "axios";
 import {useParams} from "react-router-dom";
@@ -8,26 +8,29 @@ const Profile = () => {
     const [myPosts, setMyPosts] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const {getAlert} = useGlobalAlerts()
-    const {isPostEditLoading} = useGlobalPosts()
-
+    const {isPostEditLoading, isLikedLoading} = useGlobalPosts()
     const {username} = useParams()
 
     const fetchMyPosts = async () => {
-        setIsLoading(true)
         try {
             const {data} = await axios.get(`/api/posts/user/${username}`)
             setMyPosts(data.posts)
         } catch (e) {
             getAlert('error', 'Error', e.message)
-        } finally {
+        }finally {
             setIsLoading(false)
         }
     }
 
+    useEffect( () => {
+        setIsLoading(true)
+        window.scrollTo({top: 0, left: 0});
+        fetchMyPosts();
+    }, [username])
+
     useEffect(() => {
-            window.scrollTo({top: 0, left: 0});
-            fetchMyPosts();
-    }, [username, isPostEditLoading])
+        fetchMyPosts();
+    }, [isPostEditLoading, isLikedLoading])
 
     return (
         <div
@@ -40,7 +43,7 @@ const Profile = () => {
                         isLoading ?
                             <SkeletonLoader count={2}/> :
                             myPosts.length ?
-                                myPosts.map(post => <PostCard key={post._id} post={post}/>) :
+                                [...myPosts].reverse().map(post => <PostCard key={post._id} post={post}/>) :
                                 <p className={'my-28 text-white/40 text-xl text-center'}>No Post Yet</p>
                     }
                 </div>

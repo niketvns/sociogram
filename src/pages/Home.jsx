@@ -34,7 +34,7 @@ const Home = () => {
             <Suggestions/>
 
             {/*Add User Icon*/}
-            <div className="add md:hidden fixed bottom-20 bg-black/40 rounded-full p-2 right-4 sm:right-auto sm:left-4 text-2xl text-sociogram">
+            <div className="add md:hidden fixed bottom-20 text-white dark:text-black bg-black/80 dark:bg-white/80 rounded-full p-2 right-4 sm:right-auto sm:left-4 text-2xl cursor-pointer">
                 <MdPersonAddAlt1/>
             </div>
         </div>
