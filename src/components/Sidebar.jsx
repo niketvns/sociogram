@@ -17,7 +17,7 @@ const Sidebar = () => {
                     <NavLink to={'/'}
                              className="home sm:border-l-4 sm:border-white sm:dark:border-[#241e38] cursor-pointer lg:flex items-center justify-start gap-0.5 p-2 sm:p-2 lg:px-10 hover:backdrop-sepia-0 hover:bg-black/5 hover:dark:bg-white/5 transition">
                         <AiFillHome className={'m-2'}/>
-                        <span className={'hidden lg:block'}>Home</span>
+                        <span className={'hidden lg:block'}>Feed</span>
                     </NavLink>
                     <NavLink to={'/user/explore'}
                              className="explore sm:border-l-4 sm:border-white sm:dark:border-[#241e38] cursor-pointer lg:flex items-center justify-start gap-0.5 p-2 sm:p-2 lg:px-10 hover:backdrop-sepia-0 hover:bg-black/5 hover:dark:bg-white/5 transition">

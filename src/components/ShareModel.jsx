@@ -2,9 +2,11 @@ import React, {useEffect, useRef} from 'react';
 import {IoLogoWhatsapp} from 'react-icons/io'
 import {BsFacebook} from 'react-icons/bs'
 import {AiFillLinkedin, AiFillTwitterCircle,AiOutlineClose} from 'react-icons/ai'
+import {useGlobalPosts} from "../contexts";
 
 const ShareModel = ({setIsShareModel, postId}) => {
     const shareModelRef = useRef()
+    const {handleCopyToClipboard} = useGlobalPosts()
 
     useEffect(() => {
         const handleModel = (e) => {
@@ -17,6 +19,7 @@ const ShareModel = ({setIsShareModel, postId}) => {
         document.addEventListener('mousedown', handleModel)
     }, [])
 
+
     return (
         <div className={'comment-main flex items-center justify-center bg-black/70 fixed inset-0 z-10 text-lg'}>
             <div ref={shareModelRef}
@@ -26,22 +29,19 @@ const ShareModel = ({setIsShareModel, postId}) => {
                 </div>
                 <h1>Share</h1>
                 <div className="share-option flex gap-6 text-3xl">
-                    <div className="icons cursor-pointer text-3xl sm:text-5xl">
+                    <a rel={'noreferrer'} href={`whatsapp://send?text=https://sociogramapp.netlify.app/post/${postId}`} target={'_blank'} className="icons cursor-pointer text-3xl sm:text-5xl">
                         <IoLogoWhatsapp className={'text-green-400'}/>
-                    </div>
-                    <div className="icons cursor-pointer text-3xl sm:text-5xl">
-                        <BsFacebook className={'text-blue-400'}/>
-                    </div>
-                    <div className="icons cursor-pointer text-3xl sm:text-5xl">
+                    </a>
+                    <a rel={'noreferrer'} target={'_blank'} href={`https://www.linkedin.com/cws/share?url=https://sociogramapp.netlify.app/post/${postId}`} className="icons cursor-pointer text-3xl sm:text-5xl">
                         <AiFillLinkedin className={'text-blue-300'}/>
-                    </div>
-                    <div className="icons cursor-pointer text-3xl sm:text-5xl">
+                    </a>
+                    <a rel={'noreferrer'} href={`https://twitter.com/intent/tweet?text=https://sociogramapp.netlify.app/post/${postId}`}  target={'_blank'} className="icons cursor-pointer text-3xl sm:text-5xl">
                         <AiFillTwitterCircle className={'text-blue-300'}/>
-                    </div>
+                    </a>
                 </div>
                 <div className="share-url flex gap-2 text-sm w-full">
                     <div className="url border rounded-lg px-2 sm:px-5 py-2 flex-1 max-w-[80%] h-[33px] line-clamp-1">https://sociogramapp.netlify.app/post/{postId}</div>
-                    <button className="button text-white bg-button px-3 py-1 rounded-[20px]">Copy</button>
+                    <button className="button text-white bg-button px-3 py-1 rounded-[20px]" onClick={()=>handleCopyToClipboard(`https://sociogramapp.netlify.app/post/${postId}`)}>Copy</button>
                 </div>
             </div>
         </div>

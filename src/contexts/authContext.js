@@ -19,6 +19,15 @@ const AuthProvider = ({children}) => {
         }
     }, [])
 
+    const fetchAllUsers = async () => {
+        try {
+            const { data } = await axios.get('/api/users')
+            dispatch({ type: 'UPDATE_USERS', payload: data.users });
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     useEffect(() => {
         // const themePreference = localStorage.getItem('theme')
         if (theme === 'dark') {
@@ -78,6 +87,7 @@ const AuthProvider = ({children}) => {
             localStorage.setItem("foundUser", JSON.stringify(data.createdUser));
             dispatch({type: 'SIGNUP', payload: {loginToken: data.encodedToken, userDetails: data.createdUser}});
             getAlert('success', 'Signup Successfully!', "Welcome in the Sociogram")
+            fetchAllUsers();
         } catch (error) {
             console.log(error)
         }

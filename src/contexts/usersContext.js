@@ -41,10 +41,6 @@ const UsersProvider = ({children}) =>{
         }
     }
 
-    const findUser = (username) => {
-        return state.users.find(user => user.username === username)
-    }
-
     const followUser = async (followUserId) => {
         const token = localStorage.getItem('encodedToken')
         try {
@@ -53,6 +49,8 @@ const UsersProvider = ({children}) =>{
                 {},
                 {headers: {authorization: token}}
             )
+            dispatch({ type: 'UPDATE_USER', payload: data.user });
+            localStorage.setItem("foundUser", JSON.stringify(data.user));
             fetchAllUsers()
             getAlert('success', `Following ${data?.followUser?.firstName}`, '')
         } catch (error) {
@@ -68,6 +66,8 @@ const UsersProvider = ({children}) =>{
                 {},
                 {headers: {authorization: token}}
             )
+            dispatch({ type: 'UPDATE_USER', payload: data.user });
+            localStorage.setItem("foundUser", JSON.stringify(data.user));
             fetchAllUsers()
             getAlert('info', `Unfollow ${data?.followUser?.firstName}`, '')
         } catch (error) {
@@ -75,9 +75,16 @@ const UsersProvider = ({children}) =>{
         }
     }
 
+    const findUser = (username) => {
+        return state.users.find(user => user.username === username)
+    }
+
+    const isFollow = (username) => {
+        return state.userDetails?.followers?.some(user => user?.username === username) || state.userDetails?.following?.some(user => user?.username === username)
+    }
 
     return(
-        <usersContext.Provider value={{users: state.users, findUser, followUser, unfollowUser, editUserDetails, isUserEditLoading}}>
+        <usersContext.Provider value={{users: state.users, findUser, followUser, unfollowUser, editUserDetails, isUserEditLoading, isFollow}}>
             {children}
         </usersContext.Provider>
     )

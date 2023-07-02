@@ -3,12 +3,14 @@ import profile from "../images/niket_img.png";
 import {MdAddPhotoAlternate, MdOutlineAddReaction, MdPermMedia} from "react-icons/md";
 import {AiOutlineClose} from "react-icons/ai";
 import {useGlobalPosts} from "../contexts";
+import {EmojiBox} from "./index";
 
 const CreatePostModel = ({isEdit, editPostData, setIsCreatePostModel}) => {
     const [post, setPost] = useState({
         content: "",
         mediaURL: "",
     })
+    const [isEmojiModel, setIsEmojiModel] = useState(false)
     const createPostModelRef = useRef()
     const inputRef = useRef()
     const {addPost, editPost, handleMediaUpload, isMediaUploading} = useGlobalPosts();
@@ -19,7 +21,7 @@ const CreatePostModel = ({isEdit, editPostData, setIsCreatePostModel}) => {
     }
 
     const submitHandler = () => {
-        if (!post.content)
+        if (!post.content && !post.mediaURL)
             return;
         // function call
         if (isEdit) {
@@ -81,14 +83,27 @@ const CreatePostModel = ({isEdit, editPostData, setIsCreatePostModel}) => {
                     </textarea>
                     </div>
                 </div>
-                {isMediaUploading && <p className={'text-sociogram'}>Uploading.....</p>}
+                {
+                    post.mediaURL &&
+                    <div className={'relative'}>
+                        <img src={post.mediaURL} className={'w-36 aspect-square rounded-lg'} alt="media"/>
+                        <div
+                            className="close-icon text-sm p-2 bg-black/20 dark:bg-white/20 hover:bg-black/40 dark:hover:bg-white/40 transition rounded-full aspect-square cursor-pointer absolute top-0 right-0"
+                            onClick={()=>setPost(prevState => ({...prevState, mediaURL: ''}))}>
+                            <AiOutlineClose/>
+                        </div>
+                    </div>
+                }
                 <div className="bottom w-full flex justify-around items-center text-sociogram">
                     <label className={'cursor-pointer'}>
                         <MdAddPhotoAlternate className={'text-2xl'}/>
-                        <input type="file" accept={'image/*, video/*'} className={'hidden'} onChange={handleMediaUpload}/>
+                        <input type="file" accept={'image/*, video/*'} className={'hidden'} onChange={(e)=>setPost(prevState => ({...prevState, mediaURL: URL.createObjectURL(e.target.files[0])}))}/>
                     </label>
-                    <button className={'text-2xl'}><MdOutlineAddReaction/></button>
-                    <button className={`px-6 py-1 rounded-2xl ${post.content ? 'bg-button' : 'bg-gray-500'} text-white`}
+                    <button className={'text-2xl relative'}>
+                        <MdOutlineAddReaction onClick={()=>setIsEmojiModel(true)}/>
+                        {isEmojiModel && <EmojiBox setIsEmojiModel={setIsEmojiModel} setPost={setPost}/>}
+                    </button>
+                    <button className={`px-6 py-1 rounded-2xl ${post.content || post.mediaURL ? 'bg-button' : 'bg-gray-500 cursor-not-allowed'} text-white`}
                             onClick={submitHandler}>{isEdit ? 'Save' : 'Post'}</button>
                 </div>
             </div>

@@ -8,7 +8,7 @@ const Profile = () => {
     const [myPosts, setMyPosts] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const {getAlert} = useGlobalAlerts()
-    const {isPostEditLoading, isLikedLoading} = useGlobalPosts()
+    const {isPostEditLoading, isLikedLoading, isCommentLoading} = useGlobalPosts()
     const {username} = useParams()
 
     const fetchMyPosts = async () => {
@@ -29,8 +29,9 @@ const Profile = () => {
     }, [username])
 
     useEffect(() => {
-        fetchMyPosts();
-    }, [isPostEditLoading, isLikedLoading])
+        if (isPostEditLoading || isLikedLoading || isCommentLoading)
+            fetchMyPosts();
+    }, [isPostEditLoading, isLikedLoading, isCommentLoading])
 
     return (
         <div

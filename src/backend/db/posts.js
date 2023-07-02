@@ -51,6 +51,17 @@ export const posts = [
           followers: [],
           following: []
         },
+        {
+          _id: "41c8585c-5fab-4748-83c2-fb07bde54b86",
+          avatarUrl: "https://res.cloudinary.com/dyzu4lzqz/image/upload/v1687356575/sociogram/xfiwt6zmylz1pcy93fih.png",
+          firstName: "Niket",
+          lastName: "Mishra",
+          username: "niketmishra",
+          createdAt: "2022-01-01T10:55:06+05:30",
+          updatedAt: "2023-07-01T13:04:27+05:30",
+          followers: [],
+          following: []
+        }
       ],
       dislikedBy: [],
     },
@@ -157,6 +168,17 @@ export const posts = [
           followers: [],
           following: []
         },
+        {
+          _id: "41c8585c-5fab-4748-83c2-fb07bde54b86",
+          avatarUrl: "https://res.cloudinary.com/dyzu4lzqz/image/upload/v1687356575/sociogram/xfiwt6zmylz1pcy93fih.png",
+          firstName: "Niket",
+          lastName: "Mishra",
+          username: "niketmishra",
+          createdAt: "2022-01-01T10:55:06+05:30",
+          updatedAt: "2023-07-01T13:04:27+05:30",
+          followers: [],
+          following: []
+        }
       ],
       dislikedBy: [],
     },
@@ -250,6 +272,17 @@ export const posts = [
           followers: [],
           following: []
         },
+        {
+          _id: "41c8585c-5fab-4748-83c2-fb07bde54b86",
+          avatarUrl: "https://res.cloudinary.com/dyzu4lzqz/image/upload/v1687356575/sociogram/xfiwt6zmylz1pcy93fih.png",
+          firstName: "Niket",
+          lastName: "Mishra",
+          username: "niketmishra",
+          createdAt: "2022-01-01T10:55:06+05:30",
+          updatedAt: "2023-07-01T13:04:27+05:30",
+          followers: [],
+          following: []
+        }
       ],
       dislikedBy: [],
     },
@@ -446,6 +479,17 @@ export const posts = [
           followers: [],
           following: []
         },
+        {
+          _id: "41c8585c-5fab-4748-83c2-fb07bde54b86",
+          avatarUrl: "https://res.cloudinary.com/dyzu4lzqz/image/upload/v1687356575/sociogram/xfiwt6zmylz1pcy93fih.png",
+          firstName: "Niket",
+          lastName: "Mishra",
+          username: "niketmishra",
+          createdAt: "2022-01-01T10:55:06+05:30",
+          updatedAt: "2023-07-01T13:04:27+05:30",
+          followers: [],
+          following: []
+        }
       ],
       dislikedBy: [],
     },

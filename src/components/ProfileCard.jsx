@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {BiArrowBack} from 'react-icons/bi'
-import {RiImageAddFill} from 'react-icons/ri'
+import {SlCalender} from 'react-icons/sl'
 import {AiOutlineLink} from 'react-icons/ai'
 import {useNavigate} from "react-router-dom";
 import {useGlobalAuth, useGlobalUsers} from "../contexts";
@@ -39,7 +39,7 @@ const ProfileCard = ({username, myPosts}) => {
                     {
                         userData?.bannerUrl ?
                         <img src={userData?.bannerUrl} alt="banner" className={'w-full'}/> :
-                        <img src='https://res.cloudinary.com/dyzu4lzqz/image/upload/v1688188326/sociogram/user-banner_sxp79y.jpg' alt="banner" className={'w-full'}/>
+                        <img src='https://res.cloudinary.com/dyzu4lzqz/image/upload/v1688213123/user_banner_default_v1fq2b.png' alt="banner" className={'w-full'}/>
                     }
                 </div>
                 <div className="profile relative flex items-end justify-between px-2 sm:px-8 w-full">
@@ -51,13 +51,6 @@ const ProfileCard = ({username, myPosts}) => {
                                 <img src='https://res.cloudinary.com/dyzu4lzqz/image/upload/v1688187993/sociogram/user-avatar_jm8mwb.png' alt="avatar"
                               className={'w-24 rounded-full aspect-square object-cover'}/>
 
-                        }
-                        {
-                            userData?._id === userDetails?._id &&
-                            <label htmlFor="profile">
-                                <RiImageAddFill className={'absolute bottom-2 right-4 text-xl cursor-pointer text-white'}/>
-                                <input type="file" accept={'image/*'} name="profile" id="profile" className={'hidden'}/>
-                            </label>
                         }
                     </div>
                     <div className="w-full edit flex justify-end">
@@ -73,6 +66,7 @@ const ProfileCard = ({username, myPosts}) => {
                 <div className="profile-details px-5 py-1">
                     <p className="name text-xl font-bold">{userData?.firstName} {userData?.lastName}</p>
                     <p className="username text-black/40 dark:text-white/40">@{userData?.username}</p>
+                    <p className="bio my-2 flex items-center gap-1 text-black/60 dark:text-white/60"><SlCalender/> Joined {new Date(userData?.createdAt).toDateString().split(" ").slice(1, 4).join(" ")}</p>
                     <p className="bio my-2">{userData?.bio}</p>
                     {
                         userData?.website &&

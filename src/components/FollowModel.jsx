@@ -26,11 +26,11 @@ const FollowModel = ({content, setIsFollowModel, followers}) => {
                     <AiOutlineClose/>
                 </div>
                 <h2 className={'text-xl'}>{content}</h2>
-                <div className="all-suggestions flex flex-col gap-4">
+                <div className="all-suggestions w-full flex flex-col gap-1">
                     {
                         followers.length ?
                         followers?.map(user => (
-                            <div key={user._id} className="ind-suggestion flex items-center justify-between gap-5">
+                            <div key={user._id} className="ind-suggestion flex-1 flex items-center justify-between gap-5 bg-black/5 dark:bg-white/5 hover:bg-black/20 hover:dark:bg-white/20 transition p-2 rounded">
                                 <div className="profile cursor-pointer" onClick={()=> {
                                     navigate(`/user/${user.username}`)
                                     setIsFollowModel(false)

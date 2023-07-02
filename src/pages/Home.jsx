@@ -1,17 +1,22 @@
-import {AllPosts, CreatePost, Sidebar, SkeletonLoader, Suggestions} from "../components/index.js";
-import {useGlobalPosts} from "../contexts";
+import {AllPosts, CreatePost, PostCard, Sidebar, SkeletonLoader, Suggestions} from "../components/index.js";
+import {useGlobalAuth, useGlobalPosts, useGlobalUsers} from "../contexts";
 import {useEffect, useState} from "react";
 import {MdPersonAddAlt1} from 'react-icons/md'
 import {SortPosts} from "../components";
 
 const Home = () => {
     const [isSortMenu, setIsSortMenu] = useState(false)
-    const {isPostLoading} = useGlobalPosts()
+    const {isPostLoading, posts} = useGlobalPosts()
+    const {userDetails} = useGlobalAuth()
+    const {isFollow} = useGlobalUsers()
 
     useEffect(() => {
         window.scrollTo({top: 0, left: 0});
         document.title = 'Home | Sociogram'
     }, [])
+
+    const checkForHomePost = [...posts].reverse().filter(post => isFollow(post?.username) || post?.username === userDetails?.username)
+
 
     return (
         <div
@@ -27,14 +32,18 @@ const Home = () => {
                 {
                     isPostLoading ?
                         <SkeletonLoader/> :
-                        <AllPosts/>
+                        <div className={'all-posts flex flex-col gap-3 justify-center'}>
+                            {
+                                checkForHomePost.map(post => <PostCard key={post._id} post={post}/>)
+                            }
+                        </div>
                 }
             </div>
             {/*Suggestions*/}
             <Suggestions/>
 
             {/*Add User Icon*/}
-            <div className="add md:hidden fixed bottom-20 text-white dark:text-black bg-black/80 dark:bg-white/80 rounded-full p-2 right-4 sm:right-auto sm:left-4 text-2xl cursor-pointer">
+            <div className="add md:hidden fixed bottom-20 text-white dark:text-black bg-black/80 dark:bg-white/80 rounded-full p-2 right-4 sm:right-auto sm:left-4 text-2xl cursor-pointer z-10">
                 <MdPersonAddAlt1/>
             </div>
         </div>

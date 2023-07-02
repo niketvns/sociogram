@@ -18,7 +18,7 @@ export const reducerFunction = (state, action) => {
         case 'LOGOUT':
             return { ...state, loginToken: null, userDetails: null }
         case 'UPDATE_USER':
-            return {...state, userDetails: action.payload.user}
+            return {...state, userDetails: action.payload}
         case 'UPDATE_POST':
             return {...state, allPosts: action.payload}
         case 'UPDATE_BOOKMARKS':

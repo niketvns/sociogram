@@ -144,7 +144,8 @@ export const bookmarkPostHandler = function (schema, request) {
         { errors: ["This Post is already bookmarked"] }
       );
     }
-    user.bookmarks.push(post); //changed
+    // console.log(post)
+    user.bookmarks.push(post); //changed --> circular structure is generating here
     // this.db.users.update(
     //   { _id: user._id },
     //   { ...user, updatedAt: formatDate() }

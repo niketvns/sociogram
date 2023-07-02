@@ -1,6 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import profilePic from '../images/niket_img.png'
-import {useGlobalAuth} from "../contexts";
+import {useGlobalAuth, useGlobalUsers} from "../contexts";
 import {useNavigate} from "react-router-dom";
 
 const ProfileMenu = () => {
@@ -8,6 +7,7 @@ const ProfileMenu = () => {
     const profileRef = useRef()
     const {logoutHandler, userDetails} = useGlobalAuth()
     const navigate = useNavigate()
+    const {findUser} = useGlobalUsers()
 
     useEffect(() => {
         const handleModel = (e) => {
@@ -20,12 +20,14 @@ const ProfileMenu = () => {
         document.addEventListener('mousedown', handleModel)
     }, [])
 
+    const userData = findUser(userDetails?.username)
+
     return (
         <div ref={profileRef} className={'profile-menu relative'}>
             <div className={'profile-icon select-none hover:scale-105 transition'} onClick={() => setIsProfileModel(prev => !prev)}>
                 {
-                    userDetails?.avatarUrl ?
-                        <img src={userDetails.avatarUrl} alt=""
+                    userData?.avatarUrl ?
+                        <img src={userData?.avatarUrl} alt="profile"
                              className={'w-8 aspect-square sm:w-10 object-cover rounded-full cursor-pointer'}/> :
                         <div className={'w-8 aspect-square sm:w-10 object-cover rounded-full cursor-pointer bg-black/40 dark:bg-white/40 flex items-center justify-center text-lg font-bold'}>
                             {userDetails?.firstName.slice(0,1).toUpperCase()}

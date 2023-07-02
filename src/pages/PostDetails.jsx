@@ -1,15 +1,18 @@
 import React, {useEffect, useState} from 'react';
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {PostCard, Sidebar, SkeletonLoader, Suggestions} from "../components";
 import axios from "axios";
 import profile from "../images/niket_img.png";
-import {useGlobalPosts} from "../contexts";
+import {useGlobalAuth, useGlobalPosts, useGlobalUsers} from "../contexts";
 
 const PostDetails = () => {
     const [isLoading, setIsLoading] = useState(true)
     const [post, setPost] = useState(null)
     const {id} = useParams()
-    const {isPostEditLoading, isLikedLoading} = useGlobalPosts()
+    const {isPostEditLoading, isLikedLoading, isCommentLoading} = useGlobalPosts()
+    const {findUser} = useGlobalUsers()
+    const {userDetails} = useGlobalAuth()
+    const navigate = useNavigate()
 
     const fetchSinglePost = async () => {
         try {
@@ -29,8 +32,9 @@ const PostDetails = () => {
     }, [])
 
     useEffect(() => {
-        fetchSinglePost();
-    }, [isPostEditLoading, isLikedLoading])
+        if (isPostEditLoading || isLikedLoading || isCommentLoading)
+            fetchSinglePost();
+    }, [isPostEditLoading, isLikedLoading, isCommentLoading])
 
     useEffect(() => {
         if (post) {
@@ -51,9 +55,10 @@ const PostDetails = () => {
                         <SkeletonLoader/> :
                         <>
                             <PostCard key={post?._id} post={post}/>
-                            <div className="create-comment rounded-lg bg-secondary p-2 py-4  flex items-start gap-2">
+                            <div className="create-comment rounded-lg bg-secondary p-2 py-4 flex items-start gap-2">
                                 <div className="profile">
-                                    <img src={profile} alt="profile" className={'w-8 rounded-full aspect-square'}/>
+                                    <img src={userDetails?.avatarUrl} alt="profile"
+                                         className={'w-8 rounded-full aspect-square'}/>
                                 </div>
                                 <textarea name="comment" id="comment" rows="2" placeholder={'Post Your Comment!'}
                                           className={'w-full resize-none h-12 px-4 rounded-lg bg-secondary text-sociogram border-none outline-0'}></textarea>
@@ -73,20 +78,22 @@ const PostDetails = () => {
                                              className="ind-comment flex flex-col items-start justify-start gap-2 my-2 p-2 py-4 rounded-lg bg-secondary">
                                             <div className="user flex gap-2">
                                                 <div className="profile">
-                                                    <img src={profile} alt="profile"
-                                                         className={'w-8 rounded-full aspect-square'}/>
+                                                    <img src={findUser(comment?.username).avatarUrl} alt="profile"
+                                                         className={'w-8 rounded-full aspect-square object-cover'}/>
                                                 </div>
-                                                <div className={'text-sm'}>
-                                                    <h3 className={'capitalize'}>@{comment.username}</h3>
-                                                    <p>Replying to <span
-                                                        className={'text-blue-600 hover:underline cursor-pointer'}>@{post?.username}</span>
+                                                <div className={'text-lg'}>
+                                                    <h3 className={''}>@{comment?.username}</h3>
+                                                    <p className={'text-sm text-black/60 dark:text-white/60'}>Replying
+                                                        to <span
+                                                            className={'text-blue-600 hover:underline cursor-pointer'}
+                                                            onClick={() => navigate(`/user/${post?.username}`)}>@{post?.username}</span>
                                                     </p>
                                                 </div>
                                             </div>
                                             <div className="comment-details flex-1 pl-9">
-                                                <div className="text line-clamp-3 text-sm">{comment.text}</div>
+                                                <div className="text line-clamp-3 text-lg">{comment?.text}</div>
                                                 {
-                                                    comment.mediaURL &&
+                                                    comment?.mediaURL &&
                                                     <div className="media">
                                                         <img src={comment.mediaURL} alt="media"/>
                                                     </div>

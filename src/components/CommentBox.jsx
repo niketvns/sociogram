@@ -1,10 +1,13 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import profile from "../images/niket_img.png";
 import {MdOutlineAddReaction, MdPermMedia} from "react-icons/md";
 import {AiOutlineClose} from "react-icons/ai";
+import {useGlobalPosts} from "../contexts";
 
-const CommentBox = ({setIsCommentModel}) => {
+const CommentBox = ({setIsCommentModel, post}) => {
+    const [comment, setComment] = useState('')
     const commentModelRef = useRef()
+    const {addComment} = useGlobalPosts()
 
     useEffect(() => {
         const handleModel = (e) => {
@@ -16,6 +19,13 @@ const CommentBox = ({setIsCommentModel}) => {
         }
         document.addEventListener('mousedown', handleModel)
     }, [])
+
+    const submitHandler = () => {
+        if (comment){
+            addComment(post._id, comment)
+            setIsCommentModel(false)
+        }
+    }
 
     return (
         <div className={'comment-main flex items-center justify-center bg-black/70 fixed inset-0 z-10'}>
@@ -35,7 +45,9 @@ const CommentBox = ({setIsCommentModel}) => {
                         id="" cols="30"
                         rows="1"
                         placeholder={"Post Your Reply!"}
-                        className={'h-44 w-full text-lg resize-none bg-secondary p-2 outline-0 border-none'}>
+                        className={'h-44 w-full text-lg resize-none bg-secondary p-2 outline-0 border-none'}
+                        onChange={(e)=>setComment(e.target.value)}
+                    >
                     </textarea>
                     </div>
                 </div>
@@ -44,7 +56,7 @@ const CommentBox = ({setIsCommentModel}) => {
                         <MdPermMedia className={'text-2xl'}/><input type="file" accept={'image/*, video/*'} className={'hidden'}/>
                     </label>
                     <button className={'text-2xl'}><MdOutlineAddReaction/></button>
-                    <button className={'bg-button text-white px-6 py-1 rounded-2xl text-lg'}>Reply</button>
+                    <button className={'bg-button text-white px-6 py-1 rounded-2xl text-lg'} onClick={submitHandler}>Reply</button>
                 </div>
             </div>
         </div>

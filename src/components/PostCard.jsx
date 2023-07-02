@@ -17,7 +17,7 @@ const PostCard = ({post}) => {
     const [isCreatePostModel, setIsCreatePostModel] = useState(false)
     const [isCommentModel, setIsCommentModel] = useState(false)
     const [isShareModel, setIsShareModel] = useState(false)
-    const {_id, comments, content, likes, mediaURL, updatedAt, username} = post
+    const {_id, comments, content, likes, mediaURL, createdAt, username} = post
     const {findUser} = useGlobalUsers()
     const {userDetails} = useGlobalAuth()
     const {addToBookmarks, removeFromBookmarks, isInBookmarks} = useGlobalBookmarks()
@@ -48,7 +48,7 @@ const PostCard = ({post}) => {
                         {
                             isPostModel &&
                             <div
-                                className="post-edit-menu select-none absolute top-6 text-lg rounded-lg right-2 bg-secondary border-2 border-black/40 dark:border-white/40">
+                                className="post-edit-menu select-none absolute top-6 text-lg rounded-lg right-2 bg-secondary border-2 border-black/40 dark:border-white/40 z-10">
                                 <div
                                     className="edit px-6 py-2 cursor-pointer hover:bg-black/20 hover:dark:bg-white/20 transition"
                                     onClick={() => setIsCreatePostModel(true)}>Edit
@@ -70,6 +70,9 @@ const PostCard = ({post}) => {
                     <div className="user-details cursor-pointer" onClick={() => navigate(`/user/${username}`)}>
                         <p className={'text-sociogram'}>{userData?.firstName} {userData?.lastName}</p>
                         <p className={'text-sm text-black/40 dark:text-white/40'}>@{username}</p>
+                    </div>
+                    <div className="post-date cursor-pointer text-sociogram self-start">
+                        {new Date(createdAt).toDateString().split(" ").slice(1, 4).join(" ")}
                     </div>
                 </div>
                 <div className="text-lg whitespace-pre-line text-sociogram cursor-pointer pl-2"
@@ -111,7 +114,8 @@ const PostCard = ({post}) => {
                             <FaRegCommentDots/>
                             <span className={'text-sm'}>{comments?.length}</span>
                         </div>
-                        {isCommentModel && <CommentBox setIsCommentModel={setIsCommentModel}/>}
+                        {isCommentModel && <CommentBox post={post} setIsCommentModel={setIsCommentModel}/>}
+
                         <div className="share cursor-pointer" onClick={() => setIsShareModel(true)}>
                             <AiOutlineShareAlt/>
                         </div>
@@ -134,7 +138,7 @@ const PostCard = ({post}) => {
                             <div className="images flex">
                                 <img src={likes?.likedBy[0]?.avatarUrl} alt="p" className={'w-4 aspect-square rounded-full'}/>
                             </div>
-                            Liked by {likes?.likedBy[0]?.username} {likes?.likeCount >= 2 ? ` and ${likes?.likeCount-1} others` : null }
+                            Liked by {isInLiked(likes?.likedBy, userDetails?._id) ? 'You' : likes?.likedBy[0]?.username === userDetails?.username ? 'You' : likes?.likedBy[0]?.username } {likes?.likeCount >= 2 ? ` and ${likes?.likeCount-1} others` : null }
                         </div> :
                         <div
                             className="like-comment-overview flex gap-2 items-center text-sm text-black/60 dark:text-white/60 pl-2">

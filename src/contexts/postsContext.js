@@ -2,7 +2,8 @@ import {createContext, useContext, useEffect, useReducer, useState} from "react"
 import axios from "axios";
 import {initialValue, reducerFunction} from "./Reducer/reducer";
 import {useGlobalAlerts} from "./alertContext";
-import {cookieStorageManager} from "@chakra-ui/react";
+import copy from 'copy-to-clipboard';
+import * as events from "events";
 
 const postsContext = createContext()
 
@@ -11,6 +12,7 @@ const PostsProvider = ({children}) => {
     const [isPostLoading, setIsPostLoading] = useState(false)
     const [isPostEditLoading, setIsPostEditLoading] = useState(false)
     const [isLikedLoading, setIsLikedLoading] = useState(false)
+    const [isCommentLoading, setIsCommentLoading] = useState(false)
     const [state, dispatch] = useReducer(reducerFunction, initialValue);
     const {getAlert} = useGlobalAlerts()
 
@@ -92,6 +94,11 @@ const PostsProvider = ({children}) => {
         }
     }
 
+    const handleCopyToClipboard = (text) => {
+        copy(text)
+        getAlert('success', 'Copied', text);
+    }
+
     const addToLikes = async (postId) => {
         setIsLikedLoading(true)
         const token = localStorage.getItem('encodedToken')
@@ -130,6 +137,23 @@ const PostsProvider = ({children}) => {
         return likedBy.some(user => user?._id === userId)
     }
 
+    const addComment = async (postId, comment) => {
+        setIsCommentLoading(true)
+        const token = localStorage.getItem('encodedToken')
+        try {
+            const {data} = await axios.post(
+                `/api/comments/add/${postId}`,
+                {commentData: comment},
+                {headers: {authorization: token}}
+            )
+            dispatch({type: 'UPDATE_POST', payload: data.posts});
+        } catch (error) {
+            getAlert('error', 'Error in Comment', error.message)
+        }finally {
+            setIsCommentLoading(false)
+        }
+    }
+
     return (
         <postsContext.Provider value={{
             posts: state.allPosts,
@@ -144,7 +168,10 @@ const PostsProvider = ({children}) => {
             addToLikes,
             removeFromLikes,
             isInLiked,
-            isLikedLoading
+            isLikedLoading,
+            isCommentLoading,
+            handleCopyToClipboard,
+            addComment
         }}>
             {children}
         </postsContext.Provider>
