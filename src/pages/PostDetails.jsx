@@ -64,7 +64,7 @@ const PostDetails = () => {
                             <PostCard key={post?._id} post={post}/>
                             <div className="create-comment rounded-lg bg-secondary p-2 py-4 flex items-start gap-2">
                                 <div className="profile">
-                                    <img src={userDetails?.avatarUrl} alt="profile"
+                                    <img src={findUser(userDetails?.username)?.avatarUrl} alt="profile"
                                          className={'w-8 rounded-full aspect-square'}/>
                                 </div>
                                 <textarea
