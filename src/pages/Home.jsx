@@ -6,6 +6,7 @@ import {SortPosts} from "../components";
 
 const Home = () => {
     const [isSortMenu, setIsSortMenu] = useState(false)
+    const [filter, setFilter] = useState('latest')
     const {isPostLoading, posts} = useGlobalPosts()
     const {userDetails} = useGlobalAuth()
     const {isFollow} = useGlobalUsers()
@@ -15,8 +16,17 @@ const Home = () => {
         document.title = 'Home | Sociogram'
     }, [])
 
-    const checkForHomePost = [...posts].reverse().filter(post => isFollow(post?.username) || post?.username === userDetails?.username)
+    const checkForHomePost = posts.filter(post => isFollow(post?.username) || post?.username === userDetails?.username)
 
+    let filteredPosts = checkForHomePost
+
+    if (filter === 'trending'){
+        filteredPosts = checkForHomePost.sort((post1, post2) => post2?.likes?.likeCount - post1?.likes?.likeCount)
+    } else if (filter === 'latest'){
+        filteredPosts= checkForHomePost.sort((post1, post2) => new Date(post2?.createdAt) - new Date(post1?.createdAt))
+    }else if (filter === 'oldest'){
+        filteredPosts = checkForHomePost.sort((post1, post2) => new Date(post1?.createdAt) - new Date(post2?.createdAt))
+    }
 
     return (
         <div
@@ -26,7 +36,7 @@ const Home = () => {
             <div className="posts w-full md:w-1/2 lg:w-[45%] pt-4 sm:pt-10 flex flex-col md:flex-1 lg:flex-none gap-4">
                 <CreatePost/>
                 {/*sorting*/}
-                <SortPosts isSortMenu={isSortMenu} setIsSortMenu={setIsSortMenu}/>
+                <SortPosts isSortMenu={isSortMenu} filter={filter} setFilter={setFilter} setIsSortMenu={setIsSortMenu}/>
 
                 {/*Posts*/}
                 {
@@ -34,7 +44,7 @@ const Home = () => {
                         <SkeletonLoader/> :
                         <div className={'all-posts flex flex-col gap-3 justify-center'}>
                             {
-                                checkForHomePost.map(post => <PostCard key={post._id} post={post}/>)
+                                filteredPosts.map(post => <PostCard key={post._id} post={post}/>)
                             }
                         </div>
                 }

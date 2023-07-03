@@ -37,7 +37,7 @@ const Profile = () => {
         <div
             className={'home-main flex gap-5 sm:p-2 sm:justify-start lg:justify-center items-start lg:gap-4 sm:pl-0 relative'}>
             <Sidebar/>
-            <div className="posts w-full md:w-1/2 lg:w-[45%] sm:pt-8 flex flex-col md:flex-1 lg:flex-none gap-4">
+            <div className="posts w-full md:w-1/2 lg:w-[45%] sm:pt-10 flex flex-col md:flex-1 lg:flex-none gap-4">
                 <ProfileCard username={username} myPosts={myPosts}/>
                 <div className={'all-posts flex flex-col gap-3 justify-center'}>
                     {

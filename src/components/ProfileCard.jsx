@@ -26,7 +26,7 @@ const ProfileCard = ({username, myPosts}) => {
 
     return (
         <>
-            <div className={'profile-card flex flex-col gap-2 bg-secondary text-sociogram sm:rounded-lg pt-3 border-t sm:border-none'}>
+            <div className={'profile-card flex flex-col gap-2 bg-secondary text-sociogram sm:rounded pt-3 border-t sm:border-none'}>
                 <div className="back-option flex items-center gap-6 px-3">
                     <div className="back-icon text-xl cursor-pointer hover:bg-black/20 hover:dark:bg-white/20 p-2 rounded-full transition" onClick={()=>navigate(-1)}>
                         <BiArrowBack/>

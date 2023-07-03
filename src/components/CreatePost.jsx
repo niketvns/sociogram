@@ -31,7 +31,7 @@ const CreatePost = () => {
 
     return (
         <div
-            className="whats-on-your-mind flex flex-col items-start justify-center gap-2 bg-secondary rounded-lg py-2 px-3">
+            className="whats-on-your-mind flex flex-col items-start justify-center gap-2 bg-secondary rounded py-2 px-3">
             <div className="top w-full flex border-b-[0.5px] border-black/20 dark:border-white/20">
                 <div className="profile">
                     <img src={profile} alt="profile" className={'w-8 rounded-full aspect-square'}/>

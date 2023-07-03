@@ -39,21 +39,20 @@ const PostCard = ({post}) => {
 
     return (
         <>
-            <div className={'postcard bg-secondary relative rounded-lg p-4 flex flex-col gap-3'}>
+            <div className={'postcard bg-secondary relative rounded p-4 flex flex-col gap-3'}>
                 {
                     userDetails._id === userData._id &&
-                    <div ref={isPostModelRef} className="hamburger absolute top-4 right-8 text-sociogram">
+                    <div ref={isPostModelRef} className="hamburger absolute top-4 right-8 text-sociogram select-none">
                         <HiOutlineDotsHorizontal className={'text-2xl cursor-pointer'}
                                                  onClick={() => setIsPostModel(prevState => !prevState)}/>
                         {
                             isPostModel &&
                             <div
-                                className="post-edit-menu select-none absolute top-6 text-lg rounded-lg right-2 bg-secondary border-2 border-black/40 dark:border-white/40 z-10">
+                                className="post-edit-menu select-none absolute top-6 rounded right-2 bg-secondary border-2 border-black/20 dark:border-white/20 z-10">
                                 <div
-                                    className="edit px-6 py-2 cursor-pointer hover:bg-black/20 hover:dark:bg-white/20 transition"
+                                    className="edit px-6 py-2 cursor-pointer hover:bg-black/20 hover:dark:bg-white/20 transition border-b"
                                     onClick={() => setIsCreatePostModel(true)}>Edit
                                 </div>
-                                <hr/>
                                 <div
                                     className="delete px-6 py-2 cursor-pointer hover:bg-black/20 hover:dark:bg-white/20 transition"
                                     onClick={() => deletePost(post._id)}>Delete
@@ -72,7 +71,7 @@ const PostCard = ({post}) => {
                         <p className={'text-sm text-black/40 dark:text-white/40'}>@{username}</p>
                     </div>
                     <div className="post-date text-black/30 dark:text-white/30 self-start">
-                        {new Date(createdAt).toDateString().split(" ").slice(1, 4).join(" ")}
+                        • {new Date(createdAt).toDateString().split(" ").slice(1, 4).join(" ")}
                     </div>
                 </div>
                 <div className="text-lg whitespace-pre-line text-sociogram cursor-pointer pl-2"

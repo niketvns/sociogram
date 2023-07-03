@@ -35,7 +35,7 @@ const ProfileMenu = () => {
                 }
             </div>
             <div
-                className={`profile-model w-[200px] p-4 bg-secondary border-2 border-black/20 dark:border-white/20 text-sociogram absolute top-12 right-0 rounded-lg ${isProfileModel ? 'block' : 'hidden'} transition flex flex-col items-center justify-center gap-4 select-none`}>
+                className={`profile-model w-[200px] p-4 bg-secondary border-2 border-black/20 dark:border-white/20 text-sociogram absolute top-12 right-0 rounded ${isProfileModel ? 'block' : 'hidden'} transition flex flex-col items-center justify-center gap-4 select-none`}>
                 <div className="bg-transparent border-2 border-black/60 dark:border-white/60 w-full py-2 px-3 text-center text-sociogram rounded-3xl cursor-pointer"
                      onClick={() => {
                          setIsProfileModel(false)

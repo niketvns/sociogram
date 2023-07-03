@@ -58,7 +58,7 @@ const CreatePostModel = ({isEdit, editPostData, setIsCreatePostModel}) => {
     return (
         <div className={'create-post-model-main flex items-center justify-center bg-black/70 fixed inset-0 z-40'}>
             <div ref={createPostModelRef}
-                 className="create-post-card w-[90%] sm:w-[500px] flex flex-col items-start justify-center gap-2 bg-secondary rounded-lg p-3 pt-5 relative">
+                 className="create-post-card w-[90%] sm:w-[500px] flex flex-col items-start justify-center gap-2 bg-secondary rounded p-3 pt-5 relative">
                 <div
                     className="close-icon text-xl p-2 bg-black/20 dark:bg-white/20 hover:bg-black/40 dark:hover:bg-white/40 transition rounded-full aspect-square cursor-pointer absolute top-1 right-1"
                     onClick={() => setIsCreatePostModel(false)}>

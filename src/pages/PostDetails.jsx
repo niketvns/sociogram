@@ -1,11 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {useNavigate, useParams} from "react-router-dom";
-import {PostCard, Sidebar, SkeletonLoader, Suggestions} from "../components";
+import {EmojiBox, PostCard, Sidebar, SkeletonLoader, Suggestions} from "../components";
 import axios from "axios";
 import {useGlobalAuth, useGlobalPosts, useGlobalUsers} from "../contexts";
+import {MdOutlineAddReaction} from "react-icons/md";
 
 const PostDetails = () => {
     const [isLoading, setIsLoading] = useState(true)
+    const [isEmojiModel, setIsEmojiModel] = useState(false)
     const [post, setPost] = useState(null)
     const [comment, setComment] = useState('')
     const {id} = useParams()
@@ -62,23 +64,34 @@ const PostDetails = () => {
                         <SkeletonLoader/> :
                         <>
                             <PostCard key={post?._id} post={post}/>
-                            <div className="create-comment rounded-lg bg-secondary p-2 py-4 flex items-start gap-2">
-                                <div className="profile">
-                                    <img src={findUser(userDetails?.username)?.avatarUrl} alt="profile"
-                                         className={'w-8 rounded-full aspect-square'}/>
+                            <div className={'create-comment'}>
+                                <div className="comment-input rounded-lg bg-secondary p-2 py-4 flex items-start gap-2 relative">
+                                    <div className="profile">
+                                        <img src={findUser(userDetails?.username)?.avatarUrl} alt="profile"
+                                             className={'w-8 rounded-full aspect-square'}/>
+                                    </div>
+                                    <textarea
+                                        name="comment"
+                                        id="comment"
+                                        rows="1"
+                                        placeholder={'Post Your Comment!'}
+                                        className={'w-full resize-none h-12 px-4 rounded-lg bg-secondary text-sociogram border-none outline-0'}
+                                        value={comment}
+                                        onChange={(e)=>setComment(e.target.value)}
+                                    ></textarea>
+                                    <button className={'text-2xl absolute top-1/2 right-4 text-sociogram'}>
+                                        <MdOutlineAddReaction onClick={()=>setIsEmojiModel(true)}/>
+                                        {isEmojiModel && <EmojiBox setIsEmojiModel={setIsEmojiModel} setPost={setComment} isComment={true}/>}
+                                    </button>
                                 </div>
-                                <textarea
-                                    name="comment"
-                                    id="comment"
-                                    rows="2"
-                                    placeholder={'Post Your Comment!'}
-                                    className={'w-full resize-none h-12 px-4 rounded-lg bg-secondary text-sociogram border-none outline-0'}
-                                    value={comment}
-                                    onChange={(e)=>setComment(e.target.value)}
-                                ></textarea>
-                                <button className={`text-white px-6 py-1 rounded-2xl ${comment ? 'bg-button' : 'bg-gray-500 cursor-not-allowed'}`} onClick={submitCommentHandler}>
-                                    Post
-                                </button>
+                                {
+                                    comment &&
+                                    <div className="comment-btn flex justify-end pr-4 pt-2">
+                                        <button className={`text-white px-6 py-1 rounded-2xl ${comment ? 'bg-button' : 'bg-gray-500 cursor-not-allowed'}`} onClick={submitCommentHandler}>
+                                            Post
+                                        </button>
+                                    </div>
+                                }
                             </div>
                             <div className="all-comments py-2 px-4 text-sociogram">
                                 {
@@ -87,7 +100,7 @@ const PostDetails = () => {
                                         null
                                 }
                                 {
-                                    post?.comments.map(comment => (
+                                    [...post?.comments].reverse().map(comment => (
                                         <div key={comment._id}
                                              className="ind-comment flex flex-col items-start justify-start gap-2 my-2 p-2 py-4 rounded-lg bg-secondary">
                                             <div className="user flex gap-2">
