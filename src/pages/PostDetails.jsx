@@ -73,6 +73,7 @@ const PostDetails = () => {
                                     rows="2"
                                     placeholder={'Post Your Comment!'}
                                     className={'w-full resize-none h-12 px-4 rounded-lg bg-secondary text-sociogram border-none outline-0'}
+                                    value={comment}
                                     onChange={(e)=>setComment(e.target.value)}
                                 ></textarea>
                                 <button className={`text-white px-6 py-1 rounded-2xl ${comment ? 'bg-button' : 'bg-gray-500 cursor-not-allowed'}`} onClick={submitCommentHandler}>
