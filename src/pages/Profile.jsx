@@ -48,7 +48,6 @@ const Profile = () => {
                                 <p className={'my-28 text-white/40 text-xl text-center'}>No Post Yet</p>
                     }
                 </div>
-
             </div>
             <Suggestions/>
         </div>

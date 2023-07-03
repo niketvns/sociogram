@@ -24,7 +24,7 @@ const ShareModel = ({setIsShareModel, postId}) => {
         <div className={'comment-main flex items-center justify-center bg-black/70 fixed inset-0 z-10 text-lg'}>
             <div ref={shareModelRef}
                  className="share-card w-[90%] sm:w-[500px] flex flex-col items-start justify-center gap-6 bg-secondary rounded-lg p-10 pb-14 relative">
-                <div className="close-icon text-lg sm:text-2xl p-2 bg-black/10 dark:bg-white/10 hover:bg-black/20 dark:hover:bg-white/20 rounded-full aspect-square cursor-pointer absolute top-0 right-0" onClick={()=>setIsShareModel(false)}>
+                <div className="close-icon text-lg sm:text-xl p-2 bg-black/10 dark:bg-white/10 hover:bg-black/20 dark:hover:bg-white/20 rounded-full aspect-square cursor-pointer absolute top-1 right-1" onClick={()=>setIsShareModel(false)}>
                     <AiOutlineClose/>
                 </div>
                 <h1>Share</h1>

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {BiArrowBack} from 'react-icons/bi'
 import {SlCalender} from 'react-icons/sl'
-import {AiOutlineLink} from 'react-icons/ai'
+import {AiOutlineLink, AiOutlinePlus} from 'react-icons/ai'
 import {useNavigate} from "react-router-dom";
 import {useGlobalAuth, useGlobalUsers} from "../contexts";
 import FollowModel from "./FollowModel";
@@ -58,16 +58,20 @@ const ProfileCard = ({username, myPosts}) => {
                             userDetails?.username === userData?.username ?
                                 <button className={'bg-button py-1 px-5 rounded-[20px] text-white'} onClick={()=>setIsEditProfileModel(true)}>Edit Profile</button> :
                                 isFollowing() ?
-                                    <button className={'bg-button text-white py-1 px-5 rounded-[20px]'} onClick={()=>unfollowUser(userData?._id)}>Unfollow</button> :
-                                    <button className={'bg-button text-white py-1 px-5 rounded-[20px]'} onClick={()=>followUser(userData?._id)}>Follow</button>
+                                    <button className={'bg-button text-white py-1 px-5 rounded-[20px]'} onClick={()=>unfollowUser(userData?._id)}>
+                                        Following
+                                    </button> :
+                                    <button className={'bg-button text-white py-1 px-5 rounded-[20px] flex gap-2 items-center'} onClick={()=>followUser(userData?._id)}>
+                                        <AiOutlinePlus/> Follow
+                                    </button>
                         }
                     </div>
                 </div>
-                <div className="profile-details px-5 py-1">
+                <div className="profile-details px-5 py-1 flex flex-col items-start">
                     <p className="name text-xl font-bold">{userData?.firstName} {userData?.lastName}</p>
                     <p className="username text-black/40 dark:text-white/40">@{userData?.username}</p>
                     <p className="bio my-2 flex items-center gap-1 text-black/60 dark:text-white/60"><SlCalender/> Joined {new Date(userData?.createdAt).toDateString().split(" ").slice(1, 4).join(" ")}</p>
-                    <p className="bio my-2">{userData?.bio}</p>
+                    <p className="bio my-1">{userData?.bio}</p>
                     {
                         userData?.website &&
                         <a rel="noreferrer" href={userData?.website}
@@ -84,7 +88,7 @@ const ProfileCard = ({username, myPosts}) => {
                     {isFollowingModel && <FollowModel content={'Followings'} setIsFollowModel={setIsFollowingModel} followers={userData?.following}/>}
                 </div>
                 <div className="nav rounded-b-lg pt-2 px-3 flex border-b border-white/10 cursor-pointer select-none">
-                    <p className={'text-xl border-[0.5px] border-[#fb5151] rounded-lg px-8 py-1 text-[#fb5151]'}>{myPosts?.length} Posts</p>
+                    <p className={'text-xl border-[0.5px] text-button border-button rounded-lg px-8 py-1'}>{myPosts?.length} Posts</p>
                 </div>
             </div>
             {isEditProfileModel && <EditProfileModel setIsEditProfileModel={setIsEditProfileModel} userData={userData}/>}

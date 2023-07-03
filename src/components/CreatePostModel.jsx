@@ -60,7 +60,7 @@ const CreatePostModel = ({isEdit, editPostData, setIsCreatePostModel}) => {
             <div ref={createPostModelRef}
                  className="create-post-card w-[90%] sm:w-[500px] flex flex-col items-start justify-center gap-2 bg-secondary rounded-lg p-3 pt-5 relative">
                 <div
-                    className="close-icon text-xl p-2 bg-black/20 dark:bg-white/20 hover:bg-black/40 dark:hover:bg-white/40 transition rounded-full aspect-square cursor-pointer absolute top-0 right-0"
+                    className="close-icon text-xl p-2 bg-black/20 dark:bg-white/20 hover:bg-black/40 dark:hover:bg-white/40 transition rounded-full aspect-square cursor-pointer absolute top-1 right-1"
                     onClick={() => setIsCreatePostModel(false)}>
                     <AiOutlineClose/>
                 </div>
@@ -94,10 +94,12 @@ const CreatePostModel = ({isEdit, editPostData, setIsCreatePostModel}) => {
                         </div>
                     </div>
                 }
+                {isMediaUploading && <p className={'text-sociogram'}>Uploading...</p>}
                 <div className="bottom w-full flex justify-around items-center text-sociogram">
                     <label className={'cursor-pointer'}>
                         <MdAddPhotoAlternate className={'text-2xl'}/>
-                        <input type="file" accept={'image/*, video/*'} className={'hidden'} onChange={(e)=>setPost(prevState => ({...prevState, mediaURL: URL.createObjectURL(e.target.files[0])}))}/>
+                        {/*<input type="file" accept={'image/*, video/*'} className={'hidden'} onChange={(e)=>setPost(prevState => ({...prevState, mediaURL: URL.createObjectURL(e.target.files[0])}))}/>*/}
+                        <input type="file" accept={'image/*, video/*'} className={'hidden'} onChange={handleMediaUpload}/>
                     </label>
                     <button className={'text-2xl relative'}>
                         <MdOutlineAddReaction onClick={()=>setIsEmojiModel(true)}/>

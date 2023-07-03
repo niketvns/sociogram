@@ -2,14 +2,14 @@ import React, {useEffect, useState} from 'react';
 import {useNavigate, useParams} from "react-router-dom";
 import {PostCard, Sidebar, SkeletonLoader, Suggestions} from "../components";
 import axios from "axios";
-import profile from "../images/niket_img.png";
 import {useGlobalAuth, useGlobalPosts, useGlobalUsers} from "../contexts";
 
 const PostDetails = () => {
     const [isLoading, setIsLoading] = useState(true)
     const [post, setPost] = useState(null)
+    const [comment, setComment] = useState('')
     const {id} = useParams()
-    const {isPostEditLoading, isLikedLoading, isCommentLoading} = useGlobalPosts()
+    const {isPostEditLoading, isLikedLoading, isCommentLoading, addComment} = useGlobalPosts()
     const {findUser} = useGlobalUsers()
     const {userDetails} = useGlobalAuth()
     const navigate = useNavigate()
@@ -44,6 +44,13 @@ const PostDetails = () => {
         }
     }, [post])
 
+    const submitCommentHandler = () => {
+        if (comment){
+            addComment(post?._id, comment)
+            setComment('')
+        }
+    }
+
     return (
         <div
             className={'home-main flex gap-5 sm:justify-start lg:justify-center items-start lg:gap-4 p-2 sm:pl-0 relative'}>
@@ -60,9 +67,15 @@ const PostDetails = () => {
                                     <img src={userDetails?.avatarUrl} alt="profile"
                                          className={'w-8 rounded-full aspect-square'}/>
                                 </div>
-                                <textarea name="comment" id="comment" rows="2" placeholder={'Post Your Comment!'}
-                                          className={'w-full resize-none h-12 px-4 rounded-lg bg-secondary text-sociogram border-none outline-0'}></textarea>
-                                <button className={'bg-button text-white px-6 py-1 rounded-2xl'}>
+                                <textarea
+                                    name="comment"
+                                    id="comment"
+                                    rows="2"
+                                    placeholder={'Post Your Comment!'}
+                                    className={'w-full resize-none h-12 px-4 rounded-lg bg-secondary text-sociogram border-none outline-0'}
+                                    onChange={(e)=>setComment(e.target.value)}
+                                ></textarea>
+                                <button className={`text-white px-6 py-1 rounded-2xl ${comment ? 'bg-button' : 'bg-gray-500 cursor-not-allowed'}`} onClick={submitCommentHandler}>
                                     Post
                                 </button>
                             </div>

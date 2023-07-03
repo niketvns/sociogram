@@ -71,7 +71,7 @@ const PostCard = ({post}) => {
                         <p className={'text-sociogram'}>{userData?.firstName} {userData?.lastName}</p>
                         <p className={'text-sm text-black/40 dark:text-white/40'}>@{username}</p>
                     </div>
-                    <div className="post-date cursor-pointer text-sociogram self-start">
+                    <div className="post-date text-black/30 dark:text-white/30 self-start">
                         {new Date(createdAt).toDateString().split(" ").slice(1, 4).join(" ")}
                     </div>
                 </div>
@@ -125,7 +125,7 @@ const PostCard = ({post}) => {
                         <div className="bookmarks cursor-pointer">
                             {
                                 isInBookmarks(_id) ?
-                                    <BsBookmarksFill onClick={() => removeFromBookmarks(_id)}/> :
+                                    <BsBookmarksFill className={'text-button'} onClick={() => removeFromBookmarks(_id)}/> :
                                     <BsBookmarkPlus onClick={() => addToBookmarks(_id)}/>
                             }
                         </div>

@@ -2,6 +2,7 @@ import {createContext, useContext, useEffect, useReducer, useState} from "react"
 import {initialValue, reducerFunction} from "./Reducer/reducer";
 import {useGlobalAlerts} from "./alertContext";
 import axios from "axios";
+import bookmarks from "../pages/Bookmarks";
 
 const bookmarksContext = createContext()
 
@@ -69,7 +70,7 @@ const BookmarksProvider = ({children}) =>{
     }
 
     const isInBookmarks = (id) => {
-        return state.bookmarks?.find(post => post._id === id)
+        return state.bookmarks?.some(postId => postId === id)
     }
 
 

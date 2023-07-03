@@ -2,7 +2,7 @@ import data from '@emoji-mart/data'
 import Picker from '@emoji-mart/react'
 import {useEffect, useRef} from "react";
 
-const EmojiBox = ({setIsEmojiModel, setPost}) => {
+const EmojiBox = ({setIsEmojiModel, setPost, isComment}) => {
     const emojiModelRef = useRef()
 
     useEffect(() => {
@@ -16,12 +16,19 @@ const EmojiBox = ({setIsEmojiModel, setPost}) => {
         document.addEventListener('mousedown', handleModel)
     }, [])
 
+    const emojiSelectHandler = (e) => {
+        if (isComment){
+            setPost(prev => prev + e.native)
+        }else{
+            setPost(prev => ({...prev, content: prev.content + e.native}))
+        }
+    }
 
     return (
         <div ref={emojiModelRef} className={'emoji-box-main absolute top-full -translate-x-[50%] z-10'}>
             <Picker
                 data={data}
-                onEmojiSelect={(e)=>setPost(prev => ({...prev, content: prev.content + e.native}))}
+                onEmojiSelect={emojiSelectHandler}
                 emojiButtonSize={28}
                 emojiSize={20}
                 previewPosition="none"

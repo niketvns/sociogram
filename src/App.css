@@ -45,6 +45,12 @@
 .text-secondary{
     @apply text-white dark:text-[#241e38]
 }
+.border-button{
+    @apply border-[#6b4ce6] dark:border-[#fb5151]
+}
+.text-button{
+    @apply text-[#6b4ce6] dark:text-[#fb5151]
+}
 
 :root {
     --color-white: #ffffff;

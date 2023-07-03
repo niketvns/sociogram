@@ -1,15 +1,18 @@
 import {PostCard, Sidebar, Suggestions} from "../components/index.js";
 import {useEffect} from "react";
-import {useGlobalBookmarks} from "../contexts";
+import {useGlobalBookmarks, useGlobalPosts} from "../contexts";
 import {SkeletonLoader} from "../components";
 
 const Bookmarks = () => {
-    const {bookmarks, isBookmarksLoading} = useGlobalBookmarks()
+    const {bookmarks, isBookmarksLoading, isInBookmarks} = useGlobalBookmarks()
+    const {posts} = useGlobalPosts()
 
     useEffect(()=>{
         window.scrollTo({top: 0, left: 0});
         document.title = 'Bookmarks | Sociogram'
     },[])
+
+    const checkInBookmarks = posts.filter(post => isInBookmarks(post?._id))
 
     return (
         <div className={'home-main flex gap-5 min-h-[80vh] sm:justify-start lg:justify-center items-start lg:gap-4 p-2 sm:pl-0 relative'}>
@@ -21,8 +24,8 @@ const Bookmarks = () => {
                         isBookmarksLoading ?
                             <SkeletonLoader /> :
                             bookmarks.length ?
-                        bookmarks.map(post => <PostCard key={post._id} post={post}/>) :
-                                <p className={'w-full text-center text-2xl text-black/40 dark:text-white/40 mt-8'}>Nothing in Bookmarks</p>
+                                checkInBookmarks.map(post => <PostCard key={post._id} post={post}/>) :
+                                <p className={'w-full text-center text-2xl text-black/40 dark:text-white/40 mt-8'}>You have not added any Bookmarks!</p>
                     }
                 </div>
             </div>

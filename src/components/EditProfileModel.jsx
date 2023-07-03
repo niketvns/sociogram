@@ -60,11 +60,9 @@ const EditProfileModel = ({setIsEditProfileModel, userData }) => {
                         </div>
                         <p className={'text-black/40 dark:text-white/40'}>Choose a picture from your gallary</p>
                     </div>
-                    <div className="name text-lg font-bold">
-                        <p>{userData?.firstName} {userData?.lastName}</p>
-                    </div>
-                    <div className="username flex items-center">
-                        <p>@{userData?.username}</p>
+                    <div className="name-username">
+                        <p className={'text-lg font-bold'}>{userData?.firstName} {userData?.lastName}</p>
+                        <p className={'text-sm text-black/40'}>@{userData?.username}</p>
                     </div>
                     <div className="bio flex flex-col gap-2">
                         <b className={'w-24'}>Bio:</b>

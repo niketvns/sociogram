@@ -15,13 +15,12 @@ const SortPosts = ({isSortMenu, setIsSortMenu}) => {
         document.addEventListener('mousedown', handleModel)
     }, [])
 
-
     return (
         <div className="sort text-sociogram px-6 flex items-center justify-between gap-4">
             <div className="choosen font-bold">
                 Letest Post
             </div>
-            <hr className={'bg-black/10 dark:bg-white/5 h-[1px] flex-1'}/>
+            <hr className={'bg-black/10 dark:bg-white/10 h-[1px] flex-1'}/>
             <div ref={sortMenuRef} className="options relative">
                 <MdOutlineTune className={'text-3xl cursor-pointer hover:bg-black/20 hover:dark:bg-white/20 p-1 rounded'} onClick={()=>setIsSortMenu(prevState => !prevState)}/>
                 {
