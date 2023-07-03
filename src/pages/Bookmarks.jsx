@@ -23,7 +23,7 @@ const Bookmarks = () => {
                     {
                         isBookmarksLoading ?
                             <SkeletonLoader /> :
-                            bookmarks.length ?
+                            checkInBookmarks.length ?
                                 checkInBookmarks.map(post => <PostCard key={post._id} post={post}/>) :
                                 <p className={'w-full text-center text-2xl text-black/40 dark:text-white/40 mt-8'}>You have not added any Bookmarks!</p>
                     }
