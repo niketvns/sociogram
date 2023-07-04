@@ -74,7 +74,7 @@ const CreatePostModel = ({isEdit, editPostData, setIsCreatePostModel}) => {
                         ref={inputRef}
                         name="content"
                         cols="30"
-                        rows="1"
+                        rows="4"
                         placeholder={"What's on your mind ??"}
                         className={'w-full resize-none bg-secondary text-sociogram p-2 outline-0 border-none max-h-32'}
                         onChange={changeHandler}

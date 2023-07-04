@@ -28,14 +28,14 @@ const Explore = () => {
             <div className="posts w-full md:w-1/2 lg:w-[45%] pt-4 sm:pt-10 flex flex-col md:flex-1 lg:flex-none gap-6">
                 <header className={'text-sociogram bg-secondary p-4 rounded flex flex-col gap-2'}>
                     <h2 className={'text-2xl font-bold'}>Explore</h2>
-                    <div className="filter flex gap-4">
-                        <p className={`rounded border border-black/40 dark:border-white/40 py-1 px-4 text-black/40 dark:text-white/40 text-lg cursor-pointer select-none ${filter === 'trending' ? 'text-button border-button' : null}`}
+                    <div className="filter flex gap-4 text-sm">
+                        <p className={`rounded border border-black/40 dark:border-white/40 py-1 px-4 text-black/40 dark:text-white/40 cursor-pointer select-none ${filter === 'trending' ? 'text-button border-button' : null}`}
                            onClick={()=>setFilter('trending')}
                         >Trending</p>
-                        <p className={`rounded border border-black/40 dark:border-white/40 py-1 px-4 text-black/40 dark:text-white/40 text-lg cursor-pointer select-none ${filter === 'latest' ? 'text-button border-button' : null}`}
+                        <p className={`rounded border border-black/40 dark:border-white/40 py-1 px-4 text-black/40 dark:text-white/40 cursor-pointer select-none ${filter === 'latest' ? 'text-button border-button' : null}`}
                            onClick={()=>setFilter('latest')}
                         >Latest</p>
-                        <p className={`rounded border border-black/40 dark:border-white/40 py-1 px-4 text-black/40 dark:text-white/40 text-lg cursor-pointer select-none ${filter === 'oldest' ? 'text-button border-button' : null}`}
+                        <p className={`rounded border border-black/40 dark:border-white/40 py-1 px-4 text-black/40 dark:text-white/40 cursor-pointer select-none ${filter === 'oldest' ? 'text-button border-button' : null}`}
                            onClick={()=>setFilter('oldest')}
                         >Oldest</p>
                     </div>
