@@ -3,7 +3,6 @@ import axios from "axios";
 import {initialValue, reducerFunction} from "./Reducer/reducer";
 import {useGlobalAlerts} from "./alertContext";
 import copy from 'copy-to-clipboard';
-import * as events from "events";
 
 const postsContext = createContext()
 
@@ -55,6 +54,7 @@ const PostsProvider = ({children}) => {
     };
 
     const addPost = async (post) => {
+        setIsPostEditLoading(true)
         const token = localStorage.getItem('encodedToken')
         try {
             const {data} = await axios.post('/api/posts', {
@@ -64,6 +64,8 @@ const PostsProvider = ({children}) => {
             getAlert('success', 'Post Uploaded Successfully', '')
         } catch (error) {
             console.log(error)
+        }finally {
+            setIsPostEditLoading(false)
         }
     }
 
