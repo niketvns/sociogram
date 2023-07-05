@@ -76,28 +76,53 @@ const PostCard = ({post}) => {
                         <p className={'text-sm text-black/40 dark:text-white/40'}>@{username}</p>
                     </div>
                     <div className="post-date text-black/30 dark:text-white/30 self-start">
-                        • {new Date(createdAt).toDateString().split(" ").slice(1, 4).join(" ")}
+                        <p>• {new Date(createdAt).toDateString().split(" ").slice(1, 4).join(" ")}</p>
+                        {
+                            post?.isEdited &&
+                            <p className="edited text-[12px] ml-2 text-black/30 dark:text-white/30">
+                                (edited)
+                            </p>
+                        }
                     </div>
                 </div>
-                <div className="text-lg whitespace-pre-line text-sociogram cursor-pointer pl-2"
-                     onClick={() => navigate(`/post/${_id}`)}>
-                    {content}
-                </div>
-                <div className="post-media cursor-pointer" onClick={() => navigate(`/post/${_id}`)}>
+                <div className="content-tags">
+                    <div className="text-lg whitespace-pre-line text-sociogram cursor-pointer pl-2"
+                         onClick={() => navigate(`/post/${_id}`)}>
+                        {content}
+                    </div>
                     {
-                        mediaURL && mediaURL.split("/")[4] === "image" ? (
-                            <img
-                                src={mediaURL}
-                                alt={'post'}
-                                className={'w-full max-h-80 object-fill rounded-lg'}
-                            />
-                        ) : mediaURL && (
-                            <video controls className={'w-full max-h-80 object-fill rounded-lg'}>
-                                <source src={mediaURL}/>
-                            </video>
-                        )
+                        post?.hashTags?.length &&
+                        <div className="text-sm whitespace-pre-line text-blue-500 cursor-pointer pl-2 flex gap-2 items-center">
+                            {
+                                post?.hashTags?.map((tag, index) => (
+                                    <p key={tag+index}>#{tag}</p>
+                                ))
+                            }
+                        </div>
                     }
                 </div>
+                {
+                    mediaURL &&
+                    <div className="post-media cursor-pointer flex justify-center" onClick={() => navigate(`/post/${_id}`)}>
+                        {
+                            mediaURL.split("/")[4] === "image" ? (
+                                <img
+                                    src={mediaURL}
+                                    alt={'post'}
+                                    className={'max-w-full max-h-80 object-fill rounded-lg'}
+                                />
+                            ) : mediaURL.split("/")[4] === "video" ? (
+                                <video controls className={'max-w-full max-h-80 object-fill rounded-lg'}>
+                                    <source src={mediaURL}/>
+                                </video>
+                            ) : <img
+                                src={mediaURL}
+                                alt={'post'}
+                                className={'max-w-full min-w-[40%] max-h-80 object-fill rounded-lg'}
+                            />
+                        }
+                    </div>
+                }
                 <div className="post-options flex justify-between items-center text-2xl px-2 text-sociogram">
                     <div className="left flex gap-4 items-center">
                         <div className="like cursor-pointer">
@@ -146,7 +171,7 @@ const PostCard = ({post}) => {
                         </div> :
                         <div
                             className="like-comment-overview flex gap-2 items-center text-sm text-black/60 dark:text-white/60 pl-2">
-                            No one Likes Yet
+                            No one Liked Yet
                         </div>
                 }
             </div>

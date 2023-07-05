@@ -64,7 +64,7 @@ const CreatePost = () => {
             <div className="bottom w-full flex justify-around items-center text-sociogram">
                 <label className={'cursor-pointer'}>
                     <MdAddPhotoAlternate className={'text-2xl'}/>
-                    <input type="file" accept={'image/*, video/*'} className={'hidden'} onChange={(e)=>setPost(prevState => ({...prevState, mediaURL: URL.createObjectURL(e.target.files[0])}))}/>
+                    <input type="file" accept={'image/*'} className={'hidden'} onChange={(e)=>setPost(prevState => ({...prevState, mediaURL: URL.createObjectURL(e.target.files[0])}))}/>
                 </label>
                 <button className={'text-2xl relative'}>
                     <MdOutlineAddReaction onClick={()=>setIsEmojiModel(true)}/>

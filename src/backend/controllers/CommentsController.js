@@ -107,6 +107,7 @@ export const editPostCommentHandler = function (schema, request) {
         post.comments[commentIndex] = {
             ...post.comments[commentIndex],
             text: commentData,
+            isEdited: 'true',
             updatedAt: formatDate(),
         };
         this.db.posts.update({ _id: postId }, post);

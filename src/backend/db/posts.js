@@ -1065,6 +1065,7 @@ export const posts = [
     content:
         "उसूलों पर जहाँ आँच आए टकराना ज़रूरी है\nजो ज़िंदा हो तो फिर ज़िंदा नज़र आना ज़रूरी है",
     mediaURL: "",
+    hashTags: ["sayari", "quotes"],
     likes: {
       likeCount: 1,
       likedBy: [

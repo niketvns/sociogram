@@ -98,9 +98,9 @@ const CreatePostModel = ({isEdit, editPostData, setIsCreatePostModel}) => {
                 <div className="bottom w-full flex justify-around items-center text-sociogram">
                     <label className={'cursor-pointer'}>
                         <MdAddPhotoAlternate className={'text-2xl'}/>
-                        {/*<input type="file" accept={'image/*, video/*'} className={'hidden'} onChange={(e)=>setPost(prevState => ({...prevState, mediaURL: URL.createObjectURL(e.target.files[0])}))}/>*/}
-                        <input type="file" accept={'image/*, video/*'} className={'hidden'}
-                               onChange={handleMediaUpload}/>
+                        <input type="file" accept={'image/*'} className={'hidden'} onChange={(e)=>setPost(prevState => ({...prevState, mediaURL: URL.createObjectURL(e.target.files[0])}))}/>
+                        {/*<input type="file" accept={'image/*, video/*'} className={'hidden'}*/}
+                        {/*       onChange={handleMediaUpload}/>*/}
                     </label>
                     <button className={'text-2xl relative'}>
                         <MdOutlineAddReaction onClick={() => setIsEmojiModel(true)}/>
@@ -114,7 +114,9 @@ const CreatePostModel = ({isEdit, editPostData, setIsCreatePostModel}) => {
                     </button>
                     <button
                         className={`px-6 py-1 rounded-2xl ${post.content || post.mediaURL ? 'bg-button' : 'bg-gray-500 cursor-not-allowed'} text-white`}
-                        onClick={submitHandler}>{isEdit ? 'Save' : 'Post'}</button>
+                        onClick={submitHandler}>
+                        {isEdit ? 'Save' : 'Post'}
+                    </button>
                 </div>
             </div>
         </div>

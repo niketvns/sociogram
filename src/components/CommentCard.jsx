@@ -83,6 +83,12 @@ const CommentCard = ({comment, post, userDetails}) => {
                             onClick={() => navigate(`/user/${post?.username}`)}>{userDetails?.username === post?.username ? "You" : `@${post?.username}` }</span>
                     </p>
                 </div>
+                {
+                    comment?.isEdited &&
+                    <div className="edited text-[12px] pt-1 text-black/30 dark:text-white/30">
+                        (edited)
+                    </div>
+                }
             </div>
             {
                 isEdit ?

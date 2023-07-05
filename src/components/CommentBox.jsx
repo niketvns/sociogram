@@ -9,9 +9,11 @@ const CommentBox = ({setIsCommentModel, post}) => {
     const [comment, setComment] = useState('')
     const [isEmojiModel, setIsEmojiModel] = useState(false)
     const commentModelRef = useRef()
+    const inputRef = useRef()
     const {addComment} = useGlobalPosts()
 
     useEffect(() => {
+        inputRef.current.focus()
         const handleModel = (e) => {
             if (commentModelRef.current) {
                 if (!commentModelRef.current.contains(e.target)) {
@@ -45,18 +47,19 @@ const CommentBox = ({setIsCommentModel, post}) => {
 
                     <div className="text-area flex-1 pl-2">
                     <textarea
+                        ref={inputRef}
                         name="post"
                         id="" cols="30"
                         rows="1"
                         placeholder={"Post Your Reply!"}
-                        className={'h-28 w-full text-lg resize-none bg-secondary p-2 outline-0 border-none'}
+                        className={'h-28 w-full text-[1rem] resize-none bg-secondary p-2 outline-0 border-none'}
                         value={comment}
                         onChange={(e) => setComment(e.target.value)}
                     >
                     </textarea>
                     </div>
                 </div>
-                <div className="bottom w-full flex justify-around items-center">
+                <div className="bottom w-full flex justify-between px-6 items-center">
                     <button className={'text-2xl relative'}>
                         <MdOutlineAddReaction onClick={() => setIsEmojiModel(true)}/>
                         {
