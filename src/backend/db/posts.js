@@ -375,9 +375,9 @@ export const posts = [
   },
   {
     _id: "IyUlYXTrzZ",
-    content: "Who's up for Pineapple Pastry?",
+    content: "कौन सीखा है सिर्फ बातों से,\nसबको एक हादसा जरूरी है!\n",
     mediaURL:
-        "https://res.cloudinary.com/dtrjdcrme/image/upload/v1647014828/ecommerce/pineapplemuffin1.webp",
+        "https://res.cloudinary.com/dyzu4lzqz/image/upload/v1688589557/sociogram/niket_poetry.jpg",
     likes: {
       likeCount: 0,
       likedBy: [],
@@ -387,7 +387,7 @@ export const posts = [
       {
         _id: "6nIffvImxo",
         username: "sophiajones",
-        text: "Oh! That looks Delicious!",
+        text: "That's Nice!",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -401,7 +401,7 @@ export const posts = [
   {
     _id: "Ie92xOSVeU",
     content:
-        "Check out this amazing video from BakinZone https://bakinzone.netlify.app/videos/qtlhdIfojmc",
+        "Mostly asked JavaScript interview questions!!\n1. Reverse a string: Write a function that takes a string as input and returns the string in reverse order. For example, if the input is \"Hello, World!\", the output should be \"!dlroW ,olleH\".\n\n2. Find the largest number in an array:  Write a function that takes an array of numbers as input and returns the largest number in the array. For example, if the input is [3, 8, 2, 10, 5], the output should be 10.",
     mediaURL: "",
     likes: {
       likeCount: 1,
@@ -425,7 +425,7 @@ export const posts = [
       {
         _id: "6fgd534s",
         username: "janedoe",
-        text: "Yes! I am also learning from there!",
+        text: "Yes!",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -767,7 +767,7 @@ export const posts = [
   },
   {
     _id: "xhzTkUi2Nt",
-    content: "Nice Weather Today!!",
+    content: "की पंछी जो पेड़ों पर गाती थी सुबह\nकौवों का देखो शहर रह गया है\nऔर आगे तो केवल सफर ही सफर है\nपीछे जो छूटा वो घर रह गया है\n",
     mediaURL: "",
     likes: {
       likeCount: 5,
@@ -815,7 +815,7 @@ export const posts = [
       {
         _id: "okzxcf",
         username: "janedoe",
-        text: "I agree!! Feels like we should go for outing. What say?",
+        text: "Wow! Amazzing!",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
