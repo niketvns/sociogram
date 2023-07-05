@@ -80,7 +80,7 @@ const CommentCard = ({comment, post, userDetails}) => {
                     <p className={'text-sm text-black/60 dark:text-white/60'}>Replying
                         to <span
                             className={'text-blue-600 hover:underline cursor-pointer'}
-                            onClick={() => navigate(`/user/${post?.username}`)}>{userDetails?.username === comment?.username ? "You" : `@${post?.username}` }</span>
+                            onClick={() => navigate(`/user/${post?.username}`)}>{userDetails?.username === post?.username ? "You" : `@${post?.username}` }</span>
                     </p>
                 </div>
             </div>
