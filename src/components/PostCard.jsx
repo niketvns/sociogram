@@ -1,12 +1,13 @@
-import profile from "../images/niket_img.png";
 import {AiFillHeart, AiOutlineShareAlt, AiOutlineHeart} from 'react-icons/ai'
 import {FaRegCommentDots} from 'react-icons/fa'
 import {HiOutlineDotsHorizontal} from 'react-icons/hi'
 import {BsBookmarksFill, BsBookmarkPlus} from 'react-icons/bs'
+import {BiEdit} from 'react-icons/bi'
+import {MdDelete} from 'react-icons/md'
 import {useNavigate} from "react-router-dom";
 import CommentBox from "./CommentBox";
 import React, {useEffect, useRef, useState} from "react";
-import {useGlobalAuth, useGlobalBookmarks, useGlobalLiked, useGlobalPosts, useGlobalUsers} from "../contexts";
+import {useGlobalAuth, useGlobalBookmarks, useGlobalPosts, useGlobalUsers} from "../contexts";
 import ShareModel from "./ShareModel";
 import {CreatePostModel} from "./index";
 import FollowModel from "./FollowModel";
@@ -50,12 +51,16 @@ const PostCard = ({post}) => {
                             <div
                                 className="post-edit-menu select-none absolute top-6 rounded right-2 bg-secondary border-2 border-black/20 dark:border-white/20 z-10">
                                 <div
-                                    className="edit px-6 py-2 cursor-pointer hover:bg-black/20 hover:dark:bg-white/20 transition border-b"
-                                    onClick={() => setIsCreatePostModel(true)}>Edit
+                                    className="edit px-6 py-2 cursor-pointer hover:bg-black/20 hover:dark:bg-white/20 transition border-b flex gap-2 items-center"
+                                    onClick={() => setIsCreatePostModel(true)}
+                                >
+                                    <BiEdit />Edit
                                 </div>
                                 <div
-                                    className="delete px-6 py-2 cursor-pointer hover:bg-black/20 hover:dark:bg-white/20 transition"
-                                    onClick={() => deletePost(post._id)}>Delete
+                                    className="delete px-6 py-2 cursor-pointer hover:bg-black/20 hover:dark:bg-white/20 transition flex gap-2 items-center"
+                                    onClick={() => deletePost(post._id)}
+                                >
+                                    <MdDelete /> Delete
                                 </div>
                             </div>
                         }

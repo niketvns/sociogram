@@ -68,7 +68,13 @@ const CreatePost = () => {
                 </label>
                 <button className={'text-2xl relative'}>
                     <MdOutlineAddReaction onClick={()=>setIsEmojiModel(true)}/>
-                    {isEmojiModel && <EmojiBox setIsEmojiModel={setIsEmojiModel} setPost={setPost}/>}
+                    {
+                        isEmojiModel &&
+                        <div
+                            className={'emoji-box-main absolute top-full z-10 -translate-x-[50%]'}>
+                        <EmojiBox setIsEmojiModel={setIsEmojiModel} setPost={setPost}/>
+                        </div>
+                    }
                 </button>
                 <button className={`px-6 py-1 rounded-2xl ${post.content || post.mediaURL ? 'bg-button' : 'bg-gray-500 cursor-not-allowed'} text-white`} onClick={submitHandler}>Post</button>
             </div>

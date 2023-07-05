@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {useNavigate, useParams} from "react-router-dom";
-import {EmojiBox, PostCard, Sidebar, SkeletonLoader, Suggestions} from "../components";
+import {useParams} from "react-router-dom";
+import {CommentCard, EmojiBox, PostCard, Sidebar, SkeletonLoader, Suggestions} from "../components";
 import axios from "axios";
 import {useGlobalAuth, useGlobalPosts, useGlobalUsers} from "../contexts";
 import {MdOutlineAddReaction} from "react-icons/md";
@@ -14,7 +14,6 @@ const PostDetails = () => {
     const {isPostEditLoading, isLikedLoading, isCommentLoading, addComment} = useGlobalPosts()
     const {findUser} = useGlobalUsers()
     const {userDetails} = useGlobalAuth()
-    const navigate = useNavigate()
 
     const fetchSinglePost = async () => {
         try {
@@ -47,7 +46,7 @@ const PostDetails = () => {
     }, [post])
 
     const submitCommentHandler = () => {
-        if (comment){
+        if (comment) {
             addComment(post?._id, comment)
             setComment('')
         }
@@ -65,7 +64,8 @@ const PostDetails = () => {
                         <>
                             <PostCard key={post?._id} post={post}/>
                             <div className={'create-comment'}>
-                                <div className="comment-input rounded-lg bg-secondary p-2 py-4 flex items-start gap-2 relative">
+                                <div
+                                    className="comment-input rounded-lg bg-secondary p-2 py-4 flex items-start gap-2 relative">
                                     <div className="profile">
                                         <img src={findUser(userDetails?.username)?.avatarUrl} alt="profile"
                                              className={'w-8 rounded-full aspect-square'}/>
@@ -77,17 +77,26 @@ const PostDetails = () => {
                                         placeholder={'Post Your Comment!'}
                                         className={'w-full resize-none h-12 px-4 rounded-lg bg-secondary text-sociogram border-none outline-0'}
                                         value={comment}
-                                        onChange={(e)=>setComment(e.target.value)}
+                                        onChange={(e) => setComment(e.target.value)}
                                     ></textarea>
                                     <button className={'text-2xl absolute top-1/2 right-4 text-sociogram'}>
-                                        <MdOutlineAddReaction onClick={()=>setIsEmojiModel(true)}/>
-                                        {isEmojiModel && <EmojiBox setIsEmojiModel={setIsEmojiModel} setPost={setComment} isComment={true}/>}
+                                        <MdOutlineAddReaction onClick={() => setIsEmojiModel(true)}/>
+                                        {
+                                            isEmojiModel &&
+                                            <div
+                                                className={'emoji-box-main absolute right-0 top-full z-10'}>
+                                                <EmojiBox setIsEmojiModel={setIsEmojiModel} setPost={setComment}
+                                                          isComment={true}/>
+                                            </div>
+                                        }
                                     </button>
                                 </div>
                                 {
                                     comment &&
                                     <div className="comment-btn flex justify-end pr-4 pt-2">
-                                        <button className={`text-white px-6 py-1 rounded-2xl ${comment ? 'bg-button' : 'bg-gray-500 cursor-not-allowed'}`} onClick={submitCommentHandler}>
+                                        <button
+                                            className={`text-white px-6 py-1 rounded-2xl ${comment ? 'bg-button' : 'bg-gray-500 cursor-not-allowed'}`}
+                                            onClick={submitCommentHandler}>
                                             Post
                                         </button>
                                     </div>
@@ -101,32 +110,8 @@ const PostDetails = () => {
                                 }
                                 {
                                     [...post?.comments].reverse().map(comment => (
-                                        <div key={comment._id}
-                                             className="ind-comment flex flex-col items-start justify-start gap-2 my-2 p-2 py-4 rounded-lg bg-secondary">
-                                            <div className="user flex gap-2">
-                                                <div className="profile">
-                                                    <img src={findUser(comment?.username).avatarUrl} alt="profile"
-                                                         className={'w-8 rounded-full aspect-square object-cover'}/>
-                                                </div>
-                                                <div className={'text-lg'}>
-                                                    <h3 className={''}>@{comment?.username}</h3>
-                                                    <p className={'text-sm text-black/60 dark:text-white/60'}>Replying
-                                                        to <span
-                                                            className={'text-blue-600 hover:underline cursor-pointer'}
-                                                            onClick={() => navigate(`/user/${post?.username}`)}>@{post?.username}</span>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div className="comment-details flex-1 pl-9">
-                                                <div className="text line-clamp-3 text-lg">{comment?.text}</div>
-                                                {
-                                                    comment?.mediaURL &&
-                                                    <div className="media">
-                                                        <img src={comment.mediaURL} alt="media"/>
-                                                    </div>
-                                                }
-                                            </div>
-                                        </div>
+                                        <CommentCard key={comment._id} comment={comment} post={post}
+                                                     userDetails={userDetails}/>
                                     ))
                                 }
                             </div>

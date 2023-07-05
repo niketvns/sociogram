@@ -89,7 +89,7 @@ const CreatePostModel = ({isEdit, editPostData, setIsCreatePostModel}) => {
                         <img src={post.mediaURL} className={'w-36 aspect-square rounded-lg'} alt="media"/>
                         <div
                             className="close-icon text-sm p-2 bg-black/20 dark:bg-white/20 hover:bg-black/40 dark:hover:bg-white/40 transition rounded-full aspect-square cursor-pointer absolute top-0 right-0"
-                            onClick={()=>setPost(prevState => ({...prevState, mediaURL: ''}))}>
+                            onClick={() => setPost(prevState => ({...prevState, mediaURL: ''}))}>
                             <AiOutlineClose/>
                         </div>
                     </div>
@@ -99,14 +99,22 @@ const CreatePostModel = ({isEdit, editPostData, setIsCreatePostModel}) => {
                     <label className={'cursor-pointer'}>
                         <MdAddPhotoAlternate className={'text-2xl'}/>
                         {/*<input type="file" accept={'image/*, video/*'} className={'hidden'} onChange={(e)=>setPost(prevState => ({...prevState, mediaURL: URL.createObjectURL(e.target.files[0])}))}/>*/}
-                        <input type="file" accept={'image/*, video/*'} className={'hidden'} onChange={handleMediaUpload}/>
+                        <input type="file" accept={'image/*, video/*'} className={'hidden'}
+                               onChange={handleMediaUpload}/>
                     </label>
                     <button className={'text-2xl relative'}>
-                        <MdOutlineAddReaction onClick={()=>setIsEmojiModel(true)}/>
-                        {isEmojiModel && <EmojiBox setIsEmojiModel={setIsEmojiModel} setPost={setPost}/>}
+                        <MdOutlineAddReaction onClick={() => setIsEmojiModel(true)}/>
+                        {
+                            isEmojiModel &&
+                            <div
+                                className={'emoji-box-main absolute top-full z-10 -translate-x-[50%]'}>
+                                <EmojiBox setIsEmojiModel={setIsEmojiModel} setPost={setPost}/>
+                            </div>
+                        }
                     </button>
-                    <button className={`px-6 py-1 rounded-2xl ${post.content || post.mediaURL ? 'bg-button' : 'bg-gray-500 cursor-not-allowed'} text-white`}
-                            onClick={submitHandler}>{isEdit ? 'Save' : 'Post'}</button>
+                    <button
+                        className={`px-6 py-1 rounded-2xl ${post.content || post.mediaURL ? 'bg-button' : 'bg-gray-500 cursor-not-allowed'} text-white`}
+                        onClick={submitHandler}>{isEdit ? 'Save' : 'Post'}</button>
                 </div>
             </div>
         </div>

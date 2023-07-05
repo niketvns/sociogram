@@ -156,6 +156,44 @@ const PostsProvider = ({children}) => {
         }
     }
 
+    const editComment = async (postId, commentId, comment) => {
+        setIsCommentLoading(true)
+        const token = localStorage.getItem('encodedToken')
+        try {
+            const {data} = await axios.post(
+                `/api/comments/edit/${postId}/${commentId}`,
+                {commentData: comment},
+                {headers: {authorization: token}}
+            )
+            dispatch({type: 'UPDATE_POST', payload: data.posts});
+            getAlert('success', 'Comment Edited Successfully!', '')
+        } catch (error) {
+            getAlert('error', 'Error in Comment', error.message)
+        }finally {
+            setIsCommentLoading(false)
+        }
+    }
+
+    const deleteComment = async (postId, commentId) => {
+        console.log(postId)
+        console.log(commentId)
+        setIsCommentLoading(true)
+        const token = localStorage.getItem('encodedToken')
+        try {
+            const {data} = await axios.delete(
+                `/api/comments/delete/${postId}/${commentId}`,
+                {headers: {authorization: token}}
+            )
+            dispatch({type: 'UPDATE_POST', payload: data.posts});
+            getAlert('success', 'Comment Deleted Successfully', '')
+        } catch (error) {
+            // getAlert('error', 'Error in Comment delete', error.message)
+            console.log(error)
+        }finally {
+            setIsCommentLoading(false)
+        }
+    }
+
     return (
         <postsContext.Provider value={{
             posts: state.allPosts,
@@ -173,7 +211,9 @@ const PostsProvider = ({children}) => {
             isLikedLoading,
             isCommentLoading,
             handleCopyToClipboard,
-            addComment
+            addComment,
+            editComment,
+            deleteComment
         }}>
             {children}
         </postsContext.Provider>

@@ -24,8 +24,10 @@ const EmojiBox = ({setIsEmojiModel, setPost, isComment}) => {
         }
     }
 
+    // emoji-box-main absolute top-full -translate-x-[50%] z-10
+
     return (
-        <div ref={emojiModelRef} className={'emoji-box-main absolute top-full -translate-x-[50%] z-10'}>
+        <div ref={emojiModelRef} className={'emoji-box-main z-10'}>
             <Picker
                 data={data}
                 onEmojiSelect={emojiSelectHandler}

@@ -1,4 +1,3 @@
-import logo from '../images/logo-full.png'
 import {LuSearch} from 'react-icons/lu'
 import {BsFillMoonStarsFill, BsSunFill} from 'react-icons/bs'
 import {CreatePostModel, ProfileMenu, SearchModel} from "./index";
@@ -16,7 +15,7 @@ const Navbar = () => {
             <nav className={'navbar-main bg-secondary flex justify-around md:justify-evenly items-center py-3 sticky top-0 z-10 border-b-[0.5px] border-white/10'}>
                 <div className="logo w-20 md:w-1/12 cursor-pointer" onClick={()=>navigate('/')}>
                     {/*<img src={logo} alt="logo" className={'logo w-full'}/>*/}
-                    <p className={'text-sociogram text-sm sm:text-lg min-w-fit lg:text-2xl font-bold italic'}>Sociogram</p>
+                    <p className={'text-sociogram text-sm sm:text-lg min-w-fit lg:text-2xl font-bold italic select-none'}>Sociogram</p>
                 </div>
                 <div className="search w-1/2 md:w-1/3 relative">
                     <div className={'absolute left-4 h-full flex items-center text-sociogram dark:text-white'}>
