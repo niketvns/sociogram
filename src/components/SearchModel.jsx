@@ -43,7 +43,7 @@ const SearchModel = ({setIsSearchModel}) => {
                            value={searchInput} autoComplete={'off'}/>
                 </div>
                 {
-                    searchInput.length &&
+                    searchInput.length ?
                     <div
                         className="search-result bg-white/80 w-full xs:w-[70vw] rounded-lg p-4 overflow-auto max-h-[70vh]">
                         {
@@ -70,7 +70,7 @@ const SearchModel = ({setIsSearchModel}) => {
                                 )) :
                                 <p>No User Found for <b>"{searchInput}"</b></p>
                         }
-                    </div>
+                    </div> : null
                 }
             </div>
         </div>
