@@ -843,7 +843,7 @@ export const posts = [
   },
   {
     _id: "xhzTkUi2Nti",
-    content: "I just heard Kachcha Badam today and guys you can't beleive me I feel very happy today after listing this song!. Today I am going to announce that kachcha badam is my favorite song from today",
+    content: "What’s the point of having a voice if you’re gonna be silent in those moments you shouldn’t be?",
     mediaURL: "",
     likes: {
       likeCount: 3,
@@ -891,12 +891,21 @@ export const posts = [
       {
         _id: "okzxcf9s",
         username: "johndoe",
-        text: "I agree ashutosh!! It's my favorite song too 😀.",
+        text: "Yes, You are right!",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
         },
       },
+      {
+        _id: "41c8585c-5fab-4748-83c2-fb07bde54b86",
+        username: "niketmishra",
+        text: "I agree ashutosh 👍👍",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      }
     ],
     username: "ashutosh3_3",
     createdAt: "2022-01-10T10:55:06+05:30",
