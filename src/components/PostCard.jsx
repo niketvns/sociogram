@@ -91,14 +91,14 @@ const PostCard = ({post}) => {
                         {content}
                     </div>
                     {
-                        post?.hashTags?.length &&
+                        post?.hashTags?.length ?
                         <div className="text-sm whitespace-pre-line text-blue-500 cursor-pointer pl-2 flex gap-2 items-center">
                             {
                                 post?.hashTags?.map((tag, index) => (
                                     <p key={tag+index}>#{tag}</p>
                                 ))
                             }
-                        </div>
+                        </div> : null
                     }
                 </div>
                 {

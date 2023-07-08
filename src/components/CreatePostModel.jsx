@@ -9,6 +9,7 @@ const CreatePostModel = ({isEdit, editPostData, setIsCreatePostModel}) => {
     const [post, setPost] = useState({
         content: "",
         mediaURL: "",
+        hashTags: []
     })
     const [isEmojiModel, setIsEmojiModel] = useState(false)
     const createPostModelRef = useRef()
@@ -18,6 +19,13 @@ const CreatePostModel = ({isEdit, editPostData, setIsCreatePostModel}) => {
     const changeHandler = (e) => {
         const {name, value} = e.target;
         setPost(prevState => ({...prevState, [name]: value}))
+    }
+
+    const convertHashTags = (hashTagStr) => {
+        setPost(prevState => ({
+            ...prevState,
+            hashTags: hashTagStr.split(", ").join(" ").split(",").join(" ").split(" ")
+        }))
     }
 
     const submitHandler = () => {
@@ -42,6 +50,7 @@ const CreatePostModel = ({isEdit, editPostData, setIsCreatePostModel}) => {
             setPost({
                 content: editPostData?.content,
                 mediaURL: editPostData?.mediaURL,
+                hashTags: editPostData?.hashTags
             })
         }
         inputRef.current.focus()
@@ -70,17 +79,29 @@ const CreatePostModel = ({isEdit, editPostData, setIsCreatePostModel}) => {
                     </div>
 
                     <div className="text-area flex-1 pl-2">
-                    <textarea
-                        ref={inputRef}
-                        name="content"
-                        cols="30"
-                        rows="4"
-                        placeholder={"What's on your mind ??"}
-                        className={'w-full resize-none bg-secondary text-sociogram p-2 outline-0 border-none max-h-32'}
-                        onChange={changeHandler}
-                        value={post.content}
-                    >
-                    </textarea>
+                        <textarea
+                            ref={inputRef}
+                            name="content"
+                            cols="30"
+                            rows="4"
+                            placeholder={"What's on your mind ??"}
+                            className={'w-full resize-none bg-secondary text-sociogram p-2 outline-0 border-none max-h-32'}
+                            onChange={changeHandler}
+                            value={post.content}
+                        >
+                        </textarea>
+                        {
+                            post?.content &&
+                            <div className="hashtags text-sociogram">
+                                <input
+                                    type="text"
+                                    placeholder={'Enter tags (comma seperated) eg: sayari, quotes'}
+                                    className={'w-full border outline-0 p-2 rounded'}
+                                    value={isEdit ? post?.hashTags?.join(" ") : post?.hashTags?.join('')}
+                                    onChange={(e) => convertHashTags(e.target.value)}
+                                />
+                            </div>
+                        }
                     </div>
                 </div>
                 {
@@ -98,7 +119,11 @@ const CreatePostModel = ({isEdit, editPostData, setIsCreatePostModel}) => {
                 <div className="bottom w-full flex justify-around items-center text-sociogram">
                     <label className={'cursor-pointer'}>
                         <MdAddPhotoAlternate className={'text-2xl'}/>
-                        <input type="file" accept={'image/*'} className={'hidden'} onChange={(e)=>setPost(prevState => ({...prevState, mediaURL: URL.createObjectURL(e.target.files[0])}))}/>
+                        <input type="file" accept={'image/*'} className={'hidden'}
+                               onChange={(e) => setPost(prevState => ({
+                                   ...prevState,
+                                   mediaURL: URL.createObjectURL(e.target.files[0])
+                               }))}/>
                         {/*<input type="file" accept={'image/*, video/*'} className={'hidden'}*/}
                         {/*       onChange={handleMediaUpload}/>*/}
                     </label>

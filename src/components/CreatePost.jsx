@@ -10,6 +10,7 @@ const CreatePost = () => {
     const [post, setPost] = useState({
         content: "",
         mediaURL: "",
+        hashTags: []
     })
     const [isEmojiModel, setIsEmojiModel] = useState(false)
     const {addPost} = useGlobalPosts();
@@ -19,6 +20,10 @@ const CreatePost = () => {
         setPost(prevState => ({...prevState, [name]: value}))
     }
 
+    const convertHashTags = (hashTagStr) => {
+        setPost(prevState => ({...prevState, hashTags: hashTagStr.split(", ").join(" ").split(",").join(" ").split(" ")}))
+    }
+
     const submitHandler = () => {
         if (!post.content && !post.mediaURL)
             return;
@@ -26,6 +31,7 @@ const CreatePost = () => {
         setPost({
             content: "",
             mediaURL: "",
+            hashTags: []
         })
     }
 
@@ -48,6 +54,17 @@ const CreatePost = () => {
                         value={post.content}
                     >
                     </textarea>
+                    {
+                        post?.content &&
+                        <div className="hashtags text-sociogram">
+                            <input
+                                type="text"
+                                placeholder={'Enter tags (comma seperated) eg: sayari, quotes'}
+                                className={'w-full bg-secondary text-sociogram border outline-0 p-2 rounded'}
+                                onChange={(e)=>convertHashTags(e.target.value)}
+                            />
+                        </div>
+                    }
                 </div>
             </div>
             {
@@ -56,7 +73,7 @@ const CreatePost = () => {
                     <img src={post.mediaURL} className={'w-36 aspect-square rounded-lg'} alt="media"/>
                     <div
                         className="close-icon text-sm p-2 bg-black/20 dark:bg-white/20 hover:bg-black/40 dark:hover:bg-white/40 transition rounded-full aspect-square cursor-pointer absolute top-0 right-0"
-                        onClick={()=>setPost(prevState => ({...prevState, mediaURL: ''}))}>
+                        onClick={() => setPost(prevState => ({...prevState, mediaURL: ''}))}>
                         <AiOutlineClose/>
                     </div>
                 </div>
@@ -64,19 +81,25 @@ const CreatePost = () => {
             <div className="bottom w-full flex justify-around items-center text-sociogram">
                 <label className={'cursor-pointer'}>
                     <MdAddPhotoAlternate className={'text-2xl'}/>
-                    <input type="file" accept={'image/*'} className={'hidden'} onChange={(e)=>setPost(prevState => ({...prevState, mediaURL: URL.createObjectURL(e.target.files[0])}))}/>
+                    <input type="file" accept={'image/*'} className={'hidden'} onChange={(e) => setPost(prevState => ({
+                        ...prevState,
+                        mediaURL: URL.createObjectURL(e.target.files[0])
+                    }))}/>
                 </label>
                 <button className={'text-2xl relative'}>
-                    <MdOutlineAddReaction onClick={()=>setIsEmojiModel(true)}/>
+                    <MdOutlineAddReaction onClick={() => setIsEmojiModel(true)}/>
                     {
                         isEmojiModel &&
                         <div
                             className={'emoji-box-main absolute top-full z-10 -translate-x-[50%]'}>
-                        <EmojiBox setIsEmojiModel={setIsEmojiModel} setPost={setPost}/>
+                            <EmojiBox setIsEmojiModel={setIsEmojiModel} setPost={setPost}/>
                         </div>
                     }
                 </button>
-                <button className={`px-6 py-1 rounded-2xl ${post.content || post.mediaURL ? 'bg-button' : 'bg-gray-500 cursor-not-allowed'} text-white`} onClick={submitHandler}>Post</button>
+                <button
+                    className={`px-6 py-1 rounded-2xl ${post.content || post.mediaURL ? 'bg-button' : 'bg-gray-500 cursor-not-allowed'} text-white`}
+                    onClick={submitHandler}>Post
+                </button>
             </div>
         </div>
     );

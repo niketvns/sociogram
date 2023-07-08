@@ -33,7 +33,7 @@ const Login = () => {
                         <input type="checkbox" name="remember" id="remember" className={'w-4 h-4'}/>
                         Remember Me
                     </label>
-                    <button type={'button'} className={'bg-transparent border-2 p-3 rounded-lg'} onClick={applyDummyCredential}>Apply Dummy Credential</button>
+                    <button type={'button'} className={'bg-transparent border-2 p-3 rounded-lg'} onClick={applyDummyCredential}>Guest Mode</button>
                     <button type={'submit'} className={'bg-button p-3 rounded-lg text-white'}>Submit</button>
                 </form>
                 <div className="signup mt-4 text-lg">
