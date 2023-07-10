@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {CommentCard, EmojiBox, PostCard, Sidebar, SkeletonLoader, Suggestions} from "../components";
 import axios from "axios";
 import {useGlobalAuth, useGlobalPosts, useGlobalUsers} from "../contexts";
 import {MdOutlineAddReaction} from "react-icons/md";
+import {BiArrowBack} from "react-icons/bi";
 
 const PostDetails = () => {
     const [isLoading, setIsLoading] = useState(true)
@@ -14,6 +15,7 @@ const PostDetails = () => {
     const {isPostEditLoading, isLikedLoading, isCommentLoading, addComment} = useGlobalPosts()
     const {findUser} = useGlobalUsers()
     const {userDetails} = useGlobalAuth()
+    const navigate = useNavigate()
 
     const fetchSinglePost = async () => {
         try {
@@ -62,6 +64,12 @@ const PostDetails = () => {
                     isLoading ?
                         <SkeletonLoader/> :
                         <>
+                            <div className="back-option flex justify-start items-center gap-2 px-3 py-2 bg-secondary text-sociogram">
+                                <div className="back-icon text-xl cursor-pointer hover:bg-black/20 hover:dark:bg-white/20 p-2 rounded-full transition" onClick={()=>navigate(-1)}>
+                                    <BiArrowBack/>
+                                </div>
+                                <div>Back</div>
+                            </div>
                             <PostCard key={post?._id} post={post}/>
                             <div className={'create-comment'}>
                                 <div

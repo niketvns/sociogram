@@ -17,7 +17,7 @@ export const users = [
     avatarUrl: "https://res.cloudinary.com/dyzu4lzqz/image/upload/v1687356575/sociogram/xfiwt6zmylz1pcy93fih.png",
     bannerUrl: 'https://res.cloudinary.com/dyzu4lzqz/image/upload/v1687381115/sociogram/niketsociogrambanner.jpg',
     website: "https://niketmishra.me/",
-    createdAt: "2022-01-01T10:55:06+05:30",
+    createdAt: "2023-01-01T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
@@ -32,7 +32,7 @@ export const users = [
         "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
     bannerUrl: 'https://res.cloudinary.com/dyzu4lzqz/image/upload/v1688212872/user_banner.png',
     website: "https://romabulani.netlify.app/",
-    createdAt: "2022-01-01T10:55:06+05:30",
+    createdAt: "2023-01-01T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
@@ -47,7 +47,7 @@ export const users = [
         "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554207/socialmedia/avatars/john-doe_gbkuda.webp",
     bannerUrl: 'https://res.cloudinary.com/dyzu4lzqz/image/upload/v1688212872/user_banner.png',
     website: "https://google.com/",
-    createdAt: "2022-01-02T10:55:06+05:30",
+    createdAt: "2023-01-02T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
@@ -62,7 +62,7 @@ export const users = [
         "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554256/socialmedia/avatars/jane-doe_il3cvx.webp",
     bannerUrl: 'https://res.cloudinary.com/dyzu4lzqz/image/upload/v1688212872/user_banner.png',
     website: "https://romabulani.netlify.app/",
-    createdAt: "2022-01-01T10:55:06+05:30",
+    createdAt: "2023-01-01T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
@@ -76,7 +76,7 @@ export const users = [
         "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651563581/socialmedia/avatars/carl-smith_mehw0u.webp",
     bannerUrl: 'https://res.cloudinary.com/dyzu4lzqz/image/upload/v1688212872/user_banner.png',
     website: "https://romabulani.netlify.app/",
-    createdAt: "2022-01-03T10:55:06+05:30",
+    createdAt: "2023-01-03T10:55:06+05:30",
     updatedAt: formatDate(),
   },
 
@@ -91,7 +91,7 @@ export const users = [
     avatarUrl: "https://res.cloudinary.com/dyzu4lzqz/image/upload/v1687356545/sociogram/b5ezrnlkadn8islkr4xg.jpg",
     bannerUrl: 'https://res.cloudinary.com/dyzu4lzqz/image/upload/v1688212872/user_banner.png',
     website: "https://ashutosh-neog-portfolio.netlify.app/",
-    createdAt: "2022-01-04T10:55:06+05:30",
+    createdAt: "2023-01-04T10:55:06+05:30",
     updatedAt: formatDate(),
   },
 
@@ -106,8 +106,8 @@ export const users = [
     avatarUrl:
         "https://res.cloudinary.com/dtrjdcrme/image/upload/v1652525373/socialmedia/avatars/alex-maxwell.webp",
     bannerUrl: 'https://res.cloudinary.com/dyzu4lzqz/image/upload/v1688212872/user_banner.png',
-    website: "",
-    createdAt: "2022-01-05T10:55:06+05:30",
+    website: "www.google.com",
+    createdAt: "2023-01-05T10:55:06+05:30",
     updatedAt: formatDate(),
   },
 
@@ -123,7 +123,7 @@ export const users = [
         "https://res.cloudinary.com/dtrjdcrme/image/upload/v1652525510/socialmedia/avatars/sophia-jones.webp",
     bannerUrl: 'https://res.cloudinary.com/dyzu4lzqz/image/upload/v1688212872/user_banner.png',
     website: "",
-    createdAt: "2022-01-06T10:55:06+05:30",
+    createdAt: "2023-01-06T10:55:06+05:30",
     updatedAt: formatDate(),
   },
 ];

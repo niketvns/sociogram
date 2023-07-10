@@ -19,6 +19,9 @@ const Bookmarks = () => {
             <Sidebar/>
             {/*All Posts*/}
             <div className="posts w-full md:w-1/2 lg:w-[45%] pt-4 sm:pt-10 flex flex-col md:flex-1 lg:flex-none gap-4">
+                <header className={'text-sociogram bg-secondary p-4 rounded flex flex-col gap-2'}>
+                    <h2 className={'text-2xl font-bold'}>Bookmarks</h2>
+                </header>
                 <div className={'all-posts flex flex-col gap-3 justify-center'}>
                     {
                         isBookmarksLoading ?

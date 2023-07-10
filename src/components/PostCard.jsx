@@ -85,8 +85,8 @@ const PostCard = ({post}) => {
                         }
                     </div>
                 </div>
-                <div className="content-tags">
-                    <div className="text-lg whitespace-pre-line text-sociogram cursor-pointer pl-2"
+                <div className="content-tags  sm:pl-8">
+                    <div className="text-lg whitespace-pre-line text-sociogram cursor-pointer"
                          onClick={() => navigate(`/post/${_id}`)}>
                         {content}
                     </div>
@@ -95,7 +95,7 @@ const PostCard = ({post}) => {
                         <div className="text-sm whitespace-pre-line text-blue-500 cursor-pointer pl-2 flex gap-2 items-center">
                             {
                                 post?.hashTags?.map((tag, index) => (
-                                    <p key={tag+index}>#{tag}</p>
+                                    tag && <p key={tag+index}>#{tag}</p>
                                 ))
                             }
                         </div> : null
@@ -103,7 +103,7 @@ const PostCard = ({post}) => {
                 </div>
                 {
                     mediaURL &&
-                    <div className="post-media cursor-pointer flex justify-center" onClick={() => navigate(`/post/${_id}`)}>
+                    <div className="post-media cursor-pointer flex justify-start sm:pl-8" onClick={() => navigate(`/post/${_id}`)}>
                         {
                             mediaURL.split("/")[4] === "image" ? (
                                 <img
@@ -123,7 +123,7 @@ const PostCard = ({post}) => {
                         }
                     </div>
                 }
-                <div className="post-options flex justify-between items-center text-2xl px-2 text-sociogram">
+                <div className="post-options flex justify-between items-center text-2xl px-2 sm:pl-8 text-sociogram">
                     <div className="left flex gap-4 items-center">
                         <div className="like cursor-pointer">
                             {
@@ -163,14 +163,14 @@ const PostCard = ({post}) => {
                 {
                     likes?.likeCount ?
                         <div
-                            className="like-comment-overview flex gap-2 items-center text-sm cursor-pointer text-black/60 dark:text-white/60 hover:underline" onClick={()=>setIsLikedByModel(true)}>
+                            className="like-comment-overview sm:pl-8 flex gap-2 items-center text-sm cursor-pointer text-black/60 dark:text-white/60 hover:underline" onClick={()=>setIsLikedByModel(true)}>
                             <div className="images flex">
                                 <img src={likes?.likedBy[0]?.avatarUrl} alt="p" className={'w-4 aspect-square rounded-full'}/>
                             </div>
                             Liked by {isInLiked(likes?.likedBy, userDetails?._id) ? 'You' : likes?.likedBy[0]?.username === userDetails?.username ? 'You' : likes?.likedBy[0]?.username } {likes?.likeCount >= 2 ? ` and ${likes?.likeCount-1} others` : null }
                         </div> :
                         <div
-                            className="like-comment-overview flex gap-2 items-center text-sm text-black/60 dark:text-white/60 pl-2">
+                            className="like-comment-overview flex gap-2 items-center text-sm text-black/60 dark:text-white/60 pl-2 sm:pl-8">
                             No one Liked Yet
                         </div>
                 }

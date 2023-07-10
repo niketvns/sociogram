@@ -22,7 +22,7 @@ export const posts = [
           firstName: "Carl",
           lastName: "Smith",
           username: "carlsmith",
-          createdAt: "2022-01-03T10:55:06+05:30",
+          createdAt: "2023-01-03T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -34,7 +34,7 @@ export const posts = [
           username: "adarshbalika",
           avatarUrl:
               "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
-          createdAt: "2022-01-01T10:55:06+05:30",
+          createdAt: "2023-01-01T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -46,7 +46,7 @@ export const posts = [
           username: "johndoe",
           avatarUrl:
               "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554207/socialmedia/avatars/john-doe_gbkuda.webp",
-          createdAt: "2022-01-02T10:55:06+05:30",
+          createdAt: "2023-01-02T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -57,7 +57,7 @@ export const posts = [
           firstName: "Niket",
           lastName: "Mishra",
           username: "niketmishra",
-          createdAt: "2022-01-01T10:55:06+05:30",
+          createdAt: "2023-01-01T10:55:06+05:30",
           updatedAt: "2023-07-01T13:04:27+05:30",
           followers: [],
           following: []
@@ -67,7 +67,7 @@ export const posts = [
     },
     comments: [],
     username: "janedoe",
-    createdAt: "2022-05-10T10:55:06+05:30",
+    createdAt: "2023-05-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
 
@@ -86,7 +86,7 @@ export const posts = [
           firstName: "Carl",
           lastName: "Smith",
           username: "carlsmith",
-          createdAt: "2022-01-03T10:55:06+05:30",
+          createdAt: "2023-01-03T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -98,7 +98,7 @@ export const posts = [
           username: "adarshbalika",
           avatarUrl:
               "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
-          createdAt: "2022-01-01T10:55:06+05:30",
+          createdAt: "2023-01-01T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -110,7 +110,7 @@ export const posts = [
           username: "johndoe",
           avatarUrl:
               "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554207/socialmedia/avatars/john-doe_gbkuda.webp",
-          createdAt: "2022-01-02T10:55:06+05:30",
+          createdAt: "2023-01-02T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -120,7 +120,7 @@ export const posts = [
     },
     comments: [],
     username: "alexmaxwell",
-    createdAt: "2022-02-14T10:55:06+05:30",
+    createdAt: "2023-02-14T10:55:06+05:30",
     updatedAt: formatDate(),
   },
 
@@ -139,7 +139,7 @@ export const posts = [
           firstName: "Carl",
           lastName: "Smith",
           username: "carlsmith",
-          createdAt: "2022-01-03T10:55:06+05:30",
+          createdAt: "2023-01-03T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -151,7 +151,7 @@ export const posts = [
           username: "adarshbalika",
           avatarUrl:
               "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
-          createdAt: "2022-01-01T10:55:06+05:30",
+          createdAt: "2023-01-01T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -163,7 +163,7 @@ export const posts = [
           username: "johndoe",
           avatarUrl:
               "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554207/socialmedia/avatars/john-doe_gbkuda.webp",
-          createdAt: "2022-01-02T10:55:06+05:30",
+          createdAt: "2023-01-02T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -174,7 +174,7 @@ export const posts = [
           firstName: "Niket",
           lastName: "Mishra",
           username: "niketmishra",
-          createdAt: "2022-01-01T10:55:06+05:30",
+          createdAt: "2023-01-01T10:55:06+05:30",
           updatedAt: "2023-07-01T13:04:27+05:30",
           followers: [],
           following: []
@@ -184,7 +184,7 @@ export const posts = [
     },
     comments: [],
     username: "niketmishra",
-    createdAt: "2022-01-15T10:55:06+05:30",
+    createdAt: "2023-01-15T10:55:06+05:30",
     updatedAt: formatDate(),
   },
 
@@ -203,7 +203,7 @@ export const posts = [
           firstName: "Carl",
           lastName: "Smith",
           username: "carlsmith",
-          createdAt: "2022-01-03T10:55:06+05:30",
+          createdAt: "2023-01-03T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -215,7 +215,7 @@ export const posts = [
           username: "adarshbalika",
           avatarUrl:
               "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
-          createdAt: "2022-01-01T10:55:06+05:30",
+          createdAt: "2023-01-01T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -225,7 +225,7 @@ export const posts = [
     },
     comments: [],
     username: "sophiajones",
-    createdAt: "2022-05-10T10:55:06+05:30",
+    createdAt: "2023-05-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
 
@@ -243,7 +243,55 @@ export const posts = [
           firstName: "Carl",
           lastName: "Smith",
           username: "carlsmith",
-          createdAt: "2022-01-03T10:55:06+05:30",
+          createdAt: "2023-01-03T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+        {
+          _id: "41c8585c-5fab-4748-83c2-fb07bde54b86",
+          avatarUrl:
+              "https://res.cloudinary.com/dyzu4lzqz/image/upload/v1687356575/sociogram/xfiwt6zmylz1pcy93fih.png",
+          firstName: "Niket",
+          lastName: "Mishra",
+          username: "niketmishra",
+          createdAt: "2023-01-01T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+        {
+          _id: "o5gzWjEeX_",
+          avatarUrl:
+              "https://res.cloudinary.com/dyzu4lzqz/image/upload/v1687356545/sociogram/b5ezrnlkadn8islkr4xg.jpg",
+          firstName: "Ashutosh",
+          lastName: "Singh",
+          username: "ashutosh3_3",
+          createdAt: "2023-01-04T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+        {
+          _id: "M1NR81Bzlz",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1652525373/socialmedia/avatars/alex-maxwell.webp",
+          firstName: "Alex",
+          lastName: "Maxwell",
+          username: "alexmaxwell",
+          createdAt: "2023-01-05T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+        {
+          _id: "qq8zWjEeXd",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1652525510/socialmedia/avatars/sophia-jones.webp",
+          firstName: "Sophia",
+          lastName: "Jones",
+          username: "sophiajones",
+          createdAt: "2023-01-06T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -255,31 +303,8 @@ export const posts = [
           username: "adarshbalika",
           avatarUrl:
               "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
-          createdAt: "2022-01-01T10:55:06+05:30",
+          createdAt: "2023-01-01T10:55:06+05:30",
           updatedAt: formatDate(),
-          followers: [],
-          following: []
-        },
-        {
-          _id: "79Gksh9otl",
-          firstName: "John",
-          lastName: "Doe",
-          username: "johndoe",
-          avatarUrl:
-              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554207/socialmedia/avatars/john-doe_gbkuda.webp",
-          createdAt: "2022-01-02T10:55:06+05:30",
-          updatedAt: formatDate(),
-          followers: [],
-          following: []
-        },
-        {
-          _id: "41c8585c-5fab-4748-83c2-fb07bde54b86",
-          avatarUrl: "https://res.cloudinary.com/dyzu4lzqz/image/upload/v1687356575/sociogram/xfiwt6zmylz1pcy93fih.png",
-          firstName: "Niket",
-          lastName: "Mishra",
-          username: "niketmishra",
-          createdAt: "2022-01-01T10:55:06+05:30",
-          updatedAt: "2023-07-01T13:04:27+05:30",
           followers: [],
           following: []
         }
@@ -288,7 +313,7 @@ export const posts = [
     },
     comments: [],
     username: "janedoe",
-    createdAt: "2022-02-10T10:55:06+05:30",
+    createdAt: "2023-02-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
@@ -306,7 +331,7 @@ export const posts = [
           username: "adarshbalika",
           avatarUrl:
               "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
-          createdAt: "2022-01-01T10:55:06+05:30",
+          createdAt: "2023-01-01T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -316,7 +341,7 @@ export const posts = [
     },
     comments: [],
     username: "adarshbalika",
-    createdAt: "2022-04-06T10:55:06+05:30",
+    createdAt: "2023-04-06T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
@@ -330,7 +355,7 @@ export const posts = [
     },
     comments: [],
     username: "adarshbalika",
-    createdAt: "2022-05-06T10:55:06+05:30",
+    createdAt: "2023-05-06T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
@@ -348,7 +373,7 @@ export const posts = [
           firstName: "Carl",
           lastName: "Smith",
           username: "carlsmith",
-          createdAt: "2022-01-03T10:55:06+05:30",
+          createdAt: "2023-01-03T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -360,7 +385,7 @@ export const posts = [
           username: "adarshbalika",
           avatarUrl:
               "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
-          createdAt: "2022-01-01T10:55:06+05:30",
+          createdAt: "2023-01-01T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -370,7 +395,7 @@ export const posts = [
     },
     comments: [],
     username: "adarshbalika",
-    createdAt: "2022-03-06T12:55:06+05:30",
+    createdAt: "2023-03-06T12:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
@@ -395,14 +420,13 @@ export const posts = [
       },
     ],
     username: "niketmishra",
-    createdAt: "2022-04-10T10:55:06+05:30",
+    createdAt: "2023-04-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
     _id: "Ie92xOSVeU",
-    content:
-        "Mostly asked JavaScript interview questions!!\n1. Reverse a string: Write a function that takes a string as input and returns the string in reverse order. For example, if the input is \"Hello, World!\", the output should be \"!dlroW ,olleH\".\n\n2. Find the largest number in an array:  Write a function that takes an array of numbers as input and returns the largest number in the array. For example, if the input is [3, 8, 2, 10, 5], the output should be 10.",
-    mediaURL: "",
+    content: "",
+    mediaURL: "https://res.cloudinary.com/dyzu4lzqz/image/upload/v1688908355/sociogram/qna_u4ocdf.svg",
     likes: {
       likeCount: 1,
       likedBy: [
@@ -413,7 +437,7 @@ export const posts = [
           username: "johndoe",
           avatarUrl:
               "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554207/socialmedia/avatars/john-doe_gbkuda.webp",
-          createdAt: "2022-01-02T10:55:06+05:30",
+          createdAt: "2023-01-02T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -433,7 +457,7 @@ export const posts = [
       },
     ],
     username: "alexmaxwell",
-    createdAt: "2022-04-12T10:55:06+05:30",
+    createdAt: "2023-04-12T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
@@ -450,7 +474,7 @@ export const posts = [
           firstName: "Carl",
           lastName: "Smith",
           username: "carlsmith",
-          createdAt: "2022-01-03T10:55:06+05:30",
+          createdAt: "2023-01-03T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -462,7 +486,7 @@ export const posts = [
           username: "adarshbalika",
           avatarUrl:
               "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
-          createdAt: "2022-01-01T10:55:06+05:30",
+          createdAt: "2023-01-01T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -474,7 +498,7 @@ export const posts = [
           username: "johndoe",
           avatarUrl:
               "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554207/socialmedia/avatars/john-doe_gbkuda.webp",
-          createdAt: "2022-01-02T10:55:06+05:30",
+          createdAt: "2023-01-02T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -485,7 +509,7 @@ export const posts = [
           firstName: "Niket",
           lastName: "Mishra",
           username: "niketmishra",
-          createdAt: "2022-01-01T10:55:06+05:30",
+          createdAt: "2023-01-01T10:55:06+05:30",
           updatedAt: "2023-07-01T13:04:27+05:30",
           followers: [],
           following: []
@@ -505,7 +529,7 @@ export const posts = [
       },
     ],
     username: "sophiajones",
-    createdAt: "2022-05-15T10:55:06+05:30",
+    createdAt: "2023-05-15T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
@@ -523,7 +547,7 @@ export const posts = [
           firstName: "Carl",
           lastName: "Smith",
           username: "carlsmith",
-          createdAt: "2022-01-03T10:55:06+05:30",
+          createdAt: "2023-01-03T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -535,7 +559,7 @@ export const posts = [
           username: "adarshbalika",
           avatarUrl:
               "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
-          createdAt: "2022-01-01T10:55:06+05:30",
+          createdAt: "2023-01-01T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -547,7 +571,7 @@ export const posts = [
           username: "johndoe",
           avatarUrl:
               "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554207/socialmedia/avatars/john-doe_gbkuda.webp",
-          createdAt: "2022-01-02T10:55:06+05:30",
+          createdAt: "2023-01-02T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -557,7 +581,7 @@ export const posts = [
     },
     comments: [],
     username: "niketmishra",
-    createdAt: "2022-02-10T10:55:06+05:30",
+    createdAt: "2023-02-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
 
@@ -573,7 +597,7 @@ export const posts = [
     },
     comments: [],
     username: "johndoe",
-    createdAt: "2022-01-12T10:55:06+05:30",
+    createdAt: "2023-01-12T10:55:06+05:30",
     updatedAt: formatDate(),
   },
 
@@ -591,7 +615,7 @@ export const posts = [
           username: "johndoe",
           avatarUrl:
               "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554207/socialmedia/avatars/john-doe_gbkuda.webp",
-          createdAt: "2022-01-02T10:55:06+05:30",
+          createdAt: "2023-01-02T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -601,7 +625,7 @@ export const posts = [
     },
     comments: [],
     username: "alexmaxwell",
-    createdAt: "2022-01-26T10:55:06+05:30",
+    createdAt: "2023-01-26T10:55:06+05:30",
     updatedAt: formatDate(),
   },
 
@@ -620,7 +644,7 @@ export const posts = [
           firstName: "Carl",
           lastName: "Smith",
           username: "carlsmith",
-          createdAt: "2022-01-03T10:55:06+05:30",
+          createdAt: "2023-01-03T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -632,7 +656,7 @@ export const posts = [
           username: "adarshbalika",
           avatarUrl:
               "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
-          createdAt: "2022-01-01T10:55:06+05:30",
+          createdAt: "2023-01-01T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -644,7 +668,7 @@ export const posts = [
           username: "johndoe",
           avatarUrl:
               "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554207/socialmedia/avatars/john-doe_gbkuda.webp",
-          createdAt: "2022-01-02T10:55:06+05:30",
+          createdAt: "2023-01-02T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -654,7 +678,7 @@ export const posts = [
     },
     comments: [],
     username: "carlsmith",
-    createdAt: "2022-03-10T10:55:06+05:30",
+    createdAt: "2023-03-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
 
@@ -672,7 +696,7 @@ export const posts = [
           firstName: "Carl",
           lastName: "Smith",
           username: "carlsmith",
-          createdAt: "2022-01-03T10:55:06+05:30",
+          createdAt: "2023-01-03T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -684,7 +708,7 @@ export const posts = [
           username: "adarshbalika",
           avatarUrl:
               "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
-          createdAt: "2022-01-01T10:55:06+05:30",
+          createdAt: "2023-01-01T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -694,7 +718,7 @@ export const posts = [
     },
     comments: [],
     username: "sophiajones",
-    createdAt: "2022-04-10T10:55:06+05:30",
+    createdAt: "2023-04-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
 
@@ -709,7 +733,7 @@ export const posts = [
     },
     comments: [],
     username: "niketmishra",
-    createdAt: "2022-04-10T10:55:06+05:30",
+    createdAt: "2023-04-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
 
@@ -728,7 +752,7 @@ export const posts = [
           firstName: "Carl",
           lastName: "Smith",
           username: "carlsmith",
-          createdAt: "2022-01-03T10:55:06+05:30",
+          createdAt: "2023-01-03T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -740,7 +764,7 @@ export const posts = [
           username: "adarshbalika",
           avatarUrl:
               "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
-          createdAt: "2022-01-01T10:55:06+05:30",
+          createdAt: "2023-01-01T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -752,7 +776,7 @@ export const posts = [
           username: "johndoe",
           avatarUrl:
               "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554207/socialmedia/avatars/john-doe_gbkuda.webp",
-          createdAt: "2022-01-02T10:55:06+05:30",
+          createdAt: "2023-01-02T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -762,15 +786,16 @@ export const posts = [
     },
     comments: [],
     username: "carlsmith",
-    createdAt: "2022-01-14T10:55:06+05:30",
+    createdAt: "2023-01-14T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
     _id: "xhzTkUi2Nt",
     content: "की पंछी जो पेड़ों पर गाती थी सुबह\nकौवों का देखो शहर रह गया है\nऔर आगे तो केवल सफर ही सफर है\nपीछे जो छूटा वो घर रह गया है\n",
-    mediaURL: "",
+    mediaURL: "https://res.cloudinary.com/dyzu4lzqz/image/upload/v1688907753/sociogram/emotions-3406667_1280_abu4me.jpg",
+    hashTags: ["zindagi"],
     likes: {
-      likeCount: 5,
+      likeCount: 7,
       likedBy: [
         {
           _id: "LCrc9f0Zl0",
@@ -779,7 +804,55 @@ export const posts = [
           firstName: "Carl",
           lastName: "Smith",
           username: "carlsmith",
-          createdAt: "2022-01-03T10:55:06+05:30",
+          createdAt: "2023-01-03T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+        {
+          _id: "41c8585c-5fab-4748-83c2-fb07bde54b86",
+          avatarUrl:
+              "https://res.cloudinary.com/dyzu4lzqz/image/upload/v1687356575/sociogram/xfiwt6zmylz1pcy93fih.png",
+          firstName: "Niket",
+          lastName: "Mishra",
+          username: "niketmishra",
+          createdAt: "2023-01-01T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+        {
+          _id: "o5gzWjEeX_",
+          avatarUrl:
+              "https://res.cloudinary.com/dyzu4lzqz/image/upload/v1687356545/sociogram/b5ezrnlkadn8islkr4xg.jpg",
+          firstName: "Ashutosh",
+          lastName: "Singh",
+          username: "ashutosh3_3",
+          createdAt: "2023-01-04T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+        {
+          _id: "M1NR81Bzlz",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1652525373/socialmedia/avatars/alex-maxwell.webp",
+          firstName: "Alex",
+          lastName: "Maxwell",
+          username: "alexmaxwell",
+          createdAt: "2023-01-05T10:55:06+05:30",
+          updatedAt: formatDate(),
+          followers: [],
+          following: []
+        },
+        {
+          _id: "qq8zWjEeXd",
+          avatarUrl:
+              "https://res.cloudinary.com/dtrjdcrme/image/upload/v1652525510/socialmedia/avatars/sophia-jones.webp",
+          firstName: "Sophia",
+          lastName: "Jones",
+          username: "sophiajones",
+          createdAt: "2023-01-06T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -791,7 +864,7 @@ export const posts = [
           username: "adarshbalika",
           avatarUrl:
               "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
-          createdAt: "2022-01-01T10:55:06+05:30",
+          createdAt: "2023-01-01T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -803,7 +876,7 @@ export const posts = [
           username: "johndoe",
           avatarUrl:
               "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554207/socialmedia/avatars/john-doe_gbkuda.webp",
-          createdAt: "2022-01-02T10:55:06+05:30",
+          createdAt: "2023-01-02T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -823,14 +896,14 @@ export const posts = [
       },
     ],
     username: "niketmishra",
-    createdAt: "2022-01-10T10:55:06+05:30",
+    createdAt: "2023-03-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
     _id: "siFFxfYI1s",
-    content: "Started my Baking journey! Look what I made.",
+    content: "Both the bottle and the brand are exactly the same.\nThe only thing that changes is the place. Each place gives a different value to the same product!\nIf you constantly feel undervalued then maybe its your environment that needs to be changed.",
     mediaURL:
-        "https://res.cloudinary.com/dtrjdcrme/video/upload/v1652188886/upload-socialmedia/oikev6eomsgahnvxcijd.mp4",
+        "https://res.cloudinary.com/dyzu4lzqz/image/upload/v1688906934/sociogram/1688700291533_ndo7u2.jpg",
     likes: {
       likeCount: 0,
       likedBy: [],
@@ -838,7 +911,7 @@ export const posts = [
     },
     comments: [],
     username: "carlsmith",
-    createdAt: "2022-05-21T10:55:06+05:30",
+    createdAt: "2023-05-21T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
@@ -855,7 +928,7 @@ export const posts = [
           firstName: "Carl",
           lastName: "Smith",
           username: "carlsmith",
-          createdAt: "2022-01-03T10:55:06+05:30",
+          createdAt: "2023-01-03T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -867,7 +940,7 @@ export const posts = [
           username: "adarshbalika",
           avatarUrl:
               "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
-          createdAt: "2022-01-01T10:55:06+05:30",
+          createdAt: "2023-01-01T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -879,7 +952,7 @@ export const posts = [
           username: "johndoe",
           avatarUrl:
               "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554207/socialmedia/avatars/john-doe_gbkuda.webp",
-          createdAt: "2022-01-02T10:55:06+05:30",
+          createdAt: "2023-01-02T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -908,14 +981,15 @@ export const posts = [
       }
     ],
     username: "ashutosh3_3",
-    createdAt: "2022-01-10T10:55:06+05:30",
+    createdAt: "2023-01-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
     _id: "3XHvLP1fg",
-    content: "I made this cake for my friend's birthday. Check it out",
+    content: "I completed 500 questions on leetcode today😁😁😁😁",
     mediaURL:
-        "https://res.cloudinary.com/dtrjdcrme/image/upload/v1652188492/upload-socialmedia/cakegif_q11mfm.webp",
+        "https://res.cloudinary.com/dyzu4lzqz/image/upload/v1688909488/sociogram/F0cls8eWYAAafED_k6iaxd.jpg",
+    hashTags: ["LoveLiveLaugh", "leetcode", "DSA", "code"],
     likes: {
       likeCount: 1,
       likedBy: [
@@ -926,7 +1000,7 @@ export const posts = [
           username: "johndoe",
           avatarUrl:
               "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554207/socialmedia/avatars/john-doe_gbkuda.webp",
-          createdAt: "2022-01-02T10:55:06+05:30",
+          createdAt: "2023-01-02T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -938,7 +1012,7 @@ export const posts = [
       {
         _id: "6nImWvImxo",
         username: "johndoe",
-        text: "That's mouth watering! Could you make one for my Birthday as well?",
+        text: "Great Work!",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -946,7 +1020,7 @@ export const posts = [
       },
     ],
     username: "janedoe",
-    createdAt: "2022-02-10T10:55:06+05:30",
+    createdAt: "2023-02-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
@@ -964,7 +1038,7 @@ export const posts = [
           firstName: "Carl",
           lastName: "Smith",
           username: "carlsmith",
-          createdAt: "2022-01-03T10:55:06+05:30",
+          createdAt: "2023-01-03T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -976,7 +1050,7 @@ export const posts = [
           username: "adarshbalika",
           avatarUrl:
               "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
-          createdAt: "2022-01-01T10:55:06+05:30",
+          createdAt: "2023-01-01T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -986,14 +1060,14 @@ export const posts = [
     },
     comments: [],
     username: "adarshbalika",
-    createdAt: "2022-03-06T10:55:06+05:30",
+    createdAt: "2023-03-06T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
     _id: "3XHvLP9kC",
-    content: "Yayy! Its my Birthday Today. Made this cake for myself!",
+    content: "Hello Everyone 👋, For last few days I was working on a Component Library Project and I have added lots of components in this. I learned a lot with this project, anyone can use components which are available on WebHelpUI.",
     mediaURL:
-        "https://res.cloudinary.com/dtrjdcrme/image/upload/v1647014336/ecommerce/chocolatecake4.webp",
+        "https://res.cloudinary.com/dyzu4lzqz/video/upload/v1688909167/sociogram/webHelpUI-5mb_sz0whq.mp4",
     likes: {
       likeCount: 3,
       likedBy: [
@@ -1004,7 +1078,7 @@ export const posts = [
           firstName: "Carl",
           lastName: "Smith",
           username: "carlsmith",
-          createdAt: "2022-01-03T10:55:06+05:30",
+          createdAt: "2023-01-03T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -1016,7 +1090,7 @@ export const posts = [
           username: "adarshbalika",
           avatarUrl:
               "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
-          createdAt: "2022-01-01T10:55:06+05:30",
+          createdAt: "2023-01-01T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -1028,7 +1102,7 @@ export const posts = [
           username: "johndoe",
           avatarUrl:
               "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554207/socialmedia/avatars/john-doe_gbkuda.webp",
-          createdAt: "2022-01-02T10:55:06+05:30",
+          createdAt: "2023-01-02T10:55:06+05:30",
           updatedAt: formatDate(),
           followers: [],
           following: []
@@ -1040,7 +1114,7 @@ export const posts = [
       {
         _id: "EO7iOPN9n8",
         username: "carlsmith",
-        text: "Happy Birthday! Enjoy your Day!!",
+        text: "That's Nice!",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -1049,7 +1123,7 @@ export const posts = [
       {
         _id: "QK52wf6HI1",
         username: "janedoe",
-        text: "Wow! Looks Amazzing! Happy Birthday!",
+        text: "Wow! Amazzing!",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -1057,14 +1131,14 @@ export const posts = [
       },
     ],
     username: "adarshbalika",
-    createdAt: "2022-03-15T10:55:06+05:30",
+    createdAt: "2023-03-15T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
     _id: "Ie92xOSVeUXR",
     content:
         "उसूलों पर जहाँ आँच आए टकराना ज़रूरी है\nजो ज़िंदा हो तो फिर ज़िंदा नज़र आना ज़रूरी है",
-    mediaURL: "",
+    mediaURL: "https://res.cloudinary.com/dyzu4lzqz/image/upload/v1688907598/sociogram/alone-emotion_vbhkvv.jpg",
     hashTags: ["sayari", "quotes"],
     likes: {
       likeCount: 1,
@@ -1075,7 +1149,7 @@ export const posts = [
           firstName: "Niket",
           lastName: "Mishra",
           username: "niketmishra",
-          createdAt: "2022-01-01T10:55:06+05:30",
+          createdAt: "2023-01-01T10:55:06+05:30",
           updatedAt: "2023-07-01T13:04:27+05:30",
           followers: [],
           following: []
@@ -1095,7 +1169,7 @@ export const posts = [
       },
     ],
     username: "niketmishra",
-    createdAt: "2022-04-12T10:55:06+05:30",
+    createdAt: "2023-04-12T10:55:06+05:30",
     updatedAt: formatDate(),
   },
 ];
