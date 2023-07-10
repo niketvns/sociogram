@@ -4,7 +4,7 @@ import {useGlobalBookmarks, useGlobalPosts} from "../contexts";
 import {SkeletonLoader} from "../components";
 
 const Bookmarks = () => {
-    const {bookmarks, isBookmarksLoading, isInBookmarks} = useGlobalBookmarks()
+    const {isBookmarksLoading, isInBookmarks} = useGlobalBookmarks()
     const {posts} = useGlobalPosts()
 
     useEffect(()=>{
