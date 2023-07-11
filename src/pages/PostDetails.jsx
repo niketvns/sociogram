@@ -63,13 +63,18 @@ const PostDetails = () => {
                 {
                     isLoading ?
                         <SkeletonLoader/> :
+                        post ?
                         <>
-                            <div className="back-option flex justify-start items-center gap-2 px-3 py-2 bg-secondary text-sociogram">
-                                <div className="back-icon text-xl cursor-pointer hover:bg-black/20 hover:dark:bg-white/20 p-2 rounded-full transition" onClick={()=>navigate(-1)}>
+                            <div
+                                className="back-option flex justify-start items-center gap-2 px-3 py-2 bg-secondary text-sociogram">
+                                <div
+                                    className="back-icon text-xl cursor-pointer hover:bg-black/20 hover:dark:bg-white/20 p-2 rounded-full transition"
+                                    onClick={() => navigate(-1)}>
                                     <BiArrowBack/>
                                 </div>
                                 <div>Back</div>
                             </div>
+
                             <PostCard key={post?._id} post={post}/>
                             <div className={'create-comment'}>
                                 <div
@@ -123,7 +128,8 @@ const PostDetails = () => {
                                     ))
                                 }
                             </div>
-                        </>
+                        </>:
+                            <p className='text-xl font-bold text-black/40 text-center pt-5'>Post Not Available</p>
                 }
             </div>
             {/*Suggestions*/}
