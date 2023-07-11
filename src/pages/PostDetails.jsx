@@ -80,8 +80,14 @@ const PostDetails = () => {
                                 <div
                                     className="comment-input rounded-lg bg-secondary p-2 py-4 flex items-start gap-2 relative">
                                     <div className="profile">
-                                        <img src={findUser(userDetails?.username)?.avatarUrl} alt="profile"
-                                             className={'w-8 rounded-full aspect-square'}/>
+                                        {
+                                            findUser(userDetails?.username)?.avatarUrl ?
+                                                <img src={findUser(userDetails?.username)?.avatarUrl} alt="profile"
+                                                     className={'w-8 rounded-full aspect-square object-cover'}/>:
+                                                <div className={'w-8 aspect-square sm:w-10 object-cover rounded-full cursor-pointer bg-black/40 dark:bg-white/40 flex items-center justify-center text-lg font-bold text-white'}>
+                                                    {(findUser(userDetails?.username) ?? userDetails)?.firstName.slice(0,1).toUpperCase()}
+                                                </div>
+                                        }
                                     </div>
                                     <textarea
                                         name="comment"

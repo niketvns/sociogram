@@ -175,8 +175,6 @@ const PostsProvider = ({children}) => {
     }
 
     const deleteComment = async (postId, commentId) => {
-        console.log(postId)
-        console.log(commentId)
         setIsCommentLoading(true)
         const token = localStorage.getItem('encodedToken')
         try {

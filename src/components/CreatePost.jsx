@@ -2,7 +2,7 @@ import profile from "../images/niket_img.png";
 import {MdAddPhotoAlternate} from "react-icons/md";
 import {MdOutlineAddReaction} from "react-icons/md";
 import React, {useState} from "react";
-import {useGlobalPosts} from "../contexts";
+import {useGlobalAuth, useGlobalPosts, useGlobalUsers} from "../contexts";
 import {AiOutlineClose} from "react-icons/ai";
 import {EmojiBox} from "./index";
 
@@ -14,6 +14,8 @@ const CreatePost = () => {
     })
     const [isEmojiModel, setIsEmojiModel] = useState(false)
     const {addPost} = useGlobalPosts();
+    const {userDetails} = useGlobalAuth()
+    const {findUser} = useGlobalUsers()
 
     const changeHandler = (e) => {
         const {name, value} = e.target;
@@ -34,13 +36,20 @@ const CreatePost = () => {
             hashTags: []
         })
     }
+    const userData = findUser(userDetails?.username)
 
     return (
         <div
             className="whats-on-your-mind flex flex-col items-start justify-center gap-2 bg-secondary rounded py-2 px-3">
             <div className="top w-full flex border-b-[0.5px] border-black/20 dark:border-white/20">
                 <div className="profile">
-                    <img src={profile} alt="profile" className={'w-8 rounded-full aspect-square'}/>
+                    {
+                        userData?.avatarUrl ?
+                            <img src={userData?.avatarUrl} alt="profile" className={'w-8 rounded-full aspect-square'}/> :
+                            <div className={'w-8 aspect-square sm:w-10 object-cover rounded-full cursor-pointer bg-black/40 dark:bg-white/40 flex items-center justify-center text-lg font-bold text-white'}>
+                                {(userData ?? userDetails)?.firstName.slice(0,1).toUpperCase()}
+                            </div>
+                    }
                 </div>
 
                 <div className="text-area flex-1 pl-2">

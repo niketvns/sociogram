@@ -52,7 +52,7 @@ const EditProfileModel = ({setIsEditProfileModel, userData }) => {
                     <h1 className={'text-sociogram text-xl font-bold'}>Edit Profile</h1>
                     <div className="profile flex flex-col items-start gap-1">
                         <div className={'relative'}>
-                            <img src={user?.avatarUrl} alt="profile" className={'w-20 rounded-full aspect-square'}/>
+                            <img src={user?.avatarUrl} alt="profile" className={'w-20 bg-black/10 rounded-full aspect-square border-2 border-black'}/>
                             <label htmlFor="profile">
                                 <RiImageAddFill className={'absolute bottom-1 right-2 text-2xl cursor-pointer text-white'}/>
                                 <input type="file" accept={'image/*'} name="profile" id="profile" className={'hidden'} onChange={(e)=>setUser(prevState => ({...prevState, avatarUrl: URL.createObjectURL(e.target.files[0])}))}/>

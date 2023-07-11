@@ -23,6 +23,7 @@ const AuthProvider = ({children}) => {
         try {
             const { data } = await axios.get('/api/users')
             dispatch({ type: 'UPDATE_USERS', payload: data.users });
+            // console.log(data.users)
         } catch (error) {
             console.log(error)
         }
@@ -74,7 +75,7 @@ const AuthProvider = ({children}) => {
     // Signup Handler
     const signupHandler = async (event) => {
         event.preventDefault()
-        console.log(state.signupFormData)
+        // console.log(state.signupFormData)
         try {
             const {data} = await axios.post('/api/auth/signup', {
                 "firstName": state.signupFormData.firstName,
@@ -82,12 +83,12 @@ const AuthProvider = ({children}) => {
                 "username": state.signupFormData.username,
                 "password": state.signupFormData.password
             })
-            console.log(data.createdUser)
+            // console.log(data.createdUser)
             localStorage.setItem("encodedToken", JSON.stringify(data.encodedToken));
             localStorage.setItem("foundUser", JSON.stringify(data.createdUser));
+            fetchAllUsers();
             dispatch({type: 'SIGNUP', payload: {loginToken: data.encodedToken, userDetails: data.createdUser}});
             getAlert('success', 'Signup Successfully!', "Welcome in the Sociogram")
-            fetchAllUsers();
         } catch (error) {
             console.log(error)
         }

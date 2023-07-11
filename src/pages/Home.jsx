@@ -42,11 +42,13 @@ const Home = () => {
                 {
                     isPostLoading ?
                         <SkeletonLoader/> :
+                        filteredPosts.length ?
                         <div className={'all-posts flex flex-col gap-3 justify-center'}>
                             {
                                 filteredPosts.map(post => <PostCard key={post._id} post={post}/>)
                             }
-                        </div>
+                        </div> :
+                            <p className='text-xl font-bold text-black/40 text-center pt-5'>Follow Users to see their posts</p>
                 }
             </div>
             {/*Suggestions*/}

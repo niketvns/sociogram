@@ -1,6 +1,6 @@
 import {PostCard, ProfileCard, Sidebar, SkeletonLoader, Suggestions} from "../components";
 import {useEffect, useReducer, useState} from "react";
-import {useGlobalAlerts, useGlobalPosts} from "../contexts";
+import {useGlobalAlerts, useGlobalAuth, useGlobalPosts} from "../contexts";
 import axios from "axios";
 import {useParams} from "react-router-dom";
 

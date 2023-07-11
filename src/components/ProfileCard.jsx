@@ -14,7 +14,8 @@ const ProfileCard = ({username, myPosts}) => {
     const navigate = useNavigate()
     const {findUser, followUser, unfollowUser} = useGlobalUsers()
     const {userDetails} = useGlobalAuth()
-    const userData = findUser(username);
+
+    const userData = userDetails?.username === username ? JSON.parse(localStorage.getItem('foundUser')) : findUser(username);
 
     useEffect(()=>{
         document.title = `${userData?.firstName} ${userData?.lastName} (@${userData?.username})`

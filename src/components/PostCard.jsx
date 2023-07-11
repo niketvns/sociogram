@@ -67,8 +67,15 @@ const PostCard = ({post}) => {
                 }
                 <div className="user flex items-center gap-2">
                     <div className="profile cursor-pointer" onClick={() => navigate(`/user/${post?.username}`)}>
-                        <img src={userData?.avatarUrl} alt="profile"
-                             className={'w-8 rounded-full aspect-square object-cover'}/>
+                        {
+                            userData?.avatarUrl ?
+                                <img src={userData?.avatarUrl} alt="profile"
+                                     className={'w-8 rounded-full aspect-square object-cover'}/>
+                                :
+                                <div className={'w-8 aspect-square sm:w-10 object-cover rounded-full cursor-pointer bg-black/40 dark:bg-white/40 flex items-center justify-center text-lg font-bold text-white'}>
+                                    {(userData ?? userDetails)?.firstName.slice(0,1).toUpperCase()}
+                                </div>
+                        }
                     </div>
                     <div className="user-details cursor-pointer" onClick={() => navigate(`/user/${post?.username}`)}>
                         <p className={'text-sociogram'}>{userData?.firstName} {userData?.lastName}</p>

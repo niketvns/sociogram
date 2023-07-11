@@ -36,13 +36,11 @@ const CommentCard = ({comment, post, userDetails}) => {
         setIsEdit(false)
     }
 
-    // console.log(comment)
-
     return (
         <div key={comment?._id}
              className="ind-comment flex flex-col items-start justify-start gap-2 my-2 p-2 py-4 rounded-lg bg-secondary relative">
             {
-                userDetails._id === userData._id && !isEdit &&
+                userDetails?._id === userData?._id && !isEdit &&
                 <div ref={isPostModelRef} className="hamburger absolute top-4 right-8 text-sociogram select-none">
                     <HiOutlineDotsHorizontal className={'text-2xl cursor-pointer'}
                                              onClick={() => setIsPostModel(prevState => !prevState)}/>
@@ -72,8 +70,14 @@ const CommentCard = ({comment, post, userDetails}) => {
             }
             <div className="user flex gap-2">
                 <div className="profile">
-                    <img src={findUser(comment?.username)?.avatarUrl} alt="profile"
-                         className={'w-8 rounded-full aspect-square object-cover'}/>
+                    {
+                        findUser(comment?.username)?.avatarUrl ?
+                            <img src={findUser(comment?.username)?.avatarUrl} alt="profile"
+                                 className={'w-8 rounded-full aspect-square object-cover'}/>:
+                            <div className={'w-8 aspect-square sm:w-10 object-cover rounded-full cursor-pointer bg-black/40 dark:bg-white/40 flex items-center justify-center text-lg font-bold text-white'}>
+                                {(findUser(comment?.username) ?? userDetails)?.firstName.slice(0,1).toUpperCase()}
+                            </div>
+                    }
                 </div>
                 <div className={'text-lg'}>
                     <h3 className={''}>@{comment?.username}</h3>
